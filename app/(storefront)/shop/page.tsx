@@ -4,9 +4,9 @@ import { shopSections, type ShopCategoryId } from "@/data/categories";
 import { ShopClient } from "@/components/shop/shop-client";
 
 export const metadata: Metadata = {
-  title: "Shop the collection",
+  title: "Shop",
   description:
-    "Shop women's, men's and accessories from Fashion Tap Boutik in Accra. A considered edit of everyday pieces.",
+    "Shop dresses, menswear, shoes, bags, jewellery and fragrance from Fashion Tap Boutik in Accra.",
 };
 
 export default async function ShopPage({ searchParams }: PageProps<"/shop">) {

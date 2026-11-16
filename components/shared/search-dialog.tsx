@@ -122,12 +122,12 @@ function SearchPanel({ items, onNavigate }: { items: SearchItem[]; onNavigate: (
           <button
             onClick={() => onQueryChange("")}
             aria-label="Clear search"
-            className="flex size-8 items-center justify-center rounded-full text-ink-faint transition-colors hover:bg-soft hover:text-ink"
+            className="flex size-8 items-center justify-center rounded-full text-ink-faint transition-colors hover:bg-mist hover:text-ink"
           >
             <X className="size-4" aria-hidden />
           </button>
         ) : (
-          <kbd className="hidden rounded-md border border-line bg-soft px-1.5 py-0.5 text-[10px] font-medium text-ink-faint sm:block">
+          <kbd className="hidden rounded-md border border-line bg-mist px-1.5 py-0.5 text-[10px] font-medium text-ink-faint sm:block">
             Esc
           </kbd>
         )}
@@ -142,7 +142,7 @@ function SearchPanel({ items, onNavigate }: { items: SearchItem[]; onNavigate: (
               key={c.id}
               href={categoryHref(c.id)}
               onClick={onNavigate}
-              className="flex min-h-11 items-center justify-between rounded-xl px-3 text-[15px] text-ink transition-colors hover:bg-soft"
+              className="flex min-h-11 items-center justify-between rounded-xl px-3 text-[15px] text-ink transition-colors hover:bg-mist"
             >
               {c.name}
               <ChevronRight className="size-4 text-ink-faint" aria-hidden />
@@ -158,11 +158,11 @@ function SearchPanel({ items, onNavigate }: { items: SearchItem[]; onNavigate: (
                 onMouseEnter={() => setActive(i)}
                 className={cn(
                   "flex min-h-14 w-full items-center gap-3 rounded-xl px-3 text-left transition-colors",
-                  i === active && "bg-soft"
+                  i === active && "bg-mist"
                 )}
               >
-                <span className="relative size-10 shrink-0 overflow-hidden rounded-lg bg-soft">
-                  <Image src={item.image} alt="" preload={false} sizes="40px" className="object-cover" />
+                <span className="tint-media relative size-12 shrink-0 overflow-hidden rounded-xl" style={{ "--tint": item.tint } as React.CSSProperties}>
+                  <Image src={item.image} alt="" data-studio fill preload={false} sizes="48px" className="object-cover" />
                 </span>
                 <span className="min-w-0 flex-1 truncate text-[15px] text-ink">{item.name}</span>
                 <span className="shrink-0 text-[13px] tabular-nums text-ink-soft">
@@ -184,7 +184,7 @@ function SearchPanel({ items, onNavigate }: { items: SearchItem[]; onNavigate: (
                 key={c.id}
                 href={categoryHref(c.id)}
                 onClick={onNavigate}
-                className="flex h-9 items-center rounded-full bg-soft px-4 text-[13px] font-medium text-ink transition-colors hover:bg-[#e8e8ed]"
+                className="flex h-9 items-center rounded-full bg-mist px-4 text-[13px] font-medium text-ink transition-colors hover:bg-[#e6e6e6]"
               >
                 {c.name}
               </Link>

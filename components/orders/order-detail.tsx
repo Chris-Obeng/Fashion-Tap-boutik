@@ -31,9 +31,9 @@ export function OrderDetail({ id, placed = false }: { id: string; placed?: boole
   if (!hydrated) {
     return (
       <div className="container-shell max-w-[640px] py-12">
-        <Skeleton className="mx-auto size-14 rounded-full bg-soft" />
-        <Skeleton className="mx-auto mt-6 h-10 w-64 rounded-xl bg-soft" />
-        <Skeleton className="mt-12 h-64 w-full rounded-2xl bg-soft" />
+        <Skeleton className="mx-auto size-14 rounded-full bg-mist" />
+        <Skeleton className="mx-auto mt-6 h-10 w-64 rounded-xl bg-mist" />
+        <Skeleton className="mt-12 h-64 w-full rounded-2xl bg-mist" />
       </div>
     );
   }
@@ -66,9 +66,9 @@ export function OrderDetail({ id, placed = false }: { id: string; placed?: boole
             initial={reduce ? false : { opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: "spring", duration: 0.5, bounce: 0.15 }}
-            className="mx-auto flex size-14 items-center justify-center rounded-full bg-soft"
+            className="mx-auto flex size-14 items-center justify-center rounded-full bg-brand-soft"
           >
-            <Check className="size-6 stroke-[1.75] text-ink" aria-hidden />
+            <Check className="size-6 stroke-[2] text-brand" aria-hidden />
           </motion.div>
         ) : null}
         <h1 className="display mt-6 text-[32px] text-ink sm:text-[40px]">
@@ -79,7 +79,7 @@ export function OrderDetail({ id, placed = false }: { id: string; placed?: boole
             ? "Your order is in. We’ll be in touch shortly to confirm the details."
             : "Placed on this device. We’ll be in touch to confirm the details."}
         </p>
-        <p className="mt-4 inline-flex items-center rounded-full bg-soft px-3.5 py-1.5 text-xs text-ink-soft">
+        <p className="mt-4 inline-flex items-center rounded-full bg-mist px-3.5 py-1.5 text-xs text-ink-soft">
           Order {order.id}
         </p>
       </div>
@@ -90,10 +90,11 @@ export function OrderDetail({ id, placed = false }: { id: string; placed?: boole
             <div key={item.key} className="flex items-center gap-4 py-4 first:pt-0 last:pb-0">
               <Link
                 href={`/product/${item.slug}`}
-                className="relative size-16 shrink-0 overflow-hidden rounded-xl bg-soft"
+                className="tint-media relative size-16 shrink-0 overflow-hidden rounded-2xl"
+                style={{ "--tint": item.tint } as React.CSSProperties}
                 aria-label={`View ${item.name}`}
               >
-                <Image src={item.image} alt={item.name} fill preload={false} sizes="64px" className="object-cover" />
+                <Image src={item.image} alt={item.name} data-studio fill preload={false} sizes="64px" className="object-cover" />
               </Link>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-medium text-ink">

@@ -14,6 +14,7 @@ export default async function StorefrontLayout({ children }: LayoutProps<"/">) {
     price: p.price,
     category: p.category,
     image: p.images[0],
+    tint: p.tint,
     soldOut: p.sizes.every(s => s.stock === 0),
   }));
 
