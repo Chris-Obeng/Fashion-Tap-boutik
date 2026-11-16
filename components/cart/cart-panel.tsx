@@ -34,10 +34,11 @@ export function CartPanel() {
                 <Link
                   href={`/product/${item.slug}`}
                   onClick={() => setOpen(false)}
-                  className="relative h-28 w-24 shrink-0 overflow-hidden rounded-xl bg-soft"
+                  className="tint-media relative size-24 shrink-0 overflow-hidden rounded-2xl"
+                  style={{ "--tint": item.tint } as React.CSSProperties}
                   aria-label={`View ${item.name}`}
                 >
-                  <Image src={item.image} alt={item.name} fill preload={false} sizes="96px" className="object-cover" />
+                  <Image src={item.image} alt={item.name} data-studio fill preload={false} sizes="96px" className="object-cover" />
                 </Link>
                 <div className="flex min-w-0 flex-1 flex-col">
                   <div className="flex items-start justify-between gap-3">

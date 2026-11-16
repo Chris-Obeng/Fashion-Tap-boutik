@@ -5,73 +5,79 @@
  * Storefront theme tokens layered on top of HeroUI's own @theme mapping.
  * ---------------------------------------------------------------------------------------------- */
 @theme inline {
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-figtree);
 
-  /* Apple-monochrome palette */
   --color-canvas: var(--canvas);
+  --color-mist: var(--mist);
   --color-soft: var(--soft);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-ink-faint: var(--ink-faint);
   --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
   --color-sale: var(--sale);
   --color-danger: var(--danger);
 }
 
 /* ------------------------------------------------------------------------------------------------
  * Design tokens. Unlayered, so these win over HeroUI's @layer base defaults.
- * A white canvas, near-black ink, one gray for everything secondary. No decoration.
+ * White canvas and Beats-gray sections; colour comes from each product's own field
+ * (see .tint-media) plus one emerald brand accent for "new", badges and focus.
  * ---------------------------------------------------------------------------------------------- */
 :root {
-  /* Motion — custom curves, never the built-in easings */
+  /* Motion: custom curves, never the built-in easings */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 
   /* Palette */
-  --canvas: #fbfbfd;
-  --soft: #f5f5f7;
-  --ink: #1d1d1f;
-  --ink-soft: #6e6e73;
-  --ink-faint: #86868b;
-  --line: #d2d2d7;
-  --sale: #a1512f;
+  --canvas: #ffffff;
+  --mist: #f1f1f1;
+  --soft: #f6f6f6;
+  --ink: #111111;
+  --ink-soft: #595959;
+  --ink-faint: #8a8a8a;
+  --line: #e2e2e2;
+  --brand: #0a6b4e;
+  --brand-soft: #e3f1ec;
+  --sale: #c4161c;
 
   /* HeroUI semantic tokens */
   --surface: var(--canvas);
   --surface-foreground: var(--ink);
-  --surface-secondary: var(--soft);
+  --surface-secondary: var(--mist);
   --surface-secondary-foreground: var(--ink);
-  --surface-tertiary: #ebebef;
+  --surface-tertiary: #e8e8e8;
   --surface-tertiary-foreground: var(--ink);
   --overlay: #ffffff;
   --overlay-foreground: var(--ink);
-  --default: var(--soft);
+  --default: var(--mist);
   --default-foreground: var(--ink);
-  --default-soft: #ececf0;
-  --muted: var(--ink-faint);
+  --default-soft: #ebebeb;
+  --muted: var(--ink-soft);
   --accent: var(--ink);
   --accent-foreground: #ffffff;
   --separator: var(--line);
-  --focus: #0071e3;
+  --focus: var(--brand);
   --link: var(--ink);
-  --backdrop: rgb(0 0 0 / 0.32);
-  --danger: #d70015;
+  --backdrop: rgb(17 17 17 / 0.4);
+  --danger: #c4161c;
   --danger-foreground: #fff;
-  --success: #248a3d;
-  --warning: #c93400;
+  --success: var(--brand);
+  --warning: #b45309;
 
   /* Fields */
   --field-background: #ffffff;
   --field-foreground: var(--ink);
   --field-placeholder: var(--ink-faint);
-  --field-border: var(--line);
+  --field-border: #d4d4d4;
   --field-border-width: 1px;
   --field-shadow: none;
-  --field-radius: 0.75rem;
+  --field-radius: 0.875rem;
 
   /* Shape + motion */
-  --radius: 0.75rem;
+  --radius: 0.875rem;
   --skeleton-animation: pulse;
   --cursor-interactive: pointer;
 }
@@ -85,6 +91,7 @@
     scroll-padding-top: 72px;
     -webkit-text-size-adjust: 100%;
     overscroll-behavior-x: none;
+    scrollbar-color: #c7c7c7 transparent;
   }
 
   body {
@@ -118,17 +125,22 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--focus);
+    outline: 2px solid var(--brand);
     outline-offset: 2px;
   }
 
   ::selection {
-    background: #e8e8ed;
+    background: var(--brand-soft);
     color: var(--ink);
   }
 
+  input,
+  textarea {
+    caret-color: var(--brand);
+  }
+
   img {
-    background-color: var(--soft);
+    background-color: transparent;
   }
 
   h1,
@@ -140,59 +152,113 @@
   p {
     text-wrap: pretty;
   }
+
+  a {
+    text-underline-offset: 3px;
+  }
 }
 
 @layer components {
   .container-shell {
-    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-8 lg:px-10;
+    @apply mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-10;
   }
 
-  /* Display type — Geist semibold, tracking tightens as size grows. */
+  /* Display type: tracking tightens as size grows. */
   .display {
-    @apply font-semibold leading-[1.07] tracking-[-0.022em];
+    @apply font-semibold leading-[1.04] tracking-[-0.03em];
+  }
+
+  .headline {
+    @apply font-semibold leading-[1.12] tracking-[-0.02em];
+  }
+
+  /* Studio shots sit on the product's own colour field: multiply drops the
+   * white sweep so the piece floats on the tint, Beats-style. */
+  .tint-media {
+    background-color: var(--tint, var(--soft));
+  }
+
+  .tint-media img[data-studio] {
+    mix-blend-mode: multiply;
   }
 
   /* Press feedback: every pressable element acknowledges the touch instantly. */
   .press {
     transition:
-      transform 150ms var(--ease-out),
-      background-color 150ms var(--ease-out),
-      border-color 150ms var(--ease-out),
-      color 150ms var(--ease-out),
-      opacity 150ms var(--ease-out);
+      transform 160ms var(--ease-out),
+      background-color 160ms var(--ease-out),
+      border-color 160ms var(--ease-out),
+      color 160ms var(--ease-out),
+      opacity 160ms var(--ease-out);
   }
 
   .press:active {
     transform: scale(0.97);
   }
 
-  /* Card image crossfade — the alternate view fades in on hover-capable pointers only. */
+  /* Pill buttons used on photography (hero, banners). */
+  .pill {
+    @apply inline-flex h-12 items-center justify-center gap-2 rounded-full px-7 text-[15px] font-semibold;
+    transition:
+      transform 160ms var(--ease-out),
+      background-color 160ms var(--ease-out),
+      color 160ms var(--ease-out);
+  }
+
+  .pill:active {
+    transform: scale(0.97);
+  }
+
+  .pill-light {
+    @apply bg-white text-ink;
+  }
+
+  .pill-ghost {
+    @apply border border-white/80 text-white;
+    background: rgb(255 255 255 / 0.06);
+    backdrop-filter: blur(8px);
+  }
+
+  .pill-dark {
+    @apply bg-ink text-white;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .pill-light:hover {
+      background: #ececec;
+    }
+
+    .pill-ghost:hover {
+      background: rgb(255 255 255 / 0.16);
+    }
+
+    .pill-dark:hover {
+      background: #2b2b2b;
+    }
+  }
+
+  /* Card: alternate lifestyle view fades in on hover-capable pointers only. */
   .card-media img {
-    transition: opacity 450ms var(--ease-out);
+    transition:
+      opacity 400ms var(--ease-out),
+      transform 700ms var(--ease-out);
   }
 
   @media (hover: hover) and (pointer: fine) {
     .group:hover .card-media img[data-secondary],
-    .group:focus-visible .card-media img[data-secondary] {
+    .group:focus-within .card-media img[data-secondary] {
       opacity: 1;
-    }
-  }
-
-  /* Slow image drift on tile hover — pointer-capable devices only. */
-  @media (hover: hover) and (pointer: fine) {
-    .media-zoom img {
-      transition: transform 700ms var(--ease-out);
     }
 
     .group:hover .media-zoom img,
     .group:focus-visible .media-zoom img {
-      transform: scale(1.04);
+      transform: scale(1.05);
     }
   }
 
-  /* Search palette entry — materialises with @starting-style, no JS timing. */
+  /* Search palette entry: materialises with @starting-style, no JS timing. */
   .search-backdrop {
-    background: rgb(0 0 0 / 0.32);
+    background: rgb(17 17 17 / 0.4);
     opacity: 1;
     transition: opacity 200ms var(--ease-out);
 
@@ -210,6 +276,13 @@
     @starting-style {
       opacity: 0;
       transform: scale(0.97) translateY(-8px);
+    }
+  }
+
+  /* Pages with a fixed mobile buy bar keep the footer's last line clear of it. */
+  @media (max-width: 767px) {
+    body:has([data-sticky-cta]) footer {
+      padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
     }
   }
 
@@ -236,8 +309,9 @@
   .button {
     min-height: 44px;
     border-radius: 9999px;
+    font-weight: 600;
     transition-property: transform, background-color, border-color, color, opacity;
-    transition-duration: 150ms;
+    transition-duration: 160ms;
     transition-timing-function: var(--ease-out);
   }
 
@@ -261,6 +335,42 @@
   }
 }
 
+/* The one authored moment: the hero settles into place on first paint.
+ * The photo eases back from a slight push-in; the copy rises out of a soft blur. */
+@keyframes hero-settle {
+  from {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(6px);
+  }
+}
+
+.hero-media {
+  animation: hero-settle 1600ms var(--ease-out) both;
+}
+
+.hero-copy > * {
+  animation: rise-in 800ms var(--ease-out) both;
+}
+
+.hero-copy > :nth-child(1) {
+  animation-delay: 120ms;
+}
+
+.hero-copy > :nth-child(2) {
+  animation-delay: 200ms;
+}
+
+.hero-copy > :nth-child(3) {
+  animation-delay: 280ms;
+}
+
 @media (prefers-reduced-transparency: reduce) {
   header,
   .translucent {
@@ -271,8 +381,8 @@
 
 @media (prefers-contrast: more) {
   :root {
-    --line: #a1a1a6;
-    --ink-soft: #48484a;
+    --line: #a3a3a3;
+    --ink-soft: #3d3d3d;
   }
 }
 
@@ -282,15 +392,13 @@
   }
 
   .press,
-  .press:active {
+  .press:active,
+  .button:not(:disabled):active {
     transition: none;
     transform: none;
   }
 
-  .card-media img {
-    transition: none;
-  }
-
+  .card-media img,
   .search-backdrop,
   .search-panel {
     transition: none;
@@ -301,6 +409,7 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
   }
 }

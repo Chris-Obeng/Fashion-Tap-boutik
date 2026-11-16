@@ -3,9 +3,10 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-export function ProductGallery({ images, name }: { images: string[]; name: string }) {
+export function ProductGallery({ images, name, tint }: { images: string[]; name: string; tint: string }) {
   const [active, setActive] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
+  const style = { "--tint": tint } as React.CSSProperties;
 
   function onScroll() {
     const track = trackRef.current;
@@ -13,69 +14,88 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
     setActive(Math.round(track.scrollLeft / track.clientWidth));
   }
 
+  function goTo(i: number) {
+    const track = trackRef.current;
+    if (track) track.scrollTo({ left: i * track.clientWidth, behavior: "smooth" });
+  }
+
   return (
     <div className="min-w-0">
-      {/* Mobile: swipeable carousel with progress dots */}
-      <div
-        ref={trackRef}
-        onScroll={onScroll}
-        className="hide-scrollbar flex snap-x snap-mandatory overflow-x-auto overscroll-contain rounded-2xl bg-soft md:hidden"
-        aria-label={`${name} image gallery`}
-      >
-        {images.map((src, i) => (
-          <div key={src} className="relative aspect-[4/5] w-full shrink-0 snap-center">
-            <Image
-              src={src}
-              alt={`${name}, view ${i + 1}`}
-              fill
-              preload={i === 0}
-              sizes="100vw"
-              className="object-cover"
-            />
-          </div>
-        ))}
-      </div>
-      {images.length > 1 && (
-        <div className="mt-3 flex justify-center gap-1.5 md:hidden" aria-hidden="true">
-          {images.map((_, i) => (
-            <span
-              key={i}
-              className={cn(
-                "h-1 rounded-full transition-[width,background-color] duration-200",
-                active === i ? "w-5 bg-ink" : "w-1.5 bg-ink/20"
-              )}
-            />
+      {/* Mobile: edge-to-edge swipe gallery */}
+      <div className="relative -mx-5 sm:-mx-8 md:hidden">
+        <div
+          ref={trackRef}
+          onScroll={onScroll}
+          className="tint-media hide-scrollbar flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain"
+          style={style}
+          aria-label={`${name} images`}
+        >
+          {images.map((src, i) => (
+            <div key={src} className="relative aspect-square w-full shrink-0 snap-center">
+              <Image
+                src={src}
+                alt={`${name}, image ${i + 1} of ${images.length}`}
+                data-studio={i === 0 ? "" : undefined}
+                fill
+                preload={i === 0}
+                sizes="100vw"
+                className="object-cover"
+              />
+            </div>
           ))}
         </div>
-      )}
+        {images.length > 1 && (
+          <div className="absolute inset-x-0 bottom-3 flex justify-center">
+            <div className="flex gap-1.5 rounded-full bg-black/25 px-2.5 py-2 backdrop-blur-md">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => goTo(i)}
+                  aria-label={`Show image ${i + 1}`}
+                  aria-current={active === i}
+                  className={cn(
+                    "h-1.5 rounded-full transition-[width,background-color] duration-300 ease-[var(--ease-out)]",
+                    active === i ? "w-5 bg-white" : "w-1.5 bg-white/55"
+                  )}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
 
-      {/* Desktop: thumbnail rail + main image */}
-      <div className="hidden gap-3 md:flex">
-        <div className="flex w-16 shrink-0 flex-col gap-3 lg:w-20">
+      {/* Desktop: main image + thumbnail strip */}
+      <div className="hidden md:block">
+        <div className="tint-media relative aspect-square overflow-hidden rounded-[28px]" style={style}>
+          <Image
+            key={images[active]}
+            src={images[active]}
+            alt={`${name}, image ${active + 1} of ${images.length}`}
+            data-studio={active === 0 ? "" : undefined}
+            fill
+            preload
+            sizes="(max-width: 1280px) 55vw, 700px"
+            className="object-cover"
+          />
+        </div>
+        <div className="mt-3 grid grid-cols-8 gap-2">
           {images.map((src, i) => (
             <button
               key={src}
+              type="button"
               onClick={() => setActive(i)}
-              aria-label={`View image ${i + 1}`}
+              aria-label={`Show image ${i + 1}`}
               aria-pressed={active === i}
               className={cn(
-                "relative aspect-[4/5] overflow-hidden rounded-xl bg-soft transition-opacity",
-                active === i ? "opacity-100 ring-1 ring-ink ring-offset-2 ring-offset-canvas" : "opacity-60 hover:opacity-100"
+                "tint-media press relative aspect-square overflow-hidden rounded-xl",
+                active === i ? "ring-2 ring-ink ring-offset-2" : "opacity-70 hover:opacity-100"
               )}
+              style={style}
             >
-              <Image src={src} alt="" fill preload={false} sizes="80px" className="object-cover" />
+              <Image src={src} alt="" data-studio={i === 0 ? "" : undefined} fill sizes="90px" className="object-cover" />
             </button>
           ))}
-        </div>
-        <div className="relative aspect-[4/5] min-w-0 flex-1 overflow-hidden rounded-2xl bg-soft">
-          <Image
-            src={images[active]}
-            alt={`${name}, view ${active + 1}`}
-            fill
-            preload
-            sizes="(max-width: 1024px) 55vw, 50vw"
-            className="object-cover"
-          />
         </div>
       </div>
     </div>

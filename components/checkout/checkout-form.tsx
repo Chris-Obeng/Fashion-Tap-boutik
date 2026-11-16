@@ -25,8 +25,10 @@ function SummaryItems({ items }: { items: CartItem[] }) {
     <div className="divide-y divide-line">
       {items.map(item => (
         <div key={item.key} className="flex items-center gap-4 py-4 first:pt-0">
-          <div className="relative size-14 shrink-0 overflow-hidden rounded-xl bg-soft">
-            <Image src={item.image} alt={item.name} fill preload={false} sizes="56px" className="object-cover" />
+          <div className="tint-media relative size-16 shrink-0 rounded-2xl" style={{ "--tint": item.tint } as React.CSSProperties}>
+            <span className="absolute inset-0 overflow-hidden rounded-2xl">
+              <Image src={item.image} alt={item.name} data-studio fill preload={false} sizes="64px" className="object-cover" />
+            </span>
             <span className="absolute -right-1.5 -top-1.5 flex size-5 items-center justify-center rounded-full bg-ink text-[10px] font-medium text-white">
               {item.quantity}
             </span>
@@ -105,12 +107,12 @@ export function CheckoutForm() {
     return (
       <div className="container-shell flex-1 pb-20 pt-10 sm:pt-14">
         <div className="mx-auto max-w-[680px]">
-          <Skeleton className="h-10 w-44 rounded-xl bg-soft" />
-          <Skeleton className="mt-8 h-44 w-full rounded-2xl bg-soft" />
-          <Skeleton className="mt-10 h-7 w-28 rounded-xl bg-soft" />
-          <Skeleton className="mt-5 h-12 w-full rounded-xl bg-soft" />
-          <Skeleton className="mt-4 h-12 w-full rounded-xl bg-soft" />
-          <Skeleton className="mt-4 h-12 w-full rounded-xl bg-soft" />
+          <Skeleton className="h-10 w-44 rounded-xl bg-mist" />
+          <Skeleton className="mt-8 h-44 w-full rounded-2xl bg-mist" />
+          <Skeleton className="mt-10 h-7 w-28 rounded-xl bg-mist" />
+          <Skeleton className="mt-5 h-12 w-full rounded-xl bg-mist" />
+          <Skeleton className="mt-4 h-12 w-full rounded-xl bg-mist" />
+          <Skeleton className="mt-4 h-12 w-full rounded-xl bg-mist" />
         </div>
       </div>
     );

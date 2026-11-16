@@ -1,34 +1,32 @@
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
+import { Figtree } from "next/font/google";
 import "./globals.css";
 import { CartHydrator } from "@/components/shared/cart-hydrator";
 import { Toaster } from "@/components/ui/sonner";
+import { editorial } from "@/data/categories";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"], display: "swap" });
-
-const HERO_IMAGE =
-  "https://images.pexels.com/photos/17533400/pexels-photo-17533400.jpeg?auto=compress&cs=tinysrgb&w=1200";
+const figtree = Figtree({ variable: "--font-figtree", subsets: ["latin", "latin-ext"], display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fashiontapboutik.com"),
   title: {
-    default: "Fashion Tap Boutik — Considered style, made for Accra",
+    default: "Fashion Tap Boutik · Accra",
     template: "%s · Fashion Tap Boutik",
   },
   description:
-    "Thoughtfully curated women's, men's and accessories from Accra. Delivery across Accra, easy returns, secure payment.",
+    "Dresses, shoes, bags, jewellery and fragrance from Fashion Tap Boutik in Accra. Delivery across Accra, pay with Mobile Money or card.",
   openGraph: {
     title: "Fashion Tap Boutik",
-    description: "Considered style, made for Accra.",
+    description: "Luxury pieces, delivered across Accra.",
     siteName: "Fashion Tap Boutik",
     locale: "en_GH",
     type: "website",
-    images: [{ url: HERO_IMAGE, width: 1200, height: 630, alt: "Fashion Tap Boutik" }],
+    images: [{ url: editorial.heroMobile, width: 1024, height: 1024, alt: "Fashion Tap Boutik" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Fashion Tap Boutik",
-    description: "Considered style, made for Accra.",
+    description: "Luxury pieces, delivered across Accra.",
   },
 };
 
@@ -38,12 +36,12 @@ export const viewport: Viewport = {
   viewportFit: "cover",
   interactiveWidget: "resizes-content",
   colorScheme: "light",
-  themeColor: "#fbfbfd",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-GH" className={`${geistSans.variable} h-full`}>
+    <html lang="en-GH" className={`${figtree.variable} h-full`}>
       <body className="flex min-h-full flex-col">
         <CartHydrator />
         {children}

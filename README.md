@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fashion Tap Boutik
 
-## Getting Started
+Storefront for [Fashion Tap Boutik](https://www.tiktok.com/@fashiontapboutik), Accra. Next.js 16 (App Router, Turbopack), Tailwind v4, HeroUI, Zustand. Frontend only for now; Supabase and an admin dashboard come next.
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev        # http://localhost:3000
+pnpm build && pnpm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Catalogue (placeholder)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Products are SceneSKU demo packs, curated for a luxury edit:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `data/curation.json`: which packs we list, plus our own name, category, GH₵ price (pesewas), colours, sizes and card tint.
+- `data/scenesku.json`: committed snapshot of SceneSKU images and copy. The site reads only this file, so no API key ships to the browser.
+- `pnpm sync:products`: refreshes the snapshot. Needs `SCENESKU_API_KEY` in `.env.local` (see `.env.example`).
 
-## Learn More
+Prices and stock are illustrative. When Supabase lands, swap the adapters in `lib/products.ts` and the payment boundary in `lib/payments.ts` (Paystack is mocked).
 
-To learn more about Next.js, take a look at the following resources:
+## Where things live
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Path | What |
+| --- | --- |
+| `app/(storefront)` | Home, shop, product, orders |
+| `app/checkout` | Guest checkout (delivery in Accra or pickup in Osu) |
+| `components/shared` | Header, footer, product card, search |
+| `lib/config.ts` | Store contacts (TikTok, WhatsApp), delivery fees |
+| `PRODUCT.md` / `DESIGN.md` | Product truth and the visual system |
