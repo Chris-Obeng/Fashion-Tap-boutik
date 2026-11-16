@@ -1,26 +1,1275 @@
 {
-  "$comment": "Store-side catalogue: which SceneSKU packs we list, and the merchandising SceneSKU doesn't provide (category, GH₵ price in pesewas, colours, sizes, card tint). Placeholder data until Supabase. Run `pnpm sync:products` after editing ids.",
+  "$comment": "Store-side catalogue: which SceneSKU packs and DummyJSON products we list, and the merchandising SceneSKU doesn't provide (category, GH₵ price in pesewas, colours, sizes, card tint). Placeholder data until Supabase. Run `pnpm sync:products` after editing ids.",
   "products": [
-    { "id": "8672bb13-c2c0-4fd0-bb6e-e5e53c25182d", "slug": "pleated-wrap-dress", "name": "Pleated Wrap Dress", "category": "women", "price": 145000, "tint": "#ece4d8", "colors": [["Champagne", "#d9c7aa"]], "sizes": ["XS", "S", "M", "L", "XL"], "tags": ["new", "featured"] },
-    { "id": "ae9a5b6d-727d-4dcc-8b99-7c07b701b5be", "slug": "stand-collar-pleat-dress", "name": "Stand Collar Pleat Dress", "category": "women", "price": 115000, "tint": "#e1e5d2", "colors": [["Olive", "#6b7036"]], "sizes": ["XS", "S", "M", "L", "XL"], "tags": ["new", "featured"] },
-    { "id": "d252c6ae-1098-4aeb-b7ee-f0a21beae4b6", "slug": "waist-tie-maxi-dress", "name": "Waist-Tie Maxi Dress", "category": "women", "price": 98000, "tint": "#dbe8ea", "colors": [["Sky", "#a9c8cf"]], "sizes": ["XS", "S", "M", "L", "XL"], "tags": ["new"] },
-    { "id": "27e4c87f-57d1-45e3-8f62-bd206973da5a", "slug": "cape-sleeve-skirt-set", "name": "Cape Sleeve Skirt Set", "category": "women", "price": 138000, "tint": "#eadcd1", "colors": [["Cocoa", "#7a4528"]], "sizes": ["S", "M", "L", "XL"], "tags": ["featured"] },
-    { "id": "530f4ab2-e8a0-4a99-9f39-f94092c6339b", "slug": "linen-day-dress", "name": "Linen Day Dress", "category": "women", "price": 105000, "tint": "#e1e7ee", "colors": [["Powder Blue", "#b8c8d8"]], "sizes": ["XS", "S", "M", "L", "XL"], "stockOut": ["XS"], "tags": [] },
-    { "id": "50258134-2fff-4ca4-abea-3f46e9368378", "slug": "sleeveless-shirt-dress", "name": "Sleeveless Shirt Dress", "category": "women", "price": 76000, "compareAtPrice": 92000, "tint": "#f2eac6", "colors": [["Saffron", "#d8b43a"]], "sizes": ["S", "M", "L", "XL"], "tags": [] },
-    { "id": "fdf32b88-2711-45d3-b757-07558ec93941", "slug": "crisp-white-shirt", "name": "Crisp White Shirt", "category": "men", "price": 69000, "tint": "#e4e9ef", "colors": [["White", "#f4f4f2"]], "sizes": ["S", "M", "L", "XL", "XXL"], "tags": ["new"] },
-    { "id": "ff8daaf6-b016-45bf-aabd-710d681575f2", "slug": "knitted-polo", "name": "Knitted Polo", "category": "men", "price": 59000, "tint": "#ece6da", "colors": [["Ecru", "#e6dcc6"]], "sizes": ["S", "M", "L", "XL"], "tags": ["featured"] },
-    { "id": "4a531fee-9c63-462f-98da-dda9c2667911", "slug": "tailored-khaki-trousers", "name": "Tailored Khaki Trousers", "category": "men", "price": 64000, "tint": "#e9e2d3", "colors": [["Khaki", "#c2a679"]], "sizes": ["30", "32", "34", "36"], "tags": [] },
-    { "id": "686b4332-fdf1-4ed4-bd49-d36116459339", "slug": "leather-mary-janes", "name": "Leather Mary Janes", "category": "shoes", "price": 110000, "tint": "#e6e6ea", "colors": [["Black", "#1c1c1e"]], "sizes": ["37", "38", "39", "40", "41"], "tags": ["new", "featured"] },
-    { "id": "cb333ee0-45df-4ee9-b32d-63c8f6e68cbb", "slug": "cream-lug-boots", "name": "Cream Lug Boots", "category": "shoes", "price": 135000, "tint": "#ece8df", "colors": [["Cream", "#ece4d2"]], "sizes": ["37", "38", "39", "40", "41"], "tags": ["new"] },
-    { "id": "ff06931c-0355-499a-b202-eebd600e5795", "slug": "heritage-leather-boots", "name": "Heritage Leather Boots", "category": "shoes", "price": 165000, "tint": "#ead9cb", "colors": [["Cognac", "#9a5a2e"]], "sizes": ["41", "42", "43", "44", "45"], "tags": ["featured"] },
-    { "id": "f5af6ef5-566a-4c26-9075-5072042f63e1", "slug": "cloud-white-sneakers", "name": "Cloud White Sneakers", "category": "shoes", "price": 98000, "tint": "#dfe9e5", "colors": [["White", "#f4f4f2"]], "sizes": ["40", "41", "42", "43", "44"], "tags": [] },
-    { "id": "8910be12-c32b-4cba-a812-c8382cdac208", "slug": "camel-leather-tote", "name": "Camel Leather Tote", "category": "accessories", "price": 320000, "tint": "#efdfcc", "colors": [["Camel", "#b9773f"]], "sizes": ["One size"], "tags": ["new", "featured"] },
-    { "id": "e77c4217-779b-4c9c-9fdd-cd336d6288c4", "slug": "solitaire-pendant", "name": "Solitaire Pendant", "category": "accessories", "price": 580000, "tint": "#e3e7ef", "colors": [["Silver", "#c9ccd2"], ["Gold", "#d4b26a"]], "sizes": ["One size"], "tags": ["featured"] },
-    { "id": "e95bf540-c2ad-4b1f-a889-078e7d69f9fc", "slug": "cross-pendant-necklace", "name": "Cross Pendant Necklace", "category": "accessories", "price": 160000, "tint": "#ece6da", "colors": [["Silver", "#c9ccd2"], ["Gold", "#d4b26a"]], "sizes": ["One size"], "tags": [] },
-    { "id": "9e1c56fa-f2d5-4869-b7b6-02f4d5add05a", "slug": "tortoise-sunglasses", "name": "Tortoise Sunglasses", "category": "accessories", "price": 190000, "compareAtPrice": 230000, "tint": "#efe2d4", "colors": [["Tortoise", "#6a3f22"]], "sizes": ["One size"], "tags": ["new"] },
-    { "id": "79dd1515-c8b7-4212-93e6-3df955e111c7", "slug": "wide-brim-straw-hat", "name": "Wide-Brim Straw Hat", "category": "accessories", "price": 52000, "tint": "#f0e8d6", "colors": [["Natural", "#dcc9a0"]], "sizes": ["One size"], "tags": [] },
-    { "id": "ce545361-f879-40e2-884f-27e2785a65c5", "slug": "sculpted-eau-de-parfum", "name": "Sculpted Eau de Parfum", "category": "beauty", "price": 210000, "tint": "#f0e5d3", "colors": [["Amber", "#d6b37a"]], "sizes": ["30 ml"], "tags": ["new", "featured"] },
-    { "id": "5c8354fd-f418-49da-b9ea-75e1ce190831", "slug": "rose-crystal-parfum", "name": "Rose Crystal Parfum", "category": "beauty", "price": 230000, "tint": "#f2e0e3", "colors": [["Rose", "#e3b8bf"]], "sizes": ["30 ml"], "tags": ["featured"] },
-    { "id": "dfc491bd-62bd-4913-bc01-32e9dffac434", "slug": "velvet-red-lipstick", "name": "Velvet Red Lipstick", "category": "beauty", "price": 45000, "tint": "#f3dede", "colors": [["Rouge", "#9e1b26"]], "sizes": ["One size"], "tags": [] }
+    {
+      "id": "8672bb13-c2c0-4fd0-bb6e-e5e53c25182d",
+      "slug": "pleated-wrap-dress",
+      "name": "Pleated Wrap Dress",
+      "category": "women",
+      "price": 145000,
+      "tint": "#ece4d8",
+      "colors": [
+        [
+          "Champagne",
+          "#d9c7aa"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "new",
+        "featured"
+      ]
+    },
+    {
+      "id": "ae9a5b6d-727d-4dcc-8b99-7c07b701b5be",
+      "slug": "stand-collar-pleat-dress",
+      "name": "Stand Collar Pleat Dress",
+      "category": "women",
+      "price": 115000,
+      "tint": "#e1e5d2",
+      "colors": [
+        [
+          "Olive",
+          "#6b7036"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "new",
+        "featured"
+      ]
+    },
+    {
+      "id": "d252c6ae-1098-4aeb-b7ee-f0a21beae4b6",
+      "slug": "waist-tie-maxi-dress",
+      "name": "Waist-Tie Maxi Dress",
+      "category": "women",
+      "price": 98000,
+      "tint": "#dbe8ea",
+      "colors": [
+        [
+          "Sky",
+          "#a9c8cf"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "new"
+      ]
+    },
+    {
+      "id": "27e4c87f-57d1-45e3-8f62-bd206973da5a",
+      "slug": "cape-sleeve-skirt-set",
+      "name": "Cape Sleeve Skirt Set",
+      "category": "women",
+      "price": 138000,
+      "tint": "#eadcd1",
+      "colors": [
+        [
+          "Cocoa",
+          "#7a4528"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "featured"
+      ]
+    },
+    {
+      "id": "530f4ab2-e8a0-4a99-9f39-f94092c6339b",
+      "slug": "linen-day-dress",
+      "name": "Linen Day Dress",
+      "category": "women",
+      "price": 105000,
+      "tint": "#e1e7ee",
+      "colors": [
+        [
+          "Powder Blue",
+          "#b8c8d8"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "stockOut": [
+        "XS"
+      ],
+      "tags": []
+    },
+    {
+      "id": "50258134-2fff-4ca4-abea-3f46e9368378",
+      "slug": "sleeveless-shirt-dress",
+      "name": "Sleeveless Shirt Dress",
+      "category": "women",
+      "price": 76000,
+      "compareAtPrice": 92000,
+      "tint": "#f2eac6",
+      "colors": [
+        [
+          "Saffron",
+          "#d8b43a"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": []
+    },
+    {
+      "id": "fdf32b88-2711-45d3-b757-07558ec93941",
+      "slug": "crisp-white-shirt",
+      "name": "Crisp White Shirt",
+      "category": "men",
+      "price": 69000,
+      "tint": "#e4e9ef",
+      "colors": [
+        [
+          "White",
+          "#f4f4f2"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "new"
+      ]
+    },
+    {
+      "id": "ff8daaf6-b016-45bf-aabd-710d681575f2",
+      "slug": "knitted-polo",
+      "name": "Knitted Polo",
+      "category": "men",
+      "price": 59000,
+      "tint": "#ece6da",
+      "colors": [
+        [
+          "Ecru",
+          "#e6dcc6"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "featured"
+      ]
+    },
+    {
+      "id": "4a531fee-9c63-462f-98da-dda9c2667911",
+      "slug": "tailored-khaki-trousers",
+      "name": "Tailored Khaki Trousers",
+      "category": "men",
+      "price": 64000,
+      "tint": "#e9e2d3",
+      "colors": [
+        [
+          "Khaki",
+          "#c2a679"
+        ]
+      ],
+      "sizes": [
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
+      "tags": []
+    },
+    {
+      "id": "686b4332-fdf1-4ed4-bd49-d36116459339",
+      "slug": "leather-mary-janes",
+      "name": "Leather Mary Janes",
+      "category": "shoes",
+      "price": 110000,
+      "tint": "#e6e6ea",
+      "colors": [
+        [
+          "Black",
+          "#1c1c1e"
+        ]
+      ],
+      "sizes": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41"
+      ],
+      "tags": [
+        "new",
+        "featured"
+      ]
+    },
+    {
+      "id": "cb333ee0-45df-4ee9-b32d-63c8f6e68cbb",
+      "slug": "cream-lug-boots",
+      "name": "Cream Lug Boots",
+      "category": "shoes",
+      "price": 135000,
+      "tint": "#ece8df",
+      "colors": [
+        [
+          "Cream",
+          "#ece4d2"
+        ]
+      ],
+      "sizes": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41"
+      ],
+      "tags": [
+        "new"
+      ]
+    },
+    {
+      "id": "ff06931c-0355-499a-b202-eebd600e5795",
+      "slug": "heritage-leather-boots",
+      "name": "Heritage Leather Boots",
+      "category": "shoes",
+      "price": 165000,
+      "tint": "#ead9cb",
+      "colors": [
+        [
+          "Cognac",
+          "#9a5a2e"
+        ]
+      ],
+      "sizes": [
+        "41",
+        "42",
+        "43",
+        "44",
+        "45"
+      ],
+      "tags": [
+        "featured"
+      ]
+    },
+    {
+      "id": "f5af6ef5-566a-4c26-9075-5072042f63e1",
+      "slug": "cloud-white-sneakers",
+      "name": "Cloud White Sneakers",
+      "category": "shoes",
+      "price": 98000,
+      "tint": "#dfe9e5",
+      "colors": [
+        [
+          "White",
+          "#f4f4f2"
+        ]
+      ],
+      "sizes": [
+        "40",
+        "41",
+        "42",
+        "43",
+        "44"
+      ],
+      "tags": []
+    },
+    {
+      "id": "8910be12-c32b-4cba-a812-c8382cdac208",
+      "slug": "camel-leather-tote",
+      "name": "Camel Leather Tote",
+      "category": "bags",
+      "price": 320000,
+      "tint": "#efdfcc",
+      "colors": [
+        [
+          "Camel",
+          "#b9773f"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "new",
+        "featured"
+      ]
+    },
+    {
+      "id": "e77c4217-779b-4c9c-9fdd-cd336d6288c4",
+      "slug": "solitaire-pendant",
+      "name": "Solitaire Pendant",
+      "category": "accessories",
+      "price": 580000,
+      "tint": "#e3e7ef",
+      "colors": [
+        [
+          "Silver",
+          "#c9ccd2"
+        ],
+        [
+          "Gold",
+          "#d4b26a"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "featured"
+      ]
+    },
+    {
+      "id": "e95bf540-c2ad-4b1f-a889-078e7d69f9fc",
+      "slug": "cross-pendant-necklace",
+      "name": "Cross Pendant Necklace",
+      "category": "accessories",
+      "price": 160000,
+      "tint": "#ece6da",
+      "colors": [
+        [
+          "Silver",
+          "#c9ccd2"
+        ],
+        [
+          "Gold",
+          "#d4b26a"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": []
+    },
+    {
+      "id": "9e1c56fa-f2d5-4869-b7b6-02f4d5add05a",
+      "slug": "tortoise-sunglasses",
+      "name": "Tortoise Sunglasses",
+      "category": "accessories",
+      "price": 190000,
+      "compareAtPrice": 230000,
+      "tint": "#efe2d4",
+      "colors": [
+        [
+          "Tortoise",
+          "#6a3f22"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "new"
+      ]
+    },
+    {
+      "id": "79dd1515-c8b7-4212-93e6-3df955e111c7",
+      "slug": "wide-brim-straw-hat",
+      "name": "Wide-Brim Straw Hat",
+      "category": "accessories",
+      "price": 52000,
+      "tint": "#f0e8d6",
+      "colors": [
+        [
+          "Natural",
+          "#dcc9a0"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": []
+    },
+    {
+      "id": "ce545361-f879-40e2-884f-27e2785a65c5",
+      "slug": "sculpted-eau-de-parfum",
+      "name": "Sculpted Eau de Parfum",
+      "category": "beauty",
+      "price": 210000,
+      "tint": "#f0e5d3",
+      "colors": [
+        [
+          "Amber",
+          "#d6b37a"
+        ]
+      ],
+      "sizes": [
+        "30 ml"
+      ],
+      "tags": [
+        "new",
+        "featured"
+      ]
+    },
+    {
+      "id": "5c8354fd-f418-49da-b9ea-75e1ce190831",
+      "slug": "rose-crystal-parfum",
+      "name": "Rose Crystal Parfum",
+      "category": "beauty",
+      "price": 230000,
+      "tint": "#f2e0e3",
+      "colors": [
+        [
+          "Rose",
+          "#e3b8bf"
+        ]
+      ],
+      "sizes": [
+        "30 ml"
+      ],
+      "tags": [
+        "featured"
+      ]
+    },
+    {
+      "id": "dfc491bd-62bd-4913-bc01-32e9dffac434",
+      "slug": "velvet-red-lipstick",
+      "name": "Velvet Red Lipstick",
+      "category": "beauty",
+      "price": 45000,
+      "tint": "#f3dede",
+      "colors": [
+        [
+          "Rouge",
+          "#9e1b26"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": []
+    },
+    {
+      "id": "6e323896-008c-408c-aa4a-9f45b4e34d64",
+      "slug": "white-canvas-low-tops",
+      "name": "White Canvas Low-Tops",
+      "category": "shoes",
+      "price": 52000,
+      "tint": "#e7ebee",
+      "colors": [
+        [
+          "White",
+          "#f4f4f2"
+        ]
+      ],
+      "sizes": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41"
+      ],
+      "tags": [
+        "new"
+      ]
+    },
+    {
+      "id": "14c92a61-9078-4deb-a013-2eb64a2c9a38",
+      "slug": "black-canvas-high-tops",
+      "name": "Black Canvas High-Tops",
+      "category": "shoes",
+      "price": 56000,
+      "tint": "#e6e6ea",
+      "colors": [
+        [
+          "Black",
+          "#1c1c1e"
+        ]
+      ],
+      "sizes": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41",
+        "42"
+      ],
+      "tags": []
+    },
+    {
+      "id": "a3c827cf-0ae5-4827-af09-7ea18d8d2885",
+      "slug": "blush-knit-trainers",
+      "name": "Blush Knit Trainers",
+      "category": "shoes",
+      "price": 68000,
+      "tint": "#f6e3e3",
+      "colors": [
+        [
+          "Blush",
+          "#eab5ad"
+        ]
+      ],
+      "sizes": [
+        "37",
+        "38",
+        "39",
+        "40",
+        "41"
+      ],
+      "tags": [
+        "new"
+      ]
+    },
+    {
+      "id": "ae63493b-586d-4abd-a85d-15a0b6ff490b",
+      "slug": "vintage-denim-jacket",
+      "name": "Vintage Denim Jacket",
+      "category": "women",
+      "price": 72000,
+      "tint": "#dfe6ef",
+      "colors": [
+        [
+          "Mid Wash",
+          "#5677a0"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": []
+    },
+    {
+      "id": "a0e178af-d485-4514-8e85-e623b1a383f3",
+      "slug": "garden-floral-midi-dress",
+      "name": "Garden Floral Midi Dress",
+      "category": "women",
+      "price": 88000,
+      "tint": "#f3e8ea",
+      "colors": [
+        [
+          "Petal",
+          "#f1d6d8"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "new"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "174",
+      "slug": "aqua-saffiano-tote",
+      "name": "Aqua Saffiano Tote",
+      "category": "bags",
+      "price": 420000,
+      "tint": "#dceef0",
+      "colors": [
+        [
+          "Aqua",
+          "#7fd3dc"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "new",
+        "featured"
+      ],
+      "description": "A structured tote in cross-grain leather, in a colour that lifts every outfit.",
+      "details": [
+        "Scratch-resistant cross-grain leather",
+        "Twin top handles and detachable strap",
+        "Zip pocket and phone sleeve inside"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "172",
+      "slug": "cobalt-leather-handbag",
+      "name": "Cobalt Leather Handbag",
+      "category": "bags",
+      "price": 285000,
+      "tint": "#e2e6f5",
+      "colors": [
+        [
+          "Cobalt",
+          "#2b3a8f"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "new"
+      ],
+      "description": "Clean lines in deep cobalt leather. Roomy enough for the day, polished enough for the evening.",
+      "details": [
+        "Smooth full-grain leather",
+        "Two rolled top handles",
+        "Magnetic closure and inner zip pocket"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "173",
+      "slug": "cognac-leather-hobo",
+      "name": "Cognac Leather Hobo",
+      "category": "bags",
+      "price": 245000,
+      "tint": "#f0e1d3",
+      "colors": [
+        [
+          "Cognac",
+          "#a4572a"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "featured"
+      ],
+      "description": "A soft, slouchy hobo in warm cognac leather that only gets better with time.",
+      "details": [
+        "Supple leather that softens with wear",
+        "Front zip pocket",
+        "Fits a tablet, wallet and essentials"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "176",
+      "slug": "noir-structured-handbag",
+      "name": "Noir Structured Handbag",
+      "category": "bags",
+      "price": 310000,
+      "tint": "#e9e9eb",
+      "colors": [
+        [
+          "Black",
+          "#1c1c1e"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [],
+      "description": "The black bag that goes with everything, with a belted front and crisp structure.",
+      "details": [
+        "Structured leather body",
+        "Belted front flap detail",
+        "Detachable shoulder strap"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "175",
+      "slug": "ivory-mini-backpack",
+      "name": "Ivory Mini Backpack",
+      "category": "bags",
+      "price": 165000,
+      "tint": "#efebe4",
+      "colors": [
+        [
+          "Ivory",
+          "#f2efe8"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [],
+      "description": "A compact backpack in ivory faux leather with gold-tone hardware.",
+      "details": [
+        "Vegan faux leather",
+        "Adjustable shoulder straps",
+        "Magnetic flap with gold-tone bar"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "185",
+      "slug": "noir-pointed-pumps",
+      "name": "Noir Pointed Pumps",
+      "category": "shoes",
+      "price": 125000,
+      "tint": "#ebe7e4",
+      "colors": [
+        [
+          "Black",
+          "#1c1c1e"
+        ]
+      ],
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41"
+      ],
+      "tags": [
+        "featured"
+      ],
+      "description": "Sharp pointed pumps in black leather with a slender heel. The everyday power shoe.",
+      "details": [
+        "Leather upper, cushioned insole",
+        "9 cm stiletto heel",
+        "EU sizing, true to size"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "187",
+      "slug": "gold-metallic-pumps",
+      "name": "Gold Metallic Pumps",
+      "category": "shoes",
+      "price": 148000,
+      "tint": "#f3e9d8",
+      "colors": [
+        [
+          "Gold",
+          "#d1a86c"
+        ]
+      ],
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41"
+      ],
+      "tags": [
+        "new",
+        "featured"
+      ],
+      "description": "Liquid-gold pumps that catch the light at every step.",
+      "details": [
+        "Metallic finish upper",
+        "10 cm stiletto heel",
+        "Padded footbed for long evenings"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "189",
+      "slug": "scarlet-satin-pumps",
+      "name": "Scarlet Satin Pumps",
+      "category": "shoes",
+      "price": 138000,
+      "tint": "#f6e1e1",
+      "colors": [
+        [
+          "Scarlet",
+          "#d8323a"
+        ]
+      ],
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41"
+      ],
+      "stockOut": [
+        "36"
+      ],
+      "tags": [],
+      "description": "A bold scarlet pump with a soft almond toe. Made for weddings, dinners and nights out.",
+      "details": [
+        "Glossy satin-finish upper",
+        "9 cm heel",
+        "Cushioned insole"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "188",
+      "slug": "patent-stiletto-pumps",
+      "name": "Patent Stiletto Pumps",
+      "category": "shoes",
+      "price": 132000,
+      "tint": "#ececee",
+      "colors": [
+        [
+          "Black",
+          "#1c1c1e"
+        ]
+      ],
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41"
+      ],
+      "tags": [],
+      "description": "High-shine patent stilettos with a sleek pointed toe.",
+      "details": [
+        "Patent leather upper",
+        "11 cm stiletto heel",
+        "Leather lining"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "186",
+      "slug": "sculpted-strap-heels",
+      "name": "Sculpted Strap Heels",
+      "category": "shoes",
+      "price": 152000,
+      "tint": "#e8e6ec",
+      "colors": [
+        [
+          "Black",
+          "#1c1c1e"
+        ]
+      ],
+      "sizes": [
+        "36",
+        "37",
+        "38",
+        "39",
+        "40",
+        "41"
+      ],
+      "tags": [
+        "new"
+      ],
+      "description": "Architectural strap heels with a sculpted block heel that's easy to walk in.",
+      "details": [
+        "Wide padded straps",
+        "8 cm sculpted block heel",
+        "Open toe"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "192",
+      "slug": "two-tone-jubilee-watch",
+      "name": "Two-Tone Jubilee Watch",
+      "category": "accessories",
+      "price": 780000,
+      "tint": "#efe8dc",
+      "colors": [
+        [
+          "Gold & Steel",
+          "#c8a96a"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "new",
+        "featured"
+      ],
+      "description": "A classic two-tone bracelet watch with a fluted bezel and a date window.",
+      "details": [
+        "Gold-tone and steel bracelet",
+        "Fluted bezel, date window",
+        "Water resistant to 30 m"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "191",
+      "slug": "moonphase-leather-watch",
+      "name": "Moonphase Leather Watch",
+      "category": "accessories",
+      "price": 690000,
+      "tint": "#ece3dc",
+      "colors": [
+        [
+          "Rose Gold",
+          "#c98f6f"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "featured"
+      ],
+      "description": "Rose-gold case, moonphase dial and a soft brown leather strap. Quiet luxury on the wrist.",
+      "details": [
+        "Moonphase and date subdials",
+        "Rose-gold tone case",
+        "Genuine leather strap"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "193",
+      "slug": "gold-bracelet-watch",
+      "name": "Gold Bracelet Watch",
+      "category": "accessories",
+      "price": 450000,
+      "tint": "#f1e9d6",
+      "colors": [
+        [
+          "Gold",
+          "#d4b26a"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [],
+      "description": "A slim gold bracelet watch with a deep blue dial.",
+      "details": [
+        "Gold-tone link bracelet",
+        "Navy sunray dial",
+        "Fold-over clasp"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "190",
+      "slug": "steel-automatic-watch",
+      "name": "Steel Automatic Watch",
+      "category": "accessories",
+      "price": 920000,
+      "tint": "#e5e8ec",
+      "colors": [
+        [
+          "Steel",
+          "#b9bec6"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "new"
+      ],
+      "description": "A polished steel automatic with a black dial, built to be worn every day.",
+      "details": [
+        "Automatic movement",
+        "Stainless steel bracelet",
+        "Luminous hands"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "94",
+      "slug": "gold-chronograph-watch",
+      "name": "Gold Chronograph Watch",
+      "category": "accessories",
+      "price": 860000,
+      "tint": "#efe6d6",
+      "colors": [
+        [
+          "Gold",
+          "#c9a463"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [],
+      "description": "A gold chronograph with moonphase and a brown alligator-effect strap.",
+      "details": [
+        "Chronograph with moonphase",
+        "Gold-tone case",
+        "Alligator-effect leather strap"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "182",
+      "slug": "emerald-crystal-drops",
+      "name": "Emerald Crystal Drops",
+      "category": "accessories",
+      "price": 98000,
+      "tint": "#e0ece5",
+      "colors": [
+        [
+          "Emerald",
+          "#1f7a52"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "new"
+      ],
+      "description": "Faceted emerald crystal drops on gold-tone hoops.",
+      "details": [
+        "Faceted green crystal",
+        "Gold-tone huggie hoop",
+        "Lightweight for all-day wear"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "184",
+      "slug": "gold-leaf-earrings",
+      "name": "Gold Leaf Earrings",
+      "category": "accessories",
+      "price": 64000,
+      "tint": "#f3ead8",
+      "colors": [
+        [
+          "Gold",
+          "#e2b15a"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [],
+      "description": "Statement monstera-leaf earrings in brushed gold tone.",
+      "details": [
+        "Brushed gold-tone finish",
+        "Post-back fastening",
+        "Lightweight statement size"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "155",
+      "slug": "gradient-aviators",
+      "name": "Gradient Aviators",
+      "category": "accessories",
+      "price": 135000,
+      "tint": "#e3e9ef",
+      "colors": [
+        [
+          "Gold & Blue",
+          "#8fa8c4"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [],
+      "description": "Gold-wire aviators with blue gradient lenses.",
+      "details": [
+        "UV400 protection",
+        "Metal frame with adjustable nose pads",
+        "Includes case"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "178",
+      "slug": "scarlet-corset-gown",
+      "name": "Scarlet Corset Gown",
+      "category": "women",
+      "price": 265000,
+      "tint": "#f6e0df",
+      "colors": [
+        [
+          "Scarlet",
+          "#c9182a"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "tags": [
+        "new",
+        "featured"
+      ],
+      "description": "A floor-length scarlet gown with a structured corset bodice. Made for the moment you walk in.",
+      "details": [
+        "Boned corset bodice",
+        "Full-length flared skirt",
+        "Concealed back zip"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "179",
+      "slug": "noir-corset-gown",
+      "name": "Noir Corset Gown",
+      "category": "women",
+      "price": 265000,
+      "tint": "#e9e8ec",
+      "colors": [
+        [
+          "Black",
+          "#1c1c1e"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "tags": [
+        "featured"
+      ],
+      "description": "The black-tie gown: strapless corset bodice and a fluid floor-length skirt.",
+      "details": [
+        "Boned strapless bodice",
+        "Floor-length skirt",
+        "Concealed back zip"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "177",
+      "slug": "midnight-floral-gown",
+      "name": "Midnight Floral Gown",
+      "category": "women",
+      "price": 238000,
+      "tint": "#e6e4ef",
+      "colors": [
+        [
+          "Midnight",
+          "#2a2f52"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [],
+      "description": "An off-shoulder gown in a midnight floral print, cut long and fluid.",
+      "details": [
+        "Off-shoulder neckline",
+        "Lightweight printed fabric",
+        "Floor-length"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "180",
+      "slug": "polka-dot-party-dress",
+      "name": "Polka Dot Party Dress",
+      "category": "women",
+      "price": 145000,
+      "tint": "#f6e3ee",
+      "colors": [
+        [
+          "White Dot",
+          "#f4f2f2"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "tags": [
+        "new"
+      ],
+      "description": "A strapless polka-dot dress with a full skirt and a bow at the waist.",
+      "details": [
+        "Fitted strapless bodice",
+        "Full skirt with soft volume",
+        "Bow detail at the waist"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "86",
+      "slug": "hibiscus-resort-shirt",
+      "name": "Hibiscus Resort Shirt",
+      "category": "men",
+      "price": 48000,
+      "tint": "#e0e8f3",
+      "colors": [
+        [
+          "Ocean",
+          "#2f6db2"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "new"
+      ],
+      "description": "A breezy short-sleeve shirt in an ocean-blue hibiscus print.",
+      "details": [
+        "Lightweight, breathable fabric",
+        "Relaxed resort collar",
+        "Short sleeves, straight hem"
+      ]
+    },
+    {
+      "source": "dummyjson",
+      "id": "85",
+      "slug": "buffalo-check-shirt",
+      "name": "Buffalo Check Shirt",
+      "category": "men",
+      "price": 52000,
+      "tint": "#f3e2e0",
+      "colors": [
+        [
+          "Red Check",
+          "#b3202a"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [],
+      "description": "A classic red buffalo-check shirt in soft brushed cotton.",
+      "details": [
+        "Brushed cotton",
+        "Button-down front",
+        "Regular fit"
+      ]
+    }
   ]
 }

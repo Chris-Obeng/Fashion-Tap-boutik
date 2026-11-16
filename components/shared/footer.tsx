@@ -19,9 +19,9 @@ export function Footer() {
       <div className="container-shell pb-10 pt-14 lg:pt-20">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr]">
           <div>
-            <Logo inverted />
+            <Logo light className="h-[64px]" />
             <p className="mt-4 max-w-[30ch] text-[15px] leading-6 text-white/65">
-              Luxury pieces from Accra, delivered to your door.
+              Quality shoes, bags, clothes, purses and watches. From Accra to anywhere in Ghana.
             </p>
             <ul role="list" className="mt-7 flex gap-3">
               {socials.map(s => (
@@ -79,7 +79,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-2 border-t border-white/10 pt-6 text-[13px] text-white/50 sm:flex-row sm:justify-between">
           <p>© {new Date().getFullYear()} Fashion Tap Boutik · Accra, Ghana</p>
-          <p>Delivery across Accra · Mobile Money &amp; card</p>
+          <p>Delivery nationwide · Mobile Money &amp; card</p>
         </div>
       </div>
     </footer>

@@ -94,7 +94,7 @@ export function OrderDetail({ id, placed = false }: { id: string; placed?: boole
                 style={{ "--tint": item.tint } as React.CSSProperties}
                 aria-label={`View ${item.name}`}
               >
-                <Image src={item.image} alt={item.name} data-studio fill preload={false} sizes="64px" className="object-cover" />
+                <Image src={item.image} alt={item.name} data-studio="" fill preload={false} sizes="64px" className={item.cutout ? "object-contain p-2" : "object-cover"} />
               </Link>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-medium text-ink">
@@ -122,8 +122,11 @@ export function OrderDetail({ id, placed = false }: { id: string; placed?: boole
         <div>
           <p className="text-xs text-ink-faint">{isPickup ? "Pickup" : "Delivery"}</p>
           <p className="mt-1.5 text-sm font-medium text-ink">
-            {isPickup ? "Osu, Accra" : [order.delivery.address, order.delivery.area].filter(Boolean).join(", ")}
+            {isPickup
+              ? "Osu, Accra"
+              : [order.delivery.address, order.delivery.area, order.delivery.city, order.delivery.region].filter(Boolean).join(", ")}
           </p>
+          {order.delivery.eta && <p className="mt-0.5 text-sm text-ink-soft">{isPickup ? order.delivery.eta : `Arrives ${order.delivery.eta.toLowerCase()}`}</p>}
           {order.delivery.notes && <p className="mt-1 text-sm leading-6 text-ink-soft">{order.delivery.notes}</p>}
         </div>
         <div>
@@ -144,7 +147,7 @@ export function OrderDetail({ id, placed = false }: { id: string; placed?: boole
           View all orders
         </Link>
         <p className="mt-1 text-xs text-ink-faint">
-          Paid with Paystack · Card or Mobile Money{placed ? ". Demo order — no payment was taken." : ""}
+          Paystack · {order.payment === "card" ? "Card" : "Mobile Money"}{placed ? ". Demo order, no payment was taken." : ""}
         </p>
       </div>
     </div>

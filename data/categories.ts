@@ -3,28 +3,43 @@ import type { CategoryId } from "@/types";
 
 const bySlug = (slug: string) => products.find(p => p.slug === slug);
 const image = (slug: string, index = 0) => bySlug(slug)?.images[index] ?? "";
+const pexels = (id: number, w = 1600) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
 
-/** Editorial imagery for the homepage: lifestyle scenes from the catalogue itself. */
+/**
+ * Editorial imagery for the homepage. Pexels photos (free for commercial use, no
+ * attribution required) of Ghanaian and West African women, chosen for a store whose
+ * customers are in Ghana; plus lifestyle scenes from the catalogue itself.
+ */
 export const editorial = {
-  heroMobile: image("pleated-wrap-dress", 5),
-  heroTriptych: [image("stand-collar-pleat-dress", 5), image("pleated-wrap-dress", 5), image("camel-leather-tote", 5)],
-  jewellery: image("solitaire-pendant", 1),
-  fragrance: image("rose-crystal-parfum", 4),
+  hero: { src: pexels(15238827, 1400), alt: "Woman in a scarlet gown walking down a sunlit street" },
+  heroTriptych: [
+    { src: pexels(2562497, 1000), alt: "Two women in red dresses posing in a garden" },
+    { src: pexels(15238827, 1000), alt: "Woman in a scarlet gown walking down a sunlit street" },
+    { src: pexels(29037464, 1000), alt: "Woman in a blush evening gown on a city street" },
+  ],
+  bags: { src: pexels(27108129, 1400), alt: "Woman in a satin dress with a black leather handbag" },
+  jewellery: { src: image("solitaire-pendant", 1), alt: "Solitaire pendant in a navy velvet box on marble" },
+  fragrance: { src: image("rose-crystal-parfum", 4), alt: "Rose Crystal Parfum bottle on black" },
 };
 
 /**
  * The single source of truth for shop categories. "new" is a pseudo-category
  * (a tag filter, not a real category) but is surfaced everywhere a real one is.
- * Each tile shows a studio shot on its own colour field.
  */
+const tile = (id: CategoryId | "new", name: string, slug: string) => {
+  const p = bySlug(slug);
+  return { id, name, image: p?.images[0] ?? "", tint: p?.tint ?? "#f1f1f1", cutout: p?.cutout ?? false };
+};
+
 export const categories = [
-  { id: "new", name: "New in", image: image("sculpted-eau-de-parfum"), tint: "#f0e5d3" },
-  { id: "women", name: "Women", image: image("stand-collar-pleat-dress"), tint: "#e1e5d2" },
-  { id: "men", name: "Men", image: image("crisp-white-shirt"), tint: "#e4e9ef" },
-  { id: "shoes", name: "Shoes", image: image("heritage-leather-boots"), tint: "#ead9cb" },
-  { id: "accessories", name: "Bags & jewellery", image: image("camel-leather-tote"), tint: "#efdfcc" },
-  { id: "beauty", name: "Beauty", image: image("rose-crystal-parfum"), tint: "#f2e0e3" },
-] as const satisfies readonly { id: CategoryId | "new"; name: string; image: string; tint: string }[];
+  tile("new", "New in", "polka-dot-party-dress"),
+  tile("women", "Women", "scarlet-corset-gown"),
+  tile("men", "Men", "crisp-white-shirt"),
+  tile("shoes", "Shoes", "gold-metallic-pumps"),
+  tile("bags", "Bags", "aqua-saffiano-tote"),
+  tile("accessories", "Watches & jewellery", "two-tone-jubilee-watch"),
+  tile("beauty", "Beauty", "rose-crystal-parfum"),
+] as const;
 
 export type ShopCategoryId = (typeof categories)[number]["id"] | "all";
 

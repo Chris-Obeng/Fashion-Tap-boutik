@@ -1,46 +1,159 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
+import { useEffect, useId, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Controller, useForm, useWatch } from "react-hook-form";
+import { useForm, useWatch, type FieldErrors, type UseFormRegisterReturn } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, FieldError, Input, Label, ListBox, Select, Skeleton, TextArea, TextField } from "@heroui/react";
-import { Loader2, Lock, MapPin, Truck } from "lucide-react";
+import { Skeleton } from "@heroui/react";
+import { AlertCircle, ChevronDown, CreditCard, Loader2, Lock, MapPin, Smartphone, Store, Truck } from "lucide-react";
 import { toast } from "sonner";
-import { checkoutSchema, type CheckoutValues } from "@/lib/checkout-schema";
-import { deliveryAreas } from "@/lib/config";
+import { checkoutSchema, normalizeGhanaPhone, type CheckoutValues } from "@/lib/checkout-schema";
+import { ACCRA, accraAreas, deliveryQuote, pickup, regions } from "@/lib/config";
 import { formatPrice } from "@/lib/format";
+import { haptic } from "@/lib/haptics";
 import { initiatePayment } from "@/lib/payments";
 import { saveOrder } from "@/lib/orders";
-import { useCart, cartSubtotal } from "@/store/cart";
+import { useCart, cartSubtotal, cartCount } from "@/store/cart";
 import { useCartHydrated } from "@/components/cart/use-cart-hydrated";
 import { EmptyBag } from "@/components/shared/empty-bag";
-import { OrderTotals } from "@/components/shared/order-totals";
-import { Radio, RadioGroup } from "@heroui/react";
+import { ProductThumb } from "@/components/shared/product-thumb";
 import { cn } from "@/lib/utils";
 import type { CartItem, Order } from "@/types";
 
+/* ------------------------------------------------------------------------------------------------
+ * Field primitives: one look for every input. 52px tall, 16px text (no iOS zoom), label above,
+ * error below with an icon, aria wired.
+ * ---------------------------------------------------------------------------------------------- */
+const fieldBase =
+  "scroll-mt-28 h-[52px] w-full rounded-2xl border bg-white px-4 text-[16px] text-ink outline-none transition-[border-color,box-shadow] duration-150 placeholder:text-ink-faint focus:border-ink focus:ring-4 focus:ring-ink/8";
+
+function Field({
+  label,
+  optional,
+  hint,
+  error,
+  children,
+  id,
+}: {
+  label: string;
+  optional?: boolean;
+  hint?: string;
+  error?: string;
+  children: (props: { id: string; "aria-invalid": boolean; "aria-describedby"?: string; className: string }) => React.ReactNode;
+  id?: string;
+}) {
+  const auto = useId();
+  const fieldId = id ?? auto;
+  const describedBy = error ? `${fieldId}-error` : hint ? `${fieldId}-hint` : undefined;
+  return (
+    <div className="grid content-start gap-1.5">
+      <label htmlFor={fieldId} className="text-[14px] font-medium text-ink">
+        {label} {optional && <span className="font-normal text-ink-soft">(optional)</span>}
+      </label>
+      {children({
+        id: fieldId,
+        "aria-invalid": !!error,
+        "aria-describedby": describedBy,
+        className: cn(fieldBase, error ? "border-sale focus:border-sale focus:ring-sale/10" : "border-[#d4d4d4]"),
+      })}
+      {error ? (
+        <p id={`${fieldId}-error`} className="flex items-center gap-1.5 text-[13px] font-medium text-sale">
+          <AlertCircle className="size-3.5 shrink-0" aria-hidden /> {error}
+        </p>
+      ) : hint ? (
+        <p id={`${fieldId}-hint`} className="text-[13px] text-ink-soft">{hint}</p>
+      ) : null}
+    </div>
+  );
+}
+
+function SelectField({ register, options, placeholder, ...props }: { register: UseFormRegisterReturn; options: { value: string; label: string }[]; placeholder: string } & Omit<React.ComponentProps<typeof Field>, "children">) {
+  return (
+    <Field {...props}>
+      {p => (
+        <div className="relative">
+          <select {...register} {...p} className={cn(p.className, "appearance-none pr-11")} defaultValue="">
+            <option value="" disabled>{placeholder}</option>
+            {options.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+          </select>
+          <ChevronDown className="pointer-events-none absolute right-4 top-1/2 size-[18px] -translate-y-1/2 text-ink-soft" aria-hidden />
+        </div>
+      )}
+    </Field>
+  );
+}
+
+/** Large tappable radio card built on a real (visually hidden) radio input. */
+function ChoiceCard({ register, value, icon: Icon, title, text, aside }: { register: UseFormRegisterReturn; value: string; icon: React.ElementType; title: string; text: string; aside?: React.ReactNode }) {
+  return (
+    <label className="press group relative flex cursor-pointer items-center gap-3.5 rounded-[20px] border-[1.5px] border-line bg-white p-4 transition-colors has-[:checked]:border-ink has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand has-[:focus-visible]:ring-offset-2">
+      <input type="radio" value={value} {...register} className="peer sr-only" />
+      <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-mist text-ink transition-colors group-has-[:checked]:bg-ink group-has-[:checked]:text-white">
+        <Icon className="size-5 stroke-[1.6]" aria-hidden />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block text-[15px] font-semibold text-ink">{title}</span>
+        <span className="mt-0.5 block text-[13px] leading-5 text-ink-soft">{text}</span>
+      </span>
+      {aside}
+      <span className="flex size-[22px] shrink-0 items-center justify-center rounded-full border-[1.5px] border-[#c4c4c4] transition-colors group-has-[:checked]:border-ink group-has-[:checked]:bg-ink">
+        <span className="size-2 rounded-full bg-white opacity-0 transition-opacity group-has-[:checked]:opacity-100" />
+      </span>
+    </label>
+  );
+}
+
+function Section({ title, children, aside }: { title: string; children: React.ReactNode; aside?: React.ReactNode }) {
+  const id = useId();
+  return (
+    <section aria-labelledby={id} className="rounded-[28px] bg-white p-5 sm:p-7">
+      <div className="mb-5 flex items-baseline justify-between gap-3">
+        <h2 id={id} className="text-[22px] font-semibold tracking-[-0.02em] text-ink">{title}</h2>
+        {aside}
+      </div>
+      {children}
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------------------------------------
+ * Order summary: sticky card on desktop, collapsible bar on phones.
+ * ---------------------------------------------------------------------------------------------- */
 function SummaryItems({ items }: { items: CartItem[] }) {
   return (
-    <div className="divide-y divide-line">
+    <ul role="list" className="divide-y divide-line">
       {items.map(item => (
-        <div key={item.key} className="flex items-center gap-4 py-4 first:pt-0">
-          <div className="tint-media relative size-16 shrink-0 rounded-2xl" style={{ "--tint": item.tint } as React.CSSProperties}>
-            <span className="absolute inset-0 overflow-hidden rounded-2xl">
-              <Image src={item.image} alt={item.name} data-studio fill preload={false} sizes="64px" className="object-cover" />
-            </span>
-            <span className="absolute -right-1.5 -top-1.5 flex size-5 items-center justify-center rounded-full bg-ink text-[10px] font-medium text-white">
+        <li key={item.key} className="flex items-center gap-3.5 py-3.5 first:pt-0">
+          <span className="relative">
+            <ProductThumb src={item.image} tint={item.tint} cutout={item.cutout} alt={item.name} sizes="64px" className="size-16 rounded-2xl" />
+            <span className="absolute -right-1.5 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-ink px-1 text-[11px] font-semibold text-white ring-2 ring-white">
               {item.quantity}
             </span>
-          </div>
+          </span>
           <div className="min-w-0 flex-1">
-            <p className="truncate text-sm font-medium text-ink">{item.name}</p>
-            <p className="mt-0.5 text-xs text-ink-soft">{item.color} · {item.size}</p>
+            <p className="truncate text-[15px] font-semibold text-ink">{item.name}</p>
+            <p className="mt-0.5 text-[13px] text-ink-soft">{[item.color, item.size !== "One size" ? item.size : null].filter(Boolean).join(" · ")}</p>
           </div>
-          <p className="text-sm tabular-nums text-ink">{formatPrice(item.price * item.quantity)}</p>
-        </div>
+          <p className="text-[15px] font-medium tabular-nums text-ink">{formatPrice(item.price * item.quantity)}</p>
+        </li>
       ))}
-    </div>
+    </ul>
+  );
+}
+
+function Totals({ subtotal, fee, feeLabel, total, eta }: { subtotal: number; fee: number | null; feeLabel: string; total: number; eta?: string }) {
+  return (
+    <dl className="space-y-2.5 text-[15px]">
+      <div className="flex justify-between"><dt className="text-ink-soft">Subtotal</dt><dd className="tabular-nums text-ink">{formatPrice(subtotal)}</dd></div>
+      <div className="flex justify-between gap-4">
+        <dt className="text-ink-soft">{feeLabel}{eta && <span className="block text-[13px]">{eta}</span>}</dt>
+        <dd className="text-right tabular-nums text-ink">{fee === null ? <span className="text-ink-soft">Choose your area</span> : fee === 0 ? "Free" : formatPrice(fee)}</dd>
+      </div>
+      <div className="flex items-baseline justify-between border-t border-line pt-3.5">
+        <dt className="text-[17px] font-semibold text-ink">Total</dt>
+        <dd className="text-[22px] font-semibold tracking-[-0.01em] tabular-nums text-ink">{formatPrice(total)}</dd>
+      </div>
+    </dl>
   );
 }
 
@@ -50,291 +163,264 @@ export function CheckoutForm() {
   const items = useCart(s => s.items);
   const clear = useCart(s => s.clear);
   const [processing, setProcessing] = useState(false);
+  const [summaryOpen, setSummaryOpen] = useState(false);
   const subtotal = cartSubtotal(items);
 
-  const { register, handleSubmit, control, formState: { errors } } = useForm<CheckoutValues>({
+  const { register, handleSubmit, control, setValue, formState: { errors } } = useForm<CheckoutValues>({
     resolver: zodResolver(checkoutSchema),
-    defaultValues: { fullName: "", phone: "", email: "", method: "delivery", address: "", area: "", notes: "" },
+    defaultValues: { fullName: "", phone: "", email: "", method: "delivery", region: "", area: "", city: "", address: "", gps: "", notes: "", payment: "momo" },
     mode: "onTouched",
     shouldFocusError: true,
   });
-  const [method = "delivery", area] = useWatch({ control, name: ["method", "area"] });
+  const [method, region, area] = useWatch({ control, name: ["method", "region", "area"] });
 
-  const areaFee = deliveryAreas.find(a => a.name === area)?.fee ?? 0;
-  const fee = method === "pickup" ? 0 : areaFee;
-  const total = subtotal + fee;
-  const needsArea = method === "delivery" && !area;
+  // Changing region invalidates the Accra area.
+  useEffect(() => { if (region !== ACCRA) setValue("area", ""); }, [region, setValue]);
+
+  const quote = method === "pickup" ? { fee: 0, eta: pickup.eta } : deliveryQuote(region, area);
+  const fee = quote?.fee ?? null;
+  const total = subtotal + (fee ?? 0);
 
   async function onSubmit(values: CheckoutValues) {
     setProcessing(true);
+    const delivery: Order["delivery"] =
+      values.method === "pickup"
+        ? { method: "pickup", eta: pickup.eta }
+        : {
+            method: "delivery",
+            region: values.region,
+            area: values.region === ACCRA ? values.area : undefined,
+            city: values.region === ACCRA ? "Accra" : values.city?.trim(),
+            address: [values.address?.trim(), values.gps?.trim().toUpperCase()].filter(Boolean).join(" · "),
+            notes: values.notes?.trim() || undefined,
+            eta: quote?.eta,
+          };
     const order: Order = {
       id: "pending",
       items,
       subtotal,
-      deliveryFee: fee,
+      deliveryFee: fee ?? 0,
       total,
-      customer: {
-        name: values.fullName.trim(),
-        phone: values.phone.replace(/[\s-]/g, ""),
-        email: values.email?.trim() || undefined,
-      },
-      delivery: {
-        method: values.method,
-        ...(values.method === "delivery"
-          ? { address: values.address?.trim(), area: values.area, notes: values.notes?.trim() || undefined }
-          : {}),
-      },
+      customer: { name: values.fullName.trim(), phone: normalizeGhanaPhone(values.phone), email: values.email?.trim() || undefined },
+      delivery,
+      payment: values.payment,
     };
     try {
-      // The mock payment boundary lives in lib/payments.ts. Replace it with Paystack there.
+      // Mock payment boundary: lib/payments.ts. Replace with Paystack there.
       const result = await initiatePayment(order);
       if (!result.success) throw new Error("Payment could not be started.");
       const confirmed = { ...order, id: result.reference };
       saveOrder(confirmed);
-      // Navigate first, then clear — clearing before the route change would
-      // flash the empty-bag state while the confirmation page loads.
+      toast.dismiss();
+      haptic("success");
+      // Navigate first, then clear, so the empty-bag state never flashes.
       await router.push(`/orders/${confirmed.id}?placed=1`);
       clear();
     } catch {
       setProcessing(false);
-      toast.error("We couldn’t start the payment", {
-        description: "Please check your connection and try again.",
-      });
+      toast.error("We couldn’t start the payment", { description: "Check your connection and try again." });
     }
+  }
+
+  function onInvalid(errs: FieldErrors<CheckoutValues>) {
+    const n = Object.keys(errs).length;
+    toast.error(n === 1 ? "One detail needs attention" : `${n} details need attention`, { description: "They’re highlighted in red." });
   }
 
   if (!hydrated) {
     return (
-      <div className="container-shell flex-1 pb-20 pt-10 sm:pt-14">
-        <div className="mx-auto max-w-[680px]">
-          <Skeleton className="h-10 w-44 rounded-xl bg-mist" />
-          <Skeleton className="mt-8 h-44 w-full rounded-2xl bg-mist" />
-          <Skeleton className="mt-10 h-7 w-28 rounded-xl bg-mist" />
-          <Skeleton className="mt-5 h-12 w-full rounded-xl bg-mist" />
-          <Skeleton className="mt-4 h-12 w-full rounded-xl bg-mist" />
-          <Skeleton className="mt-4 h-12 w-full rounded-xl bg-mist" />
+      <div className="container-shell flex-1 py-8">
+        <div className="mx-auto grid max-w-[1080px] gap-6 lg:grid-cols-[1fr_400px]">
+          <div className="space-y-4">
+            <Skeleton className="h-10 w-48 rounded-xl bg-white" />
+            <Skeleton className="h-64 w-full rounded-[28px] bg-white" />
+            <Skeleton className="h-80 w-full rounded-[28px] bg-white" />
+          </div>
+          <Skeleton className="hidden h-96 w-full rounded-[28px] bg-white lg:block" />
         </div>
       </div>
     );
   }
 
   if (!items.length) {
-    // Mid-submit: the cart was just cleared and the confirmation page is
-    // loading — show progress, never an empty-bag state.
     if (processing) {
       return (
         <div className="container-shell flex flex-1 flex-col items-center justify-center py-24">
-          <Loader2 className="size-6 animate-spin text-ink-faint" aria-hidden />
-          <p className="mt-4 text-sm text-ink-soft">Placing your order…</p>
+          <Loader2 className="size-7 animate-spin text-ink-soft" aria-hidden />
+          <p className="mt-4 text-[15px] text-ink-soft">Placing your order…</p>
         </div>
       );
     }
     return (
-      <div className="container-shell flex flex-1 flex-col py-16">
+      <div className="container-shell flex flex-1 flex-col py-10">
         <h1 className="sr-only">Checkout</h1>
-        <div className="rounded-2xl border border-line bg-white">
+        <div className="mx-auto w-full max-w-[560px] rounded-[28px] bg-white">
           <EmptyBag />
         </div>
       </div>
     );
   }
 
+  const feeLabel = method === "pickup" ? "Pickup" : "Delivery";
+  const payLabel = processing ? (
+    <span className="flex items-center gap-2"><Loader2 className="size-4 animate-spin" /> Processing…</span>
+  ) : (
+    <span className="flex items-center gap-2"><Lock className="size-4" /> Pay {formatPrice(total)}</span>
+  );
+
   return (
-    <div className="container-shell flex-1 pb-20 pt-10 sm:pt-14">
-      <div className="mx-auto max-w-[680px]">
-        <h1 className="display text-[32px] text-ink sm:text-[40px]">Checkout</h1>
+    <div className="container-shell flex-1 pb-36 pt-6 sm:pt-10 lg:pb-16">
+      <div className="mx-auto max-w-[1080px]">
+        <div className="flex items-end justify-between gap-4">
+          <h1 className="display text-[36px] text-ink sm:text-[48px]">Checkout</h1>
+          <Link href="/shop" className="mb-1.5 hidden text-[14px] font-medium text-ink-soft hover:text-ink sm:block">Continue shopping</Link>
+        </div>
 
-        <section aria-label="Order summary" className="mt-8 rounded-2xl border border-line bg-white p-5 sm:p-6">
-          <SummaryItems items={items} />
-          <div className="mt-1 border-t border-line pt-4">
-            <OrderTotals
-              subtotal={subtotal}
-              fee={fee}
-              feeNote={needsArea ? "Choose your area" : undefined}
-              total={total}
-            />
-          </div>
-        </section>
-
-        <form
-          id="checkout-form"
-          onSubmit={handleSubmit(onSubmit, () =>
-            toast.error("A few details need attention", { description: "Please check the highlighted fields." })
-          )}
-          noValidate
-          aria-busy={processing}
-        >
-          <section aria-labelledby="contact-heading" className="mt-12">
-            <h2 id="contact-heading" className="text-[19px] font-semibold tracking-[-0.01em] text-ink">Contact</h2>
-            <div className="mt-5 grid gap-x-4 gap-y-5 sm:grid-cols-2">
-              <TextField isInvalid={!!errors.fullName} className="grid gap-1.5">
-                <Label className="text-[13px] font-medium text-ink">Full name</Label>
-                <Input id="fullName" autoComplete="name" placeholder="Ama Mensah" {...register("fullName")} />
-                <FieldError className="text-xs text-danger">{errors.fullName?.message}</FieldError>
-              </TextField>
-              <TextField isInvalid={!!errors.phone} className="grid gap-1.5">
-                <Label className="text-[13px] font-medium text-ink">Phone</Label>
-                <Input id="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="024 123 4567" {...register("phone")} />
-                <FieldError className="text-xs text-danger">{errors.phone?.message}</FieldError>
-              </TextField>
-              <TextField isInvalid={!!errors.email} className="grid gap-1.5 sm:col-span-2">
-                <Label className="text-[13px] font-medium text-ink">
-                  Email <span className="font-normal text-ink-faint">(optional)</span>
-                </Label>
-                <Input id="email" type="email" inputMode="email" autoComplete="email" placeholder="you@example.com" {...register("email")} />
-                <FieldError className="text-xs text-danger">{errors.email?.message}</FieldError>
-              </TextField>
-            </div>
-          </section>
-
-          <section aria-labelledby="delivery-heading" className="mt-12">
-            <h2 id="delivery-heading" className="text-[19px] font-semibold tracking-[-0.01em] text-ink">Delivery</h2>
-            <Controller
-              control={control}
-              name="method"
-              render={({ field }) => (
-                <RadioGroup
-                  value={field.value}
-                  onChange={field.onChange}
-                  aria-label="Choose delivery method"
-                  className="mt-5 grid gap-3"
-                >
-                  <Radio
-                    value="delivery"
-                    className={cn(
-                      "block rounded-2xl border bg-white transition-colors",
-                      field.value === "delivery" ? "border-ink" : "border-line hover:border-ink/40"
-                    )}
-                  >
-                    <Radio.Content className="relative flex w-full items-center p-4 pr-12">
-                      <span className="flex items-center gap-3">
-                        <Truck className="size-[18px] shrink-0 stroke-[1.5] text-ink-soft" aria-hidden />
-                        <span>
-                          <span className="block text-sm font-medium text-ink">Deliver to me</span>
-                          <span className="block text-xs text-ink-soft">Accra · 1–2 working days · GH₵ 25–50</span>
-                        </span>
-                      </span>
-                      <Radio.Control className="absolute right-4 top-1/2 -translate-y-1/2">
-                        <Radio.Indicator />
-                      </Radio.Control>
-                    </Radio.Content>
-                  </Radio>
-                  <Radio
-                    value="pickup"
-                    className={cn(
-                      "block rounded-2xl border bg-white transition-colors",
-                      field.value === "pickup" ? "border-ink" : "border-line hover:border-ink/40"
-                    )}
-                  >
-                    <Radio.Content className="relative flex w-full items-center p-4 pr-12">
-                      <span className="flex items-center gap-3">
-                        <MapPin className="size-[18px] shrink-0 stroke-[1.5] text-ink-soft" aria-hidden />
-                        <span>
-                          <span className="block text-sm font-medium text-ink">Pick up in Osu</span>
-                          <span className="block text-xs text-ink-soft">Free · by arrangement</span>
-                        </span>
-                      </span>
-                      <Radio.Control className="absolute right-4 top-1/2 -translate-y-1/2">
-                        <Radio.Indicator />
-                      </Radio.Control>
-                    </Radio.Content>
-                  </Radio>
-                </RadioGroup>
-              )}
-            />
-
-            {method === "delivery" ? (
-              <div className="mt-5 grid gap-x-4 gap-y-5">
-                <TextField isInvalid={!!errors.address} className="grid gap-1.5">
-                  <Label className="text-[13px] font-medium text-ink">Delivery address</Label>
-                  <Input
-                    id="address"
-                    autoComplete="street-address"
-                    placeholder="Street, building, apartment"
-                    {...register("address")}
-                  />
-                  <FieldError className="text-xs text-danger">{errors.address?.message}</FieldError>
-                </TextField>
-                <div className="grid gap-1.5">
-                  <Label htmlFor="area" className="text-[13px] font-medium text-ink">Area / neighbourhood</Label>
-                  <Controller
-                    control={control}
-                    name="area"
-                    render={({ field }) => (
-                      <Select
-                        isInvalid={!!errors.area}
-                        aria-label="Area / neighbourhood"
-                        selectedKey={field.value || null}
-                        onSelectionChange={key => field.onChange(key == null ? "" : String(key))}
-                        placeholder="Choose your area"
-                      >
-                        <Select.Trigger id="area" className="h-12 w-full">
-                          <Select.Value />
-                          <Select.Indicator />
-                        </Select.Trigger>
-                        <Select.Popover>
-                          <ListBox>
-                            {deliveryAreas.map(a => (
-                              <ListBox.Item key={a.name} id={a.name} textValue={`${a.name} · ${formatPrice(a.fee)}`}>
-                                {a.name} · {formatPrice(a.fee)}
-                                <ListBox.ItemIndicator />
-                              </ListBox.Item>
-                            ))}
-                          </ListBox>
-                        </Select.Popover>
-                      </Select>
-                    )}
-                  />
-                  {errors.area && <FieldError className="text-xs text-danger">{errors.area.message}</FieldError>}
-                </div>
-                <TextField isInvalid={!!errors.notes} className="grid gap-1.5">
-                  <Label className="text-[13px] font-medium text-ink">
-                    Landmark or notes <span className="font-normal text-ink-faint">(optional)</span>
-                  </Label>
-                  <TextArea
-                    id="notes"
-                    rows={2}
-                    autoComplete="off"
-                    placeholder="Near the blue kiosk, opposite the pharmacy…"
-                    {...register("notes")}
-                  />
-                  <p className="text-xs text-ink-faint">A landmark helps our rider find you faster.</p>
-                  <FieldError className="text-xs text-danger">{errors.notes?.message}</FieldError>
-                </TextField>
-              </div>
-            ) : (
-              <div className="mt-5 flex gap-3 rounded-2xl border border-line bg-white p-4">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-ink-soft" aria-hidden />
-                <div>
-                  <p className="text-sm font-medium text-ink">Pickup in Osu</p>
-                  <p className="mt-1 text-sm leading-6 text-ink-soft">
-                    We’ll message you after checkout to arrange a time and share the exact location.
-                  </p>
-                </div>
-              </div>
-            )}
-          </section>
-
-          <Button
-            type="submit"
-            form="checkout-form"
-            isDisabled={processing}
-            className="mt-12 h-12 w-full text-[15px]"
+        {/* Phones: collapsible order summary */}
+        <div className="mt-5 overflow-hidden rounded-[24px] bg-white lg:hidden">
+          <button
+            type="button"
+            onClick={() => setSummaryOpen(o => !o)}
+            aria-expanded={summaryOpen}
+            aria-controls="mobile-summary"
+            className="flex min-h-[60px] w-full items-center justify-between gap-3 px-5 text-left"
           >
-            {processing ? (
-              <span className="flex items-center gap-2">
-                <Loader2 className="size-4 animate-spin" /> Processing…
-              </span>
-            ) : (
-              <span className="flex items-center gap-2">
-                <Lock className="size-4" /> Pay {formatPrice(total)}
-              </span>
-            )}
-          </Button>
-          <p className="mt-3 text-center text-xs text-ink-faint">
-            Paystack · Card or Mobile Money · Demo checkout, no charge
-          </p>
-        </form>
+            <span className="flex items-center gap-2 text-[15px] font-medium text-ink">
+              {summaryOpen ? "Hide" : "Show"} order summary
+              <span className="text-ink-soft">({cartCount(items)})</span>
+              <ChevronDown className={cn("size-4 transition-transform duration-200", summaryOpen && "rotate-180")} aria-hidden />
+            </span>
+            <span className="text-[17px] font-semibold tabular-nums text-ink">{formatPrice(total)}</span>
+          </button>
+          <div
+            id="mobile-summary"
+            className="grid transition-[grid-template-rows] duration-300 ease-[var(--ease-out)]"
+            style={{ gridTemplateRows: summaryOpen ? "1fr" : "0fr" }}
+          >
+            <div className={cn("overflow-hidden", !summaryOpen && "invisible")}>
+              <div className="border-t border-line px-5 pb-5 pt-4">
+                <SummaryItems items={items} />
+                <div className="mt-2 border-t border-line pt-4">
+                  <Totals subtotal={subtotal} fee={fee} feeLabel={feeLabel} total={total} eta={quote?.eta} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-4 grid items-start gap-4 sm:mt-6 lg:grid-cols-[1fr_400px] lg:gap-6">
+          <form id="checkout-form" onSubmit={handleSubmit(onSubmit, onInvalid)} noValidate aria-busy={processing} className="grid gap-4">
+            <Section title="Contact">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Field label="Full name" error={errors.fullName?.message} id="fullName">
+                  {p => <input {...p} {...register("fullName")} autoComplete="name" placeholder="Ama Mensah" />}
+                </Field>
+                <Field label="Phone" error={errors.phone?.message} hint="For delivery updates and MoMo." id="phone">
+                  {p => <input {...p} {...register("phone")} type="tel" inputMode="tel" autoComplete="tel" placeholder="024 123 4567" />}
+                </Field>
+                <div className="sm:col-span-2">
+                  <Field label="Email" optional error={errors.email?.message} hint="We’ll send your receipt here." id="email">
+                    {p => <input {...p} {...register("email")} type="email" inputMode="email" autoComplete="email" placeholder="you@example.com" />}
+                  </Field>
+                </div>
+              </div>
+            </Section>
+
+            <Section title="Delivery">
+              <fieldset>
+                <legend className="sr-only">How would you like to get your order?</legend>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <ChoiceCard register={register("method")} value="delivery" icon={Truck} title="Deliver to me" text="Anywhere in Ghana" />
+                  <ChoiceCard register={register("method")} value="pickup" icon={Store} title="Pick up in Osu" text={`Free · ${pickup.eta.toLowerCase()}`} />
+                </div>
+              </fieldset>
+
+              {method === "delivery" ? (
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  <SelectField
+                    id="region"
+                    label="Region"
+                    error={errors.region?.message}
+                    register={register("region")}
+                    placeholder="Choose your region"
+                    options={regions.map(r => ({ value: r.name, label: r.name }))}
+                  />
+                  {region === ACCRA ? (
+                    <SelectField
+                      id="area"
+                      label="Area"
+                      error={errors.area?.message}
+                      register={register("area")}
+                      placeholder="Choose your area"
+                      options={accraAreas.map(a => ({ value: a.name, label: `${a.name} · ${formatPrice(a.fee)}` }))}
+                    />
+                  ) : (
+                    <Field label="Town or city" error={errors.city?.message} id="city">
+                      {p => <input {...p} {...register("city")} autoComplete="address-level2" placeholder={region ? "e.g. Kumasi" : "Choose a region first"} disabled={!region} />}
+                    </Field>
+                  )}
+                  <div className="sm:col-span-2">
+                    <Field label="Address or landmark" error={errors.address?.message} id="address">
+                      {p => <input {...p} {...register("address")} autoComplete="street-address" placeholder="House number, street, nearby landmark" />}
+                    </Field>
+                  </div>
+                  <Field label="Ghana Post GPS" optional error={errors.gps?.message} id="gps">
+                    {p => <input {...p} {...register("gps")} autoCapitalize="characters" placeholder="GA-123-4567" />}
+                  </Field>
+                  <Field label="Note for the rider" optional error={errors.notes?.message} id="notes">
+                    {p => <input {...p} {...register("notes")} placeholder="Call when you arrive" />}
+                  </Field>
+                  {quote && (
+                    <p className="flex items-center gap-2.5 rounded-2xl bg-brand-soft px-4 py-3 text-[14px] text-ink sm:col-span-2" aria-live="polite">
+                      <Truck className="size-[18px] shrink-0 text-brand" aria-hidden />
+                      <span><strong className="font-semibold">{formatPrice(quote.fee)}</strong> · arrives {quote.eta.toLowerCase()}</span>
+                    </p>
+                  )}
+                </div>
+              ) : (
+                <div className="mt-5 flex gap-3.5 rounded-[20px] bg-mist p-4">
+                  <MapPin className="mt-0.5 size-5 shrink-0 text-ink" aria-hidden />
+                  <div>
+                    <p className="text-[15px] font-semibold text-ink">{pickup.label}</p>
+                    <p className="mt-1 text-[14px] leading-6 text-ink-soft">{pickup.eta}. We’ll WhatsApp you the exact location and a pickup time.</p>
+                  </div>
+                </div>
+              )}
+            </Section>
+
+            <Section title="Payment" aside={<span className="flex items-center gap-1.5 text-[13px] text-ink-soft"><Lock className="size-3.5" aria-hidden /> Paystack</span>}>
+              <fieldset>
+                <legend className="sr-only">Payment method</legend>
+                <div className="grid gap-3">
+                  <ChoiceCard register={register("payment")} value="momo" icon={Smartphone} title="Mobile Money" text="MTN MoMo, Telecel Cash, AirtelTigo Money" />
+                  <ChoiceCard register={register("payment")} value="card" icon={CreditCard} title="Card" text="Visa, Mastercard and Verve" />
+                </div>
+              </fieldset>
+              <p className="mt-4 text-[13px] leading-5 text-ink-soft">You’ll confirm the payment on Paystack’s secure screen. Demo store: no money is taken.</p>
+              <button type="submit" disabled={processing} className="btn btn-primary btn-lg btn-caps mt-6 hidden w-full lg:flex">
+                {payLabel}
+              </button>
+            </Section>
+          </form>
+
+          {/* Desktop: sticky summary */}
+          <aside aria-label="Order summary" className="sticky top-[92px] hidden rounded-[28px] bg-white p-7 lg:block">
+            <h2 className="text-[22px] font-semibold tracking-[-0.02em] text-ink">Your order</h2>
+            <div className="-mx-2 mt-3 max-h-[360px] overflow-y-auto px-2 pt-2">
+              <SummaryItems items={items} />
+            </div>
+            <div className="mt-2 border-t border-line pt-5">
+              <Totals subtotal={subtotal} fee={fee} feeLabel={feeLabel} total={total} eta={quote?.eta} />
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      {/* Phones: pay bar stays in reach of the thumb */}
+      <div data-sticky-cta className="translucent safe-bottom fixed inset-x-0 bottom-0 z-30 border-t border-line/70 bg-white/90 px-4 pt-3 backdrop-blur-xl lg:hidden">
+        <button type="submit" form="checkout-form" disabled={processing} className="btn btn-primary btn-caps h-[54px] w-full text-[16px]">
+          {payLabel}
+        </button>
       </div>
     </div>
   );

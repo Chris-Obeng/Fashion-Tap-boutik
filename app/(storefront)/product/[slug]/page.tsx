@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { getProductBySlug, getProducts, getRelated } from "@/lib/products";
 import { categoryHref, categoryName } from "@/data/categories";
 import { ProductGallery } from "@/components/product/product-gallery";
-import { ProductInfo } from "@/components/product/product-info";
+import { ProductInfo, ProductTitle } from "@/components/product/product-info";
 import { ProductRail } from "@/components/shared/product-rail";
 import { SectionHeading } from "@/components/shared/section-heading";
 
@@ -46,8 +46,9 @@ export default async function ProductPage({ params }: PageProps<"/product/[slug]
           <li><Link href={categoryHref(product.category)} className="hover:text-ink">{categoryName(product.category)}</Link></li>
         </ol>
       </nav>
-      <div className="container-shell grid gap-8 md:grid-cols-[1.15fr_.85fr] md:gap-12 md:pt-5 lg:gap-16">
-        <ProductGallery images={product.images} name={product.name} tint={product.tint} />
+      <div className="container-shell grid gap-6 md:grid-cols-[1.15fr_.85fr] md:gap-12 md:pt-5 lg:gap-16">
+        <ProductTitle product={product} className="pt-5 md:hidden" />
+        <ProductGallery images={product.images} name={product.name} tint={product.tint} cutout={product.cutout} />
         <ProductInfo product={product} />
       </div>
       <section className="mt-16 bg-mist py-14 sm:mt-24 sm:py-20">

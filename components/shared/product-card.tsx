@@ -18,6 +18,7 @@ export function ProductCard({
   const isSoldOut = soldOut(product);
   const isNew = product.tags.includes("new");
   const href = `/product/${product.slug}`;
+  const fit = product.cutout ? "object-contain p-[11%]" : "object-cover";
   return (
     <article className="group relative min-w-0">
       <div
@@ -27,21 +28,22 @@ export function ProductCard({
         <Image
           src={product.images[0]}
           alt=""
-          data-studio
+          data-studio=""
           fill
           preload={preload}
           sizes={sizes}
-          className="object-cover"
+          className={cn(fit, product.cutout && "transition-transform duration-700 ease-[var(--ease-out)] group-hover:scale-[1.04]")}
         />
         {product.images[1] && (
           <Image
             src={product.images[1]}
             alt=""
             data-secondary
+            data-studio={product.cutout ? "" : undefined}
             fill
             preload={false}
             sizes={sizes}
-            className="object-cover opacity-0"
+            className={cn(fit, "opacity-0")}
           />
         )}
         {(isNew || product.compareAtPrice || isSoldOut) && (
@@ -57,11 +59,7 @@ export function ProductCard({
         {product.colors.length > 1 && (
           <span className="absolute bottom-3 left-3 flex gap-1.5">
             {product.colors.map(c => (
-              <span
-                key={c.name}
-                className="size-3 rounded-full ring-1 ring-black/10"
-                style={{ backgroundColor: c.hex }}
-              />
+              <span key={c.name} className="size-3 rounded-full ring-1 ring-black/10" style={{ backgroundColor: c.hex }} />
             ))}
           </span>
         )}

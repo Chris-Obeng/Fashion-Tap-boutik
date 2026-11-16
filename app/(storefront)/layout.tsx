@@ -1,22 +1,14 @@
 import { Header } from "@/components/shared/header";
 import { Footer } from "@/components/shared/footer";
 import { CartPanel } from "@/components/cart/cart-panel";
-import { getProducts } from "@/lib/products";
-import type { SearchItem } from "@/types";
+import { AddedToBag } from "@/components/cart/added-to-bag";
+import { getProducts, toSearchItem } from "@/lib/products";
 
 export default async function StorefrontLayout({ children }: LayoutProps<"/">) {
-  // Search runs fully client-side over the catalog, so the layout passes a
-  // minimal snapshot down once — no API round-trips while typing.
+  // Search runs fully client-side over the catalogue, so the layout passes a
+  // minimal snapshot down once: no API round-trips while typing.
   const products = await getProducts();
-  const searchItems: SearchItem[] = products.map(p => ({
-    slug: p.slug,
-    name: p.name,
-    price: p.price,
-    category: p.category,
-    image: p.images[0],
-    tint: p.tint,
-    soldOut: p.sizes.every(s => s.stock === 0),
-  }));
+  const searchItems = products.map(toSearchItem);
 
   return (
     <>
@@ -24,6 +16,7 @@ export default async function StorefrontLayout({ children }: LayoutProps<"/">) {
       <main className="flex-1">{children}</main>
       <Footer />
       <CartPanel />
+      <AddedToBag />
     </>
   );
 }
