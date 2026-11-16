@@ -6,6 +6,10 @@ export const site = {
   // Verified from the store's TikTok profile (bio links WhatsApp 0249446921).
   tiktok: "https://www.tiktok.com/@fashiontapboutik",
   tiktokHandle: "@fashiontapboutik",
+  // Confirmed by the store owner.
+  instagram: "https://www.instagram.com/fashion_tap_boutik/",
+  instagramHandle: "@fashion_tap_boutik",
+  facebook: "https://www.facebook.com/p/Fashion-Tap-Boutique-100065018320292/",
   whatsapp: whatsappNumber,
   phoneDisplay: "024 944 6921",
   phoneHref: "tel:+233249446921",

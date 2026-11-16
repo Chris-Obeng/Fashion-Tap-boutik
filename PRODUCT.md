@@ -31,7 +31,7 @@ A small, personal Accra boutique with a 54K-follower TikTok audience, presented 
 
 - Name: Fashion Tap Boutik, Accra, Ghana. The logo artwork reads "Fashion Tap BOUTIQUE" (figure in a polka-dot dress, pink script). Source: TikTok avatar, processed into `public/brand/logo.png`, `logo-light.png`, `app/icon.png`.
 - Brand pink from the logo (#E5087F; #D4006F for text).
-- Verified channels: TikTok [@fashiontapboutik](https://www.tiktok.com/@fashiontapboutik), WhatsApp 024 944 6921 (from the TikTok bio). No verified Instagram or Facebook account was found; do not link guesses.
+- Verified channels: TikTok [@fashiontapboutik](https://www.tiktok.com/@fashiontapboutik), WhatsApp 024 944 6921 (from the TikTok bio). Instagram [@fashion_tap_boutik](https://www.instagram.com/fashion_tap_boutik/) and [Facebook](https://www.facebook.com/p/Fashion-Tap-Boutique-100065018320292/) confirmed by the owner.
 - Visual reference pinned by the owner: beatsbydre.com and apple.com (clean, image-led, generous, very little text).
 
 ## Evidence on Hand
