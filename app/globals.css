@@ -1,26 +1,306 @@
 @import "tailwindcss";
+@import "@heroui/styles";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ------------------------------------------------------------------------------------------------
+ * Storefront theme tokens layered on top of HeroUI's own @theme mapping.
+ * ---------------------------------------------------------------------------------------------- */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Apple-monochrome palette */
+  --color-canvas: var(--canvas);
+  --color-soft: var(--soft);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-sale: var(--sale);
+  --color-danger: var(--danger);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ------------------------------------------------------------------------------------------------
+ * Design tokens. Unlayered, so these win over HeroUI's @layer base defaults.
+ * A white canvas, near-black ink, one gray for everything secondary. No decoration.
+ * ---------------------------------------------------------------------------------------------- */
+:root {
+  /* Motion — custom curves, never the built-in easings */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Palette */
+  --canvas: #fbfbfd;
+  --soft: #f5f5f7;
+  --ink: #1d1d1f;
+  --ink-soft: #6e6e73;
+  --ink-faint: #86868b;
+  --line: #d2d2d7;
+  --sale: #a1512f;
+
+  /* HeroUI semantic tokens */
+  --surface: var(--canvas);
+  --surface-foreground: var(--ink);
+  --surface-secondary: var(--soft);
+  --surface-secondary-foreground: var(--ink);
+  --surface-tertiary: #ebebef;
+  --surface-tertiary-foreground: var(--ink);
+  --overlay: #ffffff;
+  --overlay-foreground: var(--ink);
+  --default: var(--soft);
+  --default-foreground: var(--ink);
+  --default-soft: #ececf0;
+  --muted: var(--ink-faint);
+  --accent: var(--ink);
+  --accent-foreground: #ffffff;
+  --separator: var(--line);
+  --focus: #0071e3;
+  --link: var(--ink);
+  --backdrop: rgb(0 0 0 / 0.32);
+  --danger: #d70015;
+  --danger-foreground: #fff;
+  --success: #248a3d;
+  --warning: #c93400;
+
+  /* Fields */
+  --field-background: #ffffff;
+  --field-foreground: var(--ink);
+  --field-placeholder: var(--ink-faint);
+  --field-border: var(--line);
+  --field-border-width: 1px;
+  --field-shadow: none;
+  --field-radius: 0.75rem;
+
+  /* Shape + motion */
+  --radius: 0.75rem;
+  --skeleton-animation: pulse;
+  --cursor-interactive: pointer;
+}
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    scroll-padding-top: 72px;
+    -webkit-text-size-adjust: 100%;
+    overscroll-behavior-x: none;
+  }
+
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button,
+  [role="button"],
+  a {
+    touch-action: manipulation;
+  }
+
+  button,
+  [role="button"],
+  label {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  button:not(:disabled),
+  [role="button"] {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: #e8e8ed;
+    color: var(--ink);
+  }
+
+  img {
+    background-color: var(--soft);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-[1200px] px-5 sm:px-8 lg:px-10;
+  }
+
+  /* Display type — Geist semibold, tracking tightens as size grows. */
+  .display {
+    @apply font-semibold leading-[1.07] tracking-[-0.022em];
+  }
+
+  /* Press feedback: every pressable element acknowledges the touch instantly. */
+  .press {
+    transition:
+      transform 150ms var(--ease-out),
+      background-color 150ms var(--ease-out),
+      border-color 150ms var(--ease-out),
+      color 150ms var(--ease-out),
+      opacity 150ms var(--ease-out);
+  }
+
+  .press:active {
+    transform: scale(0.97);
+  }
+
+  /* Card image crossfade — the alternate view fades in on hover-capable pointers only. */
+  .card-media img {
+    transition: opacity 450ms var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .group:hover .card-media img[data-secondary],
+    .group:focus-visible .card-media img[data-secondary] {
+      opacity: 1;
+    }
+  }
+
+  /* Slow image drift on tile hover — pointer-capable devices only. */
+  @media (hover: hover) and (pointer: fine) {
+    .media-zoom img {
+      transition: transform 700ms var(--ease-out);
+    }
+
+    .group:hover .media-zoom img,
+    .group:focus-visible .media-zoom img {
+      transform: scale(1.04);
+    }
+  }
+
+  /* Search palette entry — materialises with @starting-style, no JS timing. */
+  .search-backdrop {
+    background: rgb(0 0 0 / 0.32);
+    opacity: 1;
+    transition: opacity 200ms var(--ease-out);
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  .search-panel {
+    transform-origin: top center;
+    transition:
+      opacity 200ms var(--ease-out),
+      transform 200ms var(--ease-out);
+
+    @starting-style {
+      opacity: 0;
+      transform: scale(0.97) translateY(-8px);
+    }
+  }
+
+  .safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 16px fields stop iOS from zooming on focus. */
+  input:not([type="range"]),
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
+  /* Touch targets + shape + press feedback for every HeroUI button. */
+  .button {
+    min-height: 44px;
+    border-radius: 9999px;
+    transition-property: transform, background-color, border-color, color, opacity;
+    transition-duration: 150ms;
+    transition-timing-function: var(--ease-out);
+  }
+
+  .button:not(:disabled):active {
+    transform: scale(0.97);
+  }
+
+  /* HeroUI field defaults: full width, 48px fields, 16px text (no iOS zoom). */
+  .input,
+  .textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .input {
+    height: 3rem;
+  }
+
+  .textarea {
+    min-height: 6rem;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  header,
+  .translucent {
+    background: var(--canvas) !important;
+    backdrop-filter: none !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --line: #a1a1a6;
+    --ink-soft: #48484a;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .press,
+  .press:active {
+    transition: none;
+    transform: none;
+  }
+
+  .card-media img {
+    transition: none;
+  }
+
+  .search-backdrop,
+  .search-panel {
+    transition: none;
+  }
+
+  /* Keyframe animations stop dead; brief opacity/color transitions may remain. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
