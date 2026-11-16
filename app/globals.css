@@ -23,7 +23,7 @@
 /* ------------------------------------------------------------------------------------------------
  * Design tokens. Unlayered, so these win over HeroUI's @layer base defaults.
  * White canvas and Beats-gray sections; colour comes from each product's own field
- * (see .tint-media) plus one emerald brand accent for "new", badges and focus.
+ * (see .tint-media) plus the logo's pink as the one brand accent: "new", badges, focus.
  * ---------------------------------------------------------------------------------------------- */
 :root {
   /* Motion: custom curves, never the built-in easings */
@@ -39,8 +39,8 @@
   --ink-soft: #595959;
   --ink-faint: #8a8a8a;
   --line: #e2e2e2;
-  --brand: #0a6b4e;
-  --brand-soft: #e3f1ec;
+  --brand: #d4006f;
+  --brand-soft: #fde8f2;
   --sale: #c4161c;
 
   /* HeroUI semantic tokens */
@@ -196,48 +196,91 @@
     transform: scale(0.97);
   }
 
-  /* Pill buttons used on photography (hero, banners). */
-  .pill {
-    @apply inline-flex h-12 items-center justify-center gap-2 rounded-full px-7 text-[15px] font-semibold;
+  /* Buttons, Beats-style: full pills, medium weight, quiet tracking. One vocabulary site-wide.
+   * btn-primary: solid ink. btn-outline: ink hairline that fills on hover.
+   * btn-light / btn-ghost-light: for use on photography and dark panels. */
+  .btn {
+    @apply inline-flex h-12 items-center justify-center gap-2 rounded-full px-7 text-[15px] font-medium tracking-[0.01em] whitespace-nowrap select-none;
     transition:
       transform 160ms var(--ease-out),
-      background-color 160ms var(--ease-out),
-      color 160ms var(--ease-out);
+      background-color 180ms var(--ease-out),
+      border-color 180ms var(--ease-out),
+      color 180ms var(--ease-out),
+      opacity 180ms var(--ease-out);
   }
 
-  .pill:active {
+  .btn:active:not(:disabled) {
     transform: scale(0.97);
   }
 
-  .pill-light {
-    @apply bg-white text-ink;
+  .btn:disabled,
+  .btn[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: 0.4;
   }
 
-  .pill-ghost {
-    @apply border border-white/80 text-white;
-    background: rgb(255 255 255 / 0.06);
-    backdrop-filter: blur(8px);
+  .btn-sm {
+    @apply h-10 px-5 text-[14px];
   }
 
-  .pill-dark {
+  .btn-lg {
+    @apply h-14 px-8 text-[16px];
+  }
+
+  /* Commerce actions read in caps, like Beats' ADD TO BAG. */
+  .btn-caps {
+    @apply uppercase tracking-[0.06em];
+  }
+
+  .btn-primary {
     @apply bg-ink text-white;
   }
 
+  .btn-outline {
+    @apply border-[1.5px] border-ink bg-white text-ink;
+  }
+
+  .btn-soft {
+    @apply bg-mist text-ink;
+  }
+
+  .btn-light {
+    @apply bg-white text-ink;
+  }
+
+  .btn-ghost-light {
+    @apply border-[1.5px] border-white text-white;
+    background: rgb(255 255 255 / 0.04);
+    backdrop-filter: blur(6px);
+  }
+
   @media (hover: hover) and (pointer: fine) {
-    .pill-light:hover {
-      background: #ececec;
+    .btn-primary:hover:not(:disabled) {
+      background: #333;
     }
 
-    .pill-ghost:hover {
-      background: rgb(255 255 255 / 0.16);
+    .btn-outline:hover:not(:disabled) {
+      @apply bg-ink text-white;
     }
 
-    .pill-dark:hover {
-      background: #2b2b2b;
+    .btn-soft:hover:not(:disabled) {
+      background: #e4e4e4;
+    }
+
+    .btn-light:hover:not(:disabled) {
+      background: #e9e9e9;
+    }
+
+    .btn-ghost-light:hover:not(:disabled) {
+      @apply bg-white text-ink;
     }
   }
 
   /* Card: alternate lifestyle view fades in on hover-capable pointers only. */
+  .media-zoom img {
+    transition: transform 700ms var(--ease-out);
+  }
+
   .card-media img {
     transition:
       opacity 400ms var(--ease-out),
@@ -309,7 +352,8 @@
   .button {
     min-height: 44px;
     border-radius: 9999px;
-    font-weight: 600;
+    font-weight: 500;
+    letter-spacing: 0.01em;
     transition-property: transform, background-color, border-color, color, opacity;
     transition-duration: 160ms;
     transition-timing-function: var(--ease-out);
@@ -369,6 +413,46 @@
 
 .hero-copy > :nth-child(3) {
   animation-delay: 280ms;
+}
+
+/* "Choose your size" nudge: a short, damped side-to-side shake. */
+@keyframes size-nudge {
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(2px); }
+}
+
+.size-nudge {
+  animation: size-nudge 420ms var(--ease-out);
+}
+
+/* Full-screen image viewer fades up from the gallery. */
+.lightbox {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 220ms var(--ease-out),
+    transform 260ms var(--ease-out);
+
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+/* Bag count bump when something is added. */
+@keyframes badge-bump {
+  30% {
+    transform: scale(1.35);
+  }
+  60% {
+    transform: scale(0.92);
+  }
+}
+
+.badge-bump {
+  animation: badge-bump 450ms var(--ease-out);
 }
 
 @media (prefers-reduced-transparency: reduce) {

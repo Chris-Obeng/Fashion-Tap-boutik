@@ -1,12 +1,12 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { Suspense, useCallback, useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { ChevronRight, Menu, Search, ShoppingBag } from "lucide-react";
-import { Button, Drawer } from "@heroui/react";
+import { Drawer } from "@heroui/react";
 import { SearchDialog, useSearchShortcut } from "@/components/shared/search-dialog";
 import { Logo } from "@/components/shared/logo";
+import { ProductThumb } from "@/components/shared/product-thumb";
 import { TikTokIcon, WhatsAppIcon } from "@/components/shared/social-icons";
 import { categories, categoryHref } from "@/data/categories";
 import { useBagUI, useCart, cartCount } from "@/store/cart";
@@ -33,10 +33,49 @@ function DesktopNav() {
           )}
         >
           {link.name}
-          {active === link.id && <span className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-ink" />}
+          {active === link.id && <span className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-brand" />}
         </Link>
       ))}
     </nav>
+  );
+}
+
+const iconButton =
+  "press relative flex size-11 items-center justify-center rounded-full text-ink hover:bg-mist";
+
+/** Bag icon whose count gives a small spring "bump" whenever the bag grows. */
+function BagButton({ count, onOpen }: { count: number; onOpen: () => void }) {
+  const [bump, setBump] = useState(false);
+  const prev = useRef(count);
+  useEffect(() => {
+    if (count > prev.current) {
+      setBump(true);
+      const t = setTimeout(() => setBump(false), 450);
+      prev.current = count;
+      return () => clearTimeout(t);
+    }
+    prev.current = count;
+  }, [count]);
+
+  return (
+    <button
+      type="button"
+      className={iconButton}
+      aria-label={`Shopping bag, ${count} ${count === 1 ? "item" : "items"}`}
+      onClick={onOpen}
+    >
+      <ShoppingBag className={cn("size-[22px] stroke-[1.6] transition-transform duration-300 ease-[var(--ease-out)]", bump && "scale-110")} />
+      {count > 0 && (
+        <span
+          className={cn(
+            "absolute right-0.5 top-0.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-brand px-1 text-[10px] font-bold leading-none text-white tabular-nums ring-2 ring-white",
+            bump && "badge-bump"
+          )}
+        >
+          {count}
+        </span>
+      )}
+    </button>
   );
 }
 
@@ -50,62 +89,43 @@ export function Header({ searchItems }: { searchItems: SearchItem[] }) {
 
   return (
     <>
-      <header className="translucent sticky top-0 z-40 bg-white/85 backdrop-blur-xl backdrop-saturate-150">
-        <div className="mx-auto grid h-14 w-full max-w-[1280px] grid-cols-[1fr_auto_1fr] items-center px-2 sm:px-6 lg:h-16 lg:grid-cols-[auto_1fr_auto] lg:gap-8 lg:px-10">
+      <div className="bg-ink text-white">
+        <p className="container-shell flex h-9 items-center justify-center gap-2 text-center text-[12px] font-medium tracking-[0.01em] sm:text-[13px]">
+          Delivery nationwide
+          <span aria-hidden className="text-white/40">·</span>
+          Same or next day in Accra
+        </p>
+      </div>
+      <header className="translucent sticky top-0 z-40 border-b border-line/60 bg-white/85 backdrop-blur-xl backdrop-saturate-150">
+        <div className="mx-auto grid h-[60px] w-full max-w-[1280px] grid-cols-[1fr_auto_1fr] items-center px-2 sm:px-6 lg:h-[68px] lg:grid-cols-[auto_1fr_auto] lg:gap-8 lg:px-10">
           <div className="flex items-center">
-            <Button
-              variant="ghost"
-              isIconOnly
-              className="size-11 lg:hidden"
-              aria-label="Open menu"
-              onPress={() => setMenu(true)}
-            >
-              <Menu className="size-[22px] stroke-[1.75]" />
-            </Button>
-            <Logo className="hidden lg:inline-flex" />
+            <button type="button" className={cn(iconButton, "lg:hidden")} aria-label="Open menu" onClick={() => setMenu(true)}>
+              <Menu className="size-[22px] stroke-[1.6]" />
+            </button>
+            <Logo priority className="hidden h-[50px] lg:inline-flex" />
           </div>
-          <Logo className="lg:hidden" />
+          <Logo priority className="h-[44px] lg:hidden" />
           <Suspense fallback={<div className="hidden lg:block" />}>
             <DesktopNav />
           </Suspense>
           <div className="flex items-center justify-end">
-            <Button
-              variant="ghost"
-              isIconOnly
-              className="size-11"
-              aria-label="Search products"
-              onPress={() => setSearch(true)}
-            >
-              <Search className="size-[21px] stroke-[1.75]" />
-            </Button>
-            <Button
-              variant="ghost"
-              isIconOnly
-              className="relative size-11"
-              aria-label={`Shopping bag, ${count} ${count === 1 ? "item" : "items"}`}
-              onPress={() => openBag(true)}
-            >
-              <ShoppingBag className="size-[21px] stroke-[1.75]" />
-              {count > 0 && (
-                <span className="absolute right-1 top-1 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-brand px-1 text-[10px] font-bold leading-none text-white tabular-nums">
-                  {count}
-                </span>
-              )}
-            </Button>
+            <button type="button" className={iconButton} aria-label="Search products" onClick={() => setSearch(true)}>
+              <Search className="size-[21px] stroke-[1.6]" />
+            </button>
+            <BagButton count={count} onOpen={() => openBag(true)} />
           </div>
         </div>
-        <div aria-hidden className="h-px bg-gradient-to-r from-transparent via-line to-transparent" />
       </header>
 
       <Drawer isOpen={menu} onOpenChange={setMenu}>
         <Drawer.Backdrop>
           <Drawer.Content placement="left">
-            <Drawer.Dialog className="w-full gap-0 p-0 sm:w-[400px]">
-              <Drawer.CloseTrigger className="absolute end-3 top-3 z-20" />
-              <Drawer.Body className="flex min-h-0 flex-1 flex-col overflow-y-auto p-0">
+            <Drawer.Dialog className="w-full gap-0 bg-white p-0 sm:w-[400px]">
+              <Drawer.Body className="m-0 flex min-h-0 flex-1 flex-col overflow-y-auto p-0 text-ink">
                 <Drawer.Heading className="sr-only">Menu</Drawer.Heading>
-                <div className="flex h-14 items-center px-5">
-                  <Logo />
+                <div className="flex h-[60px] items-center justify-between px-4">
+                  <Logo className="h-[44px]" />
+                  <Drawer.CloseTrigger className="static" />
                 </div>
                 <nav aria-label="Mobile" className="mt-2 flex flex-col px-3">
                   {categories.map(c => (
@@ -113,48 +133,29 @@ export function Header({ searchItems }: { searchItems: SearchItem[] }) {
                       key={c.id}
                       href={categoryHref(c.id)}
                       onClick={() => setMenu(false)}
-                      className="press group flex min-h-[68px] items-center gap-4 rounded-2xl px-2 active:bg-mist"
+                      className="press flex min-h-[68px] items-center gap-4 rounded-2xl px-2 active:bg-mist"
                     >
-                      <span
-                        className="tint-media relative size-12 shrink-0 overflow-hidden rounded-full"
-                        style={{ "--tint": c.tint } as React.CSSProperties}
-                      >
-                        <Image src={c.image} alt="" data-studio fill sizes="48px" className="object-cover" />
-                      </span>
+                      <ProductThumb src={c.image} tint={c.tint} cutout={c.cutout} sizes="52px" className="size-[52px] rounded-full" />
                       <span className="flex-1 text-[22px] font-semibold tracking-[-0.02em] text-ink">{c.name}</span>
                       <ChevronRight className="size-5 text-ink-faint" aria-hidden />
                     </Link>
                   ))}
-                  <Link
-                    href="/shop"
-                    onClick={() => setMenu(false)}
-                    className="mx-2 mt-3 flex min-h-12 items-center border-t border-line pt-3 text-[17px] font-medium text-ink"
-                  >
-                    Shop everything
-                  </Link>
-                  <Link
-                    href="/orders"
-                    onClick={() => setMenu(false)}
-                    className="mx-2 flex min-h-12 items-center text-[17px] font-medium text-ink"
-                  >
-                    Your orders
-                  </Link>
+                  <div className="mx-2 mt-3 border-t border-line pt-3">
+                    {[
+                      { href: "/shop", label: "Shop everything" },
+                      { href: "/orders", label: "Your orders" },
+                    ].map(l => (
+                      <Link key={l.href} href={l.href} onClick={() => setMenu(false)} className="flex min-h-12 items-center text-[17px] font-medium text-ink">
+                        {l.label}
+                      </Link>
+                    ))}
+                  </div>
                 </nav>
                 <div className="safe-bottom mt-auto grid grid-cols-2 gap-2 px-5 pt-8">
-                  <a
-                    href={whatsappHref()}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="press flex h-12 items-center justify-center gap-2 rounded-full bg-mist text-[14px] font-semibold text-ink"
-                  >
+                  <a href={whatsappHref()} target="_blank" rel="noreferrer" className="btn btn-soft">
                     <WhatsAppIcon className="size-[18px] text-[#25d366]" /> WhatsApp
                   </a>
-                  <a
-                    href={site.tiktok}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="press flex h-12 items-center justify-center gap-2 rounded-full bg-mist text-[14px] font-semibold text-ink"
-                  >
+                  <a href={site.tiktok} target="_blank" rel="noreferrer" className="btn btn-soft">
                     <TikTokIcon className="size-[16px]" /> TikTok
                   </a>
                 </div>

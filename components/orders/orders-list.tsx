@@ -66,7 +66,7 @@ export function OrdersList() {
                     style={{ "--tint": item.tint } as React.CSSProperties}
                     aria-hidden
                   >
-                    <Image src={item.image} alt="" data-studio fill preload={false} sizes="48px" className="object-cover" />
+                    <Image src={item.image} alt="" data-studio="" fill preload={false} sizes="48px" className={item.cutout ? "object-contain p-1.5" : "object-cover"} />
                   </span>
                 ))}
                 {order.items.length > 4 && (

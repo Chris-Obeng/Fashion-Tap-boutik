@@ -1,11 +1,11 @@
 import { Logo } from "@/components/shared/logo";
 
-/** Minimal sticky chrome for checkout and order confirmation pages. */
+/** Minimal sticky chrome for checkout: logo home, plus an optional trailing slot. */
 export function ChromeHeader({ trailing }: { trailing?: React.ReactNode }) {
   return (
-    <header className="sticky top-0 z-30 border-b border-line/70 bg-canvas/80 backdrop-blur-xl backdrop-saturate-150">
-      <div className="container-shell flex h-14 items-center justify-between">
-        <Logo />
+    <header className="translucent sticky top-0 z-30 border-b border-line/60 bg-white/85 backdrop-blur-xl backdrop-saturate-150">
+      <div className="container-shell flex h-[60px] items-center justify-between lg:h-[68px]">
+        <Logo priority className="h-[44px] lg:h-[50px]" />
         {trailing}
       </div>
     </header>

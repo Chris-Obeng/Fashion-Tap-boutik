@@ -14,19 +14,19 @@ export const metadata: Metadata = {
     template: "%s · Fashion Tap Boutik",
   },
   description:
-    "Dresses, shoes, bags, jewellery and fragrance from Fashion Tap Boutik in Accra. Delivery across Accra, pay with Mobile Money or card.",
+    "Gowns, heels, handbags, watches and fragrance from Fashion Tap Boutik in Accra. Delivered nationwide across Ghana. Pay with Mobile Money or card.",
   openGraph: {
     title: "Fashion Tap Boutik",
-    description: "Luxury pieces, delivered across Accra.",
+    description: "Luxury pieces, delivered across Ghana.",
     siteName: "Fashion Tap Boutik",
     locale: "en_GH",
     type: "website",
-    images: [{ url: editorial.heroMobile, width: 1024, height: 1024, alt: "Fashion Tap Boutik" }],
+    images: [{ url: editorial.hero.src, width: 1400, height: 2100, alt: editorial.hero.alt }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Fashion Tap Boutik",
-    description: "Luxury pieces, delivered across Accra.",
+    description: "Luxury pieces, delivered across Ghana.",
   },
 };
 
