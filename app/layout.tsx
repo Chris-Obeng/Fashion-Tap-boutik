@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Figtree } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { CartHydrator } from "@/components/shared/cart-hydrator";
 import { Toaster } from "@/components/ui/sonner";
 import { editorial } from "@/data/categories";
 
-const figtree = Figtree({ variable: "--font-figtree", subsets: ["latin", "latin-ext"], display: "swap" });
+// Closest open face to Beats' Neuzeit Grotesk: geometric grotesk, calm at regular weight.
+const sans = Hanken_Grotesk({ variable: "--font-sans-face", subsets: ["latin", "latin-ext"], display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fashiontapboutik.com"),
@@ -41,7 +42,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-GH" className={`${figtree.variable} h-full`}>
+    <html lang="en-GH" className={`${sans.variable} h-full`}>
       <body className="flex min-h-full flex-col">
         <CartHydrator />
         {children}

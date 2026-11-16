@@ -46,14 +46,9 @@ export function ProductCard({
             className={cn(fit, "opacity-0")}
           />
         )}
-        {(isNew || product.compareAtPrice || isSoldOut) && (
-          <span
-            className={cn(
-              "absolute left-3 top-3 rounded-full bg-white px-2.5 py-1 text-[12px] font-semibold leading-none",
-              isSoldOut ? "text-ink-soft" : product.compareAtPrice ? "text-sale" : "text-brand"
-            )}
-          >
-            {isSoldOut ? "Sold out" : product.compareAtPrice ? "Sale" : "New"}
+        {(product.compareAtPrice || isSoldOut) && (
+          <span className="absolute left-3 top-3 rounded-md bg-white/90 px-2 py-1 text-[12px] leading-none text-ink">
+            {isSoldOut ? "Sold out" : "Sale"}
           </span>
         )}
         {product.colors.length > 1 && (
@@ -64,20 +59,21 @@ export function ProductCard({
           </span>
         )}
       </div>
-      <div className="px-1 pt-3">
-        <h3 className="text-[15px] font-semibold leading-5 tracking-[-0.01em] text-ink">
+      <div className="px-1 pt-3.5">
+        {isNew && <p className="mb-1 text-[12px] font-bold uppercase tracking-[0.04em] text-brand">New</p>}
+        <h3 className="text-[16px] font-semibold leading-5 text-ink">
           <Link href={href} className="after:absolute after:inset-0 after:rounded-[22px] focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-brand">
             {product.name}
           </Link>
         </h3>
-        <p className="mt-1 text-[14px] tabular-nums">
+        <p className="mt-1.5 text-[15px] tabular-nums">
           {product.compareAtPrice ? (
             <>
               <span className="font-medium text-sale">{formatPrice(product.price)}</span>{" "}
               <s className="text-ink-faint">{formatPrice(product.compareAtPrice)}</s>
             </>
           ) : (
-            <span className="text-ink-soft">{formatPrice(product.price)}</span>
+            <span className="text-ink">{formatPrice(product.price)}</span>
           )}
         </p>
       </div>

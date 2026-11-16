@@ -61,12 +61,12 @@ export function ProductTitle({ product, className }: { product: Product; classNa
   const isNew = product.tags.includes("new");
   return (
     <div className={className}>
-      <p className="text-[14px] font-medium">
-        {isNew && <span className="text-brand">New</span>}
+      <p className="text-[13px]">
+        {isNew && <span className="font-bold uppercase tracking-[0.04em] text-brand">New</span>}
         {isNew && <span className="text-ink-faint"> · </span>}
         <span className="text-ink-soft">{categoryName(product.category)}</span>
       </p>
-      <h1 className="display mt-1.5 text-[32px] text-ink sm:text-[44px]">{product.name}</h1>
+      <h1 className="display mt-1 text-[32px] text-ink sm:text-[40px]">{product.name}</h1>
     </div>
   );
 }
@@ -123,7 +123,7 @@ export function ProductInfo({ product }: { product: Product }) {
       <div className="min-w-0 md:sticky md:top-24 md:self-start">
         <ProductTitle product={product} className="hidden md:block" />
         <div className="flex items-baseline gap-2.5 md:mt-3">
-          <p className={cn("text-[22px] font-semibold tabular-nums tracking-[-0.01em]", product.compareAtPrice ? "text-sale" : "text-ink")}>
+          <p className={cn("text-[22px] tabular-nums", product.compareAtPrice ? "text-sale" : "text-ink")}>
             {formatPrice(product.price)}
           </p>
           {product.compareAtPrice && <s className="text-[15px] tabular-nums text-ink-faint">{formatPrice(product.compareAtPrice)}</s>}
@@ -205,7 +205,7 @@ export function ProductInfo({ product }: { product: Product }) {
         )}
 
         <div className="mt-8 hidden gap-2.5 md:grid">
-          <button type="button" onClick={addToBag} disabled={allSoldOut} className="btn btn-primary btn-lg btn-caps w-full">
+          <button type="button" onClick={addToBag} disabled={allSoldOut} className="btn btn-primary btn-caps w-full">
             {label}
           </button>
           <a href={ask} target="_blank" rel="noreferrer" className="btn btn-outline w-full">
@@ -259,9 +259,9 @@ export function ProductInfo({ product }: { product: Product }) {
         <div className="flex items-center gap-3">
           <div className="min-w-0 flex-1">
             <p className="truncate text-[13px] text-ink-soft">{[color, !single && size ? `Size ${size}` : null].filter(Boolean).join(" · ") || product.name}</p>
-            <p className={cn("text-[18px] font-semibold tabular-nums", product.compareAtPrice ? "text-sale" : "text-ink")}>{formatPrice(product.price)}</p>
+            <p className={cn("text-[18px] tabular-nums", product.compareAtPrice ? "text-sale" : "text-ink")}>{formatPrice(product.price)}</p>
           </div>
-          <button type="button" onClick={addToBag} disabled={allSoldOut} className="btn btn-primary btn-caps h-[52px] min-w-[190px] px-6">
+          <button type="button" onClick={addToBag} disabled={allSoldOut} className="btn btn-primary btn-caps min-w-[176px]">
             {label}
           </button>
         </div>

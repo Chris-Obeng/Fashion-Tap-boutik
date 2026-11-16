@@ -6,7 +6,6 @@ import { ChevronRight, Menu, Search, ShoppingBag } from "lucide-react";
 import { Drawer } from "@heroui/react";
 import { SearchDialog, useSearchShortcut } from "@/components/shared/search-dialog";
 import { Logo } from "@/components/shared/logo";
-import { ProductThumb } from "@/components/shared/product-thumb";
 import { TikTokIcon, WhatsAppIcon } from "@/components/shared/social-icons";
 import { categories, categoryHref } from "@/data/categories";
 import { useBagUI, useCart, cartCount } from "@/store/cart";
@@ -28,12 +27,11 @@ function DesktopNav() {
           href={link.href}
           aria-current={active === link.id ? "page" : undefined}
           className={cn(
-            "relative py-2 text-[14px] font-medium transition-colors hover:text-ink",
-            active === link.id ? "text-ink" : "text-ink-soft"
+            "relative py-2 text-[15px] font-semibold transition-colors",
+            active === link.id ? "text-brand" : "text-ink hover:text-brand"
           )}
         >
           {link.name}
-          {active === link.id && <span className="absolute inset-x-0 -bottom-px h-0.5 rounded-full bg-brand" />}
         </Link>
       ))}
     </nav>
@@ -90,7 +88,7 @@ export function Header({ searchItems }: { searchItems: SearchItem[] }) {
   return (
     <>
       <div className="bg-ink text-white">
-        <p className="container-shell flex h-9 items-center justify-center gap-2 text-center text-[12px] font-medium tracking-[0.01em] sm:text-[13px]">
+        <p className="container-shell flex h-9 items-center justify-center gap-2 text-center text-[13px] font-semibold">
           Delivery nationwide
           <span aria-hidden className="text-white/40">·</span>
           Same or next day in Accra
@@ -133,14 +131,13 @@ export function Header({ searchItems }: { searchItems: SearchItem[] }) {
                       key={c.id}
                       href={categoryHref(c.id)}
                       onClick={() => setMenu(false)}
-                      className="press flex min-h-[68px] items-center gap-4 rounded-2xl px-2 active:bg-mist"
+                      className="press flex min-h-[60px] items-center gap-4 border-b border-line px-2 last:border-0 active:bg-mist"
                     >
-                      <ProductThumb src={c.image} tint={c.tint} cutout={c.cutout} sizes="52px" className="size-[52px] rounded-full" />
-                      <span className="flex-1 text-[22px] font-semibold tracking-[-0.02em] text-ink">{c.name}</span>
+                      <span className="flex-1 text-[22px] font-semibold text-ink">{c.name}</span>
                       <ChevronRight className="size-5 text-ink-faint" aria-hidden />
                     </Link>
                   ))}
-                  <div className="mx-2 mt-3 border-t border-line pt-3">
+                  <div className="mx-2 mt-4 pt-1">
                     {[
                       { href: "/shop", label: "Shop everything" },
                       { href: "/orders", label: "Your orders" },

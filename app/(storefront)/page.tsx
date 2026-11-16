@@ -41,9 +41,9 @@ function FeatureBanner({
         <Image src={image.src} alt={image.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: imagePosition }} />
       </div>
       <div className="flex flex-col items-start justify-center px-6 py-14 text-white sm:px-12 md:py-20 lg:px-20">
-        <h2 className="display text-[42px] sm:text-[56px] lg:text-[68px]">{title}</h2>
-        <p className="mt-3 max-w-[30ch] text-[17px] leading-7 text-white/75 sm:text-[19px]">{text}</p>
-        <Link href={href} className="btn btn-light mt-8 min-w-[180px]">
+        <h2 className="display text-[36px] sm:text-[44px] lg:text-[52px]">{title}</h2>
+        <p className="mt-2 max-w-[30ch] text-[17px] leading-7 text-white/80 sm:text-[19px]">{text}</p>
+        <Link href={href} className="btn btn-light mt-7">
           {action}
         </Link>
       </div>
@@ -59,8 +59,8 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero: one portrait scene on phones, a Beats-style triptych on wide screens. */}
-      <section className="relative isolate h-[min(calc(100svh-96px),760px)] min-h-[560px] overflow-hidden bg-ink lg:h-[min(calc(100svh-104px),860px)]">
+      {/* Hero, Beats-style: one studio shoot. A close portrait on phones, three frames side by side on wide screens. */}
+      <section className="relative isolate h-[min(calc(100svh-96px),740px)] min-h-[540px] overflow-hidden bg-[#2a3a5e] lg:h-[min(calc(100svh-104px),720px)]">
         <div className="hero-media absolute inset-0 -z-10">
           <Image
             src={editorial.hero.src}
@@ -69,26 +69,31 @@ export default async function HomePage() {
             preload
             quality={85}
             sizes="(max-width: 1024px) 100vw, 1px"
-            className="object-cover object-[50%_28%] lg:hidden"
+            className="object-cover object-[42%_22%] lg:hidden"
           />
-          <div className="hidden h-full grid-cols-3 lg:grid">
-            {editorial.heroTriptych.map(img => (
+          <div className="hidden h-full grid-cols-[1fr_1.12fr_1fr] lg:grid">
+            {editorial.heroTriptych.map((img, i) => (
               <div key={img.src} className="relative h-full">
-                <Image src={img.src} alt={img.alt} fill loading="eager" quality={85} sizes="34vw" className="object-cover object-[50%_30%]" />
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  loading="eager"
+                  quality={85}
+                  sizes="38vw"
+                  className={i === 0 ? "object-cover object-[30%_40%]" : i === 1 ? "object-cover object-[45%_25%]" : "object-cover object-[60%_30%]"}
+                />
               </div>
             ))}
           </div>
         </div>
-        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/75 via-black/20 to-black/0" />
-        <div className="hero-copy container-shell flex h-full flex-col items-center justify-end pb-12 text-center text-white sm:pb-16 lg:pb-20">
-          <h1 className="display text-[54px] sm:text-[76px] lg:text-[100px]">The Luxe Edit</h1>
-          <p className="mt-3 text-[17px] leading-6 text-white/85 sm:text-[20px] sm:leading-7">
-            <span className="block">Gowns, heels, bags and watches.</span>
-            <span className="block">Delivered across Ghana.</span>
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link href="/shop" className="btn btn-light min-w-[148px]">Shop now</Link>
-            <Link href="/shop?category=new" className="btn btn-ghost-light min-w-[148px]">New in</Link>
+        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/55 via-black/10 to-transparent lg:bg-gradient-to-t lg:from-black/35 lg:via-transparent" />
+        <div className="hero-copy container-shell flex h-full flex-col items-center justify-end pb-11 text-center text-white sm:pb-14 lg:pb-16">
+          <h1 className="display text-[44px] sm:text-[56px] lg:text-[64px]">Made to be noticed.</h1>
+          <p className="mt-2 text-[17px] leading-6 text-white/90 sm:text-[20px] sm:leading-7">Luxury fashion, delivered across Ghana.</p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link href="/shop" className="btn btn-light">Shop now</Link>
+            <Link href="/shop?category=new" className="btn btn-ghost-light">New in</Link>
           </div>
         </div>
       </section>
@@ -100,7 +105,7 @@ export default async function HomePage() {
             <li key={c.id} className="shrink-0 snap-start">
               <Link href={categoryHref(c.id)} className="press group flex w-[92px] flex-col items-center gap-2.5 sm:w-[118px] lg:w-[146px]">
                 <ProductThumb src={c.image} tint={c.tint} cutout={c.cutout} sizes="146px" className="media-zoom aspect-square w-full rounded-[24px]" />
-                <span className="text-center text-[13px] font-semibold leading-4 text-ink sm:text-[14px]">{c.name}</span>
+                <span className="text-center text-[13px] font-medium leading-4 text-ink sm:text-[14px]">{c.name}</span>
               </Link>
             </li>
           ))}
@@ -169,10 +174,10 @@ export default async function HomePage() {
             <TikTokIcon className="size-6" />
           </span>
           <div>
-            <h2 className="display text-[32px] text-ink sm:text-[44px]">54K follow us on TikTok</h2>
+            <h2 className="display text-[30px] text-ink sm:text-[40px]">54K follow us on TikTok</h2>
             <p className="mt-2 text-[16px] text-ink-soft sm:text-[18px]">New arrivals, try-ons and restocks, first.</p>
           </div>
-          <a href={site.tiktok} target="_blank" rel="noreferrer" className="btn btn-primary min-w-[200px]">
+          <a href={site.tiktok} target="_blank" rel="noreferrer" className="btn btn-primary">
             Follow {site.tiktokHandle}
           </a>
         </div>
@@ -188,7 +193,7 @@ export default async function HomePage() {
                   <Icon className="size-6 stroke-[1.6] text-ink" aria-hidden />
                 </span>
                 <span className="block">
-                  <span className="block text-[17px] font-semibold tracking-[-0.01em] text-ink">{title}</span>
+                  <span className="block text-[17px] font-semibold text-ink">{title}</span>
                   <span className="mt-0.5 block text-[15px] text-ink-soft">{text}</span>
                 </span>
               </>

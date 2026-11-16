@@ -6,16 +6,16 @@ const image = (slug: string, index = 0) => bySlug(slug)?.images[index] ?? "";
 const pexels = (id: number, w = 1600) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
 
 /**
- * Editorial imagery for the homepage. Pexels photos (free for commercial use, no
- * attribution required) of Ghanaian and West African women, chosen for a store whose
- * customers are in Ghana; plus lifestyle scenes from the catalogue itself.
+ * Editorial imagery for the homepage: Pexels photos (free for commercial use, no
+ * attribution required) of West African women, plus lifestyle scenes from the catalogue.
  */
 export const editorial = {
-  hero: { src: pexels(15238827, 1400), alt: "Woman in a scarlet gown walking down a sunlit street" },
+  // One studio shoot, one model, like Beats' hero: Pexels series 38472458–38472466.
+  hero: { src: pexels(38472462, 1400), alt: "Model in a cream strapless dress and gold jewellery against a blue backdrop" },
   heroTriptych: [
-    { src: pexels(2562497, 1000), alt: "Two women in red dresses posing in a garden" },
-    { src: pexels(15238827, 1000), alt: "Woman in a scarlet gown walking down a sunlit street" },
-    { src: pexels(29037464, 1000), alt: "Woman in a blush evening gown on a city street" },
+    { src: pexels(38472459, 1000), alt: "Model in a cream dress reclining, gold bangles and rings" },
+    { src: pexels(38472462, 1000), alt: "Model in a cream strapless dress and gold jewellery against a blue backdrop" },
+    { src: pexels(38472458, 1000), alt: "Model in profile wearing gold drop earrings and bangles" },
   ],
   bags: { src: pexels(27108129, 1400), alt: "Woman in a satin dress with a black leather handbag" },
   jewellery: { src: image("solitaire-pendant", 1), alt: "Solitaire pendant in a navy velvet box on marble" },
