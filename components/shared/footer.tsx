@@ -3,14 +3,16 @@ import { Phone } from "lucide-react";
 import { categories, categoryHref } from "@/data/categories";
 import { site, whatsappHref } from "@/lib/config";
 import { Logo } from "@/components/shared/logo";
-import { TikTokIcon, WhatsAppIcon } from "@/components/shared/social-icons";
+import { FacebookIcon, InstagramIcon, TikTokIcon, WhatsAppIcon } from "@/components/shared/social-icons";
 
 const shopLinks = [{ name: "Shop everything", href: "/shop" }, ...categories.map(c => ({ name: c.name, href: categoryHref(c.id) }))];
 
 const socials = [
-  { name: "TikTok", label: site.tiktokHandle, href: site.tiktok, icon: <TikTokIcon className="size-[19px]" /> },
-  { name: "WhatsApp", label: "Chat with us", href: whatsappHref(), icon: <WhatsAppIcon className="size-[21px]" /> },
-  { name: "Call", label: site.phoneDisplay, href: site.phoneHref, icon: <Phone className="size-[19px]" /> },
+  { name: "TikTok", label: site.tiktokHandle, text: `TikTok ${site.tiktokHandle}`, href: site.tiktok, icon: <TikTokIcon className="size-[19px]" /> },
+  { name: "Instagram", label: site.instagramHandle, text: `Instagram ${site.instagramHandle}`, href: site.instagram, icon: <InstagramIcon className="size-[19px]" /> },
+  { name: "Facebook", label: "Fashion Tap Boutique", text: "Facebook", href: site.facebook, icon: <FacebookIcon className="size-[19px]" /> },
+  { name: "WhatsApp", label: "Chat with us", text: "WhatsApp: chat with us", href: whatsappHref(), icon: <WhatsAppIcon className="size-[21px]" /> },
+  { name: "Call", label: site.phoneDisplay, text: `Call ${site.phoneDisplay}`, href: site.phoneHref, icon: <Phone className="size-[19px]" /> },
 ];
 
 export function Footer() {
@@ -23,7 +25,7 @@ export function Footer() {
             <p className="mt-4 max-w-[30ch] text-[15px] leading-6 text-white/65">
               Quality shoes, bags, clothes, purses and watches. From Accra to anywhere in Ghana.
             </p>
-            <ul role="list" className="mt-7 flex gap-3">
+            <ul role="list" className="mt-7 flex flex-wrap gap-3">
               {socials.map(s => (
                 <li key={s.name}>
                   <a
@@ -69,7 +71,7 @@ export function Footer() {
                     rel="noreferrer"
                     className="inline-flex py-2 text-[15px] text-white/85 transition-colors hover:text-white"
                   >
-                    {s.name === "TikTok" ? `TikTok ${s.label}` : s.name === "Call" ? `Call ${s.label}` : `WhatsApp: ${s.label.toLowerCase()}`}
+                    {s.text}
                   </a>
                 </li>
               ))}

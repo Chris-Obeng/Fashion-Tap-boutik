@@ -7,7 +7,7 @@ import { Drawer } from "@heroui/react";
 import { SearchDialog, useSearchShortcut } from "@/components/shared/search-dialog";
 import { Logo } from "@/components/shared/logo";
 import { ProductThumb } from "@/components/shared/product-thumb";
-import { TikTokIcon, WhatsAppIcon } from "@/components/shared/social-icons";
+import { FacebookIcon, InstagramIcon, TikTokIcon, WhatsAppIcon } from "@/components/shared/social-icons";
 import { categories, categoryHref } from "@/data/categories";
 import { useBagUI, useCart, cartCount } from "@/store/cart";
 import { site, whatsappHref } from "@/lib/config";
@@ -151,13 +151,19 @@ export function Header({ searchItems }: { searchItems: SearchItem[] }) {
                     ))}
                   </div>
                 </nav>
-                <div className="safe-bottom mt-auto grid grid-cols-2 gap-2 px-5 pt-8">
-                  <a href={whatsappHref()} target="_blank" rel="noreferrer" className="btn btn-soft">
-                    <WhatsAppIcon className="size-[18px] text-[#25d366]" /> WhatsApp
+                <div className="safe-bottom mt-auto grid grid-cols-3 gap-2 px-5 pt-8">
+                  <a href={whatsappHref()} target="_blank" rel="noreferrer" className="btn btn-soft col-span-3">
+                    <WhatsAppIcon className="size-[18px] text-[#25d366]" /> Chat on WhatsApp
                   </a>
-                  <a href={site.tiktok} target="_blank" rel="noreferrer" className="btn btn-soft">
-                    <TikTokIcon className="size-[16px]" /> TikTok
-                  </a>
+                  {[
+                    { name: "TikTok", href: site.tiktok, icon: <TikTokIcon className="size-[17px]" /> },
+                    { name: "Instagram", href: site.instagram, icon: <InstagramIcon className="size-[18px]" /> },
+                    { name: "Facebook", href: site.facebook, icon: <FacebookIcon className="size-[18px]" /> },
+                  ].map(s => (
+                    <a key={s.name} href={s.href} target="_blank" rel="noreferrer" aria-label={`Fashion Tap Boutik on ${s.name}`} className="press flex h-12 items-center justify-center rounded-full bg-mist text-ink hover:bg-[#e6e6e6]">
+                      {s.icon}
+                    </a>
+                  ))}
                 </div>
               </Drawer.Body>
             </Drawer.Dialog>
