@@ -415,6 +415,36 @@
   animation-delay: 280ms;
 }
 
+/* Desktop hero slides: cross-fade between shoots, each frame easing out of a slow push-in. */
+.hero-slide {
+  opacity: 0;
+  transition: opacity 1100ms var(--ease-in-out);
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+}
+
+.hero-slide .hero-frame {
+  transform: scale(1.06);
+  transition: transform 7000ms var(--ease-out);
+}
+
+.hero-slide.is-active .hero-frame {
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide {
+    transition-duration: 200ms;
+  }
+
+  .hero-slide .hero-frame {
+    transform: none;
+    transition: none;
+  }
+}
+
 /* "Choose your size" nudge: a short, damped side-to-side shake. */
 @keyframes size-nudge {
   20% { transform: translateX(-6px); }

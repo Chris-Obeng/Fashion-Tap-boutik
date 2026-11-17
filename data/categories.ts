@@ -10,12 +10,28 @@ const pexels = (id: number, w = 1600) => `https://images.pexels.com/photos/${id}
  * attribution required) of West African women, plus lifestyle scenes from the catalogue.
  */
 export const editorial = {
-  // One studio shoot, one model, like Beats' hero: Pexels series 38472458–38472466.
-  hero: { src: pexels(38472462, 1400), alt: "Model in a cream strapless dress and gold jewellery against a blue backdrop" },
-  heroTriptych: [
-    { src: pexels(38472459, 1000), alt: "Model in a cream dress reclining, gold bangles and rings" },
-    { src: pexels(38472462, 1000), alt: "Model in a cream strapless dress and gold jewellery against a blue backdrop" },
-    { src: pexels(38472458, 1000), alt: "Model in profile wearing gold drop earrings and bangles" },
+  // Clean studio shoots (Pexels, free for commercial use). Phones get one portrait;
+  // desktop cross-fades between a menswear shoot and a womenswear shoot, Beats-style.
+  heroMobile: { src: pexels(28211216, 1400), alt: "Man in a black puffer jacket and pearl necklace", position: "50% 20%" },
+  heroSlides: [
+    {
+      label: "Menswear",
+      backdrop: "#cfc9d6",
+      frames: [
+        { src: pexels(28211217, 1100), alt: "Man in profile adjusting tortoiseshell glasses", position: "55% 30%" },
+        { src: pexels(28211216, 1100), alt: "Man in a black puffer jacket and pearl necklace", position: "50% 25%" },
+        { src: pexels(28211218, 1100), alt: "Man in a black puffer jacket, hands folded", position: "50% 30%" },
+      ],
+    },
+    {
+      label: "Womenswear",
+      backdrop: "#8b8d70",
+      frames: [
+        { src: pexels(8498750, 1400), alt: "Woman with curly hair in a cream jacket, close-up", position: "35% 40%" },
+        { src: pexels(8498706, 1100), alt: "Woman in a cream two-piece looking over her shoulder", position: "50% 25%" },
+        { src: pexels(8498758, 1100), alt: "Woman in a cream two-piece seated on a yellow chair", position: "50% 30%" },
+      ],
+    },
   ],
   bags: { src: pexels(27108129, 1400), alt: "Woman in a satin dress with a black leather handbag" },
   jewellery: { src: image("solitaire-pendant", 1), alt: "Solitaire pendant in a navy velvet box on marble" },

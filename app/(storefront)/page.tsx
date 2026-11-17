@@ -8,6 +8,7 @@ import { ProductRail } from "@/components/shared/product-rail";
 import { ProductThumb } from "@/components/shared/product-thumb";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { TikTokIcon } from "@/components/shared/social-icons";
+import { Hero } from "@/components/home/hero";
 import { site, whatsappHref } from "@/lib/config";
 
 const services = [
@@ -59,44 +60,7 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero, Beats-style: one studio shoot. A close portrait on phones, three frames side by side on wide screens. */}
-      <section className="relative isolate h-[min(calc(100svh-96px),740px)] min-h-[540px] overflow-hidden bg-[#2a3a5e] lg:h-[min(calc(100svh-104px),720px)]">
-        <div className="hero-media absolute inset-0 -z-10">
-          <Image
-            src={editorial.hero.src}
-            alt={editorial.hero.alt}
-            fill
-            preload
-            quality={85}
-            sizes="(max-width: 1024px) 100vw, 1px"
-            className="object-cover object-[42%_22%] lg:hidden"
-          />
-          <div className="hidden h-full grid-cols-[1fr_1.12fr_1fr] lg:grid">
-            {editorial.heroTriptych.map((img, i) => (
-              <div key={img.src} className="relative h-full">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  loading="eager"
-                  quality={85}
-                  sizes="38vw"
-                  className={i === 0 ? "object-cover object-[30%_40%]" : i === 1 ? "object-cover object-[45%_25%]" : "object-cover object-[60%_30%]"}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/55 via-black/10 to-transparent lg:bg-gradient-to-t lg:from-black/35 lg:via-transparent" />
-        <div className="hero-copy container-shell flex h-full flex-col items-center justify-end pb-11 text-center text-white sm:pb-14 lg:pb-16">
-          <h1 className="display text-[44px] sm:text-[56px] lg:text-[64px]">Made to be noticed.</h1>
-          <p className="mt-2 text-[17px] leading-6 text-white/90 sm:text-[20px] sm:leading-7">Luxury fashion, delivered across Ghana.</p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link href="/shop" className="btn btn-light">Shop now</Link>
-            <Link href="/shop?category=new" className="btn btn-ghost-light">New in</Link>
-          </div>
-        </div>
-      </section>
+      <Hero mobile={editorial.heroMobile} slides={editorial.heroSlides} />
 
       {/* Category row */}
       <nav aria-label="Shop by category" className="container-shell pt-8 sm:pt-12">
