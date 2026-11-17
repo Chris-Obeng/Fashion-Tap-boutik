@@ -126,16 +126,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <FeatureBanner
-        image={editorial.jewellery}
-        title="Watches & fine jewellery."
-        text="Moonphase dials, two-tone bracelets and solitaire pendants."
-        href="/shop?category=accessories"
-        action="Shop watches"
-        panel="#1c2436"
-        reverse
-      />
-
       {/* Heels */}
       <section className="bg-mist py-14 sm:py-20">
         <div className="container-shell">

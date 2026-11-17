@@ -8,13 +8,9 @@
 const SYNONYMS: string[][] = [
   ["bag", "bags", "handbag", "handbags", "tote", "purse", "purses", "clutch", "clutches", "hobo", "backpack"],
   ["shoe", "shoes", "heels", "heel", "pumps", "pump", "stiletto", "stilettos", "sneakers", "sneaker", "trainers", "boots", "boot", "sandals", "mary", "janes"],
-  ["watch", "watches", "timepiece", "wristwatch"],
-  ["jewellery", "jewelry", "necklace", "pendant", "earrings", "earring", "drops", "chain"],
   ["dress", "dresses", "gown", "gowns", "frock"],
   ["shirt", "shirts", "top", "tops", "tee", "tshirt", "t-shirt", "polo"],
   ["trousers", "pants", "chinos", "khaki"],
-  ["sunglasses", "shades", "glasses", "aviators"],
-  ["hat", "hats", "cap"],
   ["women", "womens", "ladies", "her"],
   ["men", "mens", "him", "gents"],
 ];
