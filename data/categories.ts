@@ -9,12 +9,12 @@ const pexels = (id: number, w = 1600) => `https://images.pexels.com/photos/${id}
  * attribution required) of West African women, plus lifestyle scenes from the catalogue.
  */
 export const editorial = {
-  // Phones open on our own shop floor, then cross-fade to studio portraits (Pexels, free for
+  // Phones open on our own shop floor, then cross-fade to knit and crochet looks (Pexels, free for
   // commercial use); desktop cross-fades between triptychs.
   heroMobile: [
     { src: "/products/shop-floor-hero.jpg", alt: "Two shoppers in striped knit polos at a rail in our Accra shop", position: "50% 30%" },
-    { src: pexels(8498706, 1400), alt: "Woman in a cream two-piece looking over her shoulder", position: "50% 25%" },
-    { src: pexels(8422383, 1400), alt: "Man in a cream knit resort polo and round glasses", position: "50% 25%" },
+    { src: pexels(36699354, 1400), alt: "Man in a cream striped knit polo leaning on a stadium rail", position: "35% 30%" },
+    { src: pexels(34626700, 1400), alt: "Man in a black and white striped crochet shirt against a brick wall", position: "50% 30%" },
   ],
   heroSlides: [
     {
