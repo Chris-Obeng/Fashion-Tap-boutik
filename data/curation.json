@@ -1,12 +1,12 @@
 {
-  "$comment": "Store-side catalogue: which SceneSKU packs and DummyJSON products we list, and the merchandising SceneSKU doesn't provide (category, GH₵ price in pesewas, colours, sizes, card tint). Placeholder data until Supabase. Run `pnpm sync:products` after editing ids.",
+  "$comment": "Store-side catalogue: which SceneSKU packs, DummyJSON products and Pexels photo sets (t-shirts) we list, and the merchandising SceneSKU doesn't provide (category, GH₵ price in pesewas, colours, sizes, card tint). Placeholder data until Supabase. Run `pnpm sync:products` after editing ids. hideImages: indexes of source images to skip (e.g. faces cropped mid-frame). hideImages: indexes of source images to skip (e.g. faces cropped mid-frame).",
   "products": [
     {
       "id": "8672bb13-c2c0-4fd0-bb6e-e5e53c25182d",
       "slug": "pleated-wrap-dress",
       "name": "Pleated Wrap Dress",
       "category": "women",
-      "price": 145000,
+      "price": 29000,
       "tint": "#ece4d8",
       "colors": [
         [
@@ -24,6 +24,10 @@
       "tags": [
         "new",
         "featured"
+      ],
+      "hideImages": [
+        1,
+        5
       ]
     },
     {
@@ -31,7 +35,7 @@
       "slug": "stand-collar-pleat-dress",
       "name": "Stand Collar Pleat Dress",
       "category": "women",
-      "price": 115000,
+      "price": 26000,
       "tint": "#e1e5d2",
       "colors": [
         [
@@ -49,6 +53,9 @@
       "tags": [
         "new",
         "featured"
+      ],
+      "hideImages": [
+        1
       ]
     },
     {
@@ -56,7 +63,7 @@
       "slug": "waist-tie-maxi-dress",
       "name": "Waist-Tie Maxi Dress",
       "category": "women",
-      "price": 98000,
+      "price": 24000,
       "tint": "#dbe8ea",
       "colors": [
         [
@@ -80,7 +87,7 @@
       "slug": "cape-sleeve-skirt-set",
       "name": "Cape Sleeve Skirt Set",
       "category": "women",
-      "price": 138000,
+      "price": 28000,
       "tint": "#eadcd1",
       "colors": [
         [
@@ -103,7 +110,7 @@
       "slug": "linen-day-dress",
       "name": "Linen Day Dress",
       "category": "women",
-      "price": 105000,
+      "price": 25000,
       "tint": "#e1e7ee",
       "colors": [
         [
@@ -128,8 +135,8 @@
       "slug": "sleeveless-shirt-dress",
       "name": "Sleeveless Shirt Dress",
       "category": "women",
-      "price": 76000,
-      "compareAtPrice": 92000,
+      "price": 21000,
+      "compareAtPrice": 25000,
       "tint": "#f2eac6",
       "colors": [
         [
@@ -143,14 +150,17 @@
         "L",
         "XL"
       ],
-      "tags": []
+      "tags": [],
+      "hideImages": [
+        6
+      ]
     },
     {
       "id": "fdf32b88-2711-45d3-b757-07558ec93941",
       "slug": "crisp-white-shirt",
       "name": "Crisp White Shirt",
       "category": "men",
-      "price": 69000,
+      "price": 20000,
       "tint": "#e4e9ef",
       "colors": [
         [
@@ -174,7 +184,7 @@
       "slug": "knitted-polo",
       "name": "Knitted Polo",
       "category": "men",
-      "price": 59000,
+      "price": 18000,
       "tint": "#ece6da",
       "colors": [
         [
@@ -197,7 +207,7 @@
       "slug": "tailored-khaki-trousers",
       "name": "Tailored Khaki Trousers",
       "category": "men",
-      "price": 64000,
+      "price": 19000,
       "tint": "#e9e2d3",
       "colors": [
         [
@@ -218,7 +228,7 @@
       "slug": "leather-mary-janes",
       "name": "Leather Mary Janes",
       "category": "shoes",
-      "price": 110000,
+      "price": 25000,
       "tint": "#e6e6ea",
       "colors": [
         [
@@ -243,7 +253,7 @@
       "slug": "cream-lug-boots",
       "name": "Cream Lug Boots",
       "category": "shoes",
-      "price": 135000,
+      "price": 28000,
       "tint": "#ece8df",
       "colors": [
         [
@@ -267,7 +277,7 @@
       "slug": "heritage-leather-boots",
       "name": "Heritage Leather Boots",
       "category": "shoes",
-      "price": 165000,
+      "price": 30000,
       "tint": "#ead9cb",
       "colors": [
         [
@@ -291,7 +301,7 @@
       "slug": "cloud-white-sneakers",
       "name": "Cloud White Sneakers",
       "category": "shoes",
-      "price": 98000,
+      "price": 24000,
       "tint": "#dfe9e5",
       "colors": [
         [
@@ -313,7 +323,7 @@
       "slug": "camel-leather-tote",
       "name": "Camel Leather Tote",
       "category": "bags",
-      "price": 320000,
+      "price": 38000,
       "tint": "#efdfcc",
       "colors": [
         [
@@ -334,7 +344,7 @@
       "slug": "solitaire-pendant",
       "name": "Solitaire Pendant",
       "category": "accessories",
-      "price": 580000,
+      "price": 45000,
       "tint": "#e3e7ef",
       "colors": [
         [
@@ -358,7 +368,7 @@
       "slug": "cross-pendant-necklace",
       "name": "Cross Pendant Necklace",
       "category": "accessories",
-      "price": 160000,
+      "price": 30000,
       "tint": "#ece6da",
       "colors": [
         [
@@ -380,8 +390,8 @@
       "slug": "tortoise-sunglasses",
       "name": "Tortoise Sunglasses",
       "category": "accessories",
-      "price": 190000,
-      "compareAtPrice": 230000,
+      "price": 32000,
+      "compareAtPrice": 38000,
       "tint": "#efe2d4",
       "colors": [
         [
@@ -401,7 +411,7 @@
       "slug": "wide-brim-straw-hat",
       "name": "Wide-Brim Straw Hat",
       "category": "accessories",
-      "price": 52000,
+      "price": 17000,
       "tint": "#f0e8d6",
       "colors": [
         [
@@ -419,7 +429,7 @@
       "slug": "sculpted-eau-de-parfum",
       "name": "Sculpted Eau de Parfum",
       "category": "beauty",
-      "price": 210000,
+      "price": 33000,
       "tint": "#f0e5d3",
       "colors": [
         [
@@ -440,7 +450,7 @@
       "slug": "rose-crystal-parfum",
       "name": "Rose Crystal Parfum",
       "category": "beauty",
-      "price": 230000,
+      "price": 34000,
       "tint": "#f2e0e3",
       "colors": [
         [
@@ -460,7 +470,7 @@
       "slug": "velvet-red-lipstick",
       "name": "Velvet Red Lipstick",
       "category": "beauty",
-      "price": 45000,
+      "price": 15000,
       "tint": "#f3dede",
       "colors": [
         [
@@ -478,7 +488,7 @@
       "slug": "white-canvas-low-tops",
       "name": "White Canvas Low-Tops",
       "category": "shoes",
-      "price": 52000,
+      "price": 17000,
       "tint": "#e7ebee",
       "colors": [
         [
@@ -502,7 +512,7 @@
       "slug": "black-canvas-high-tops",
       "name": "Black Canvas High-Tops",
       "category": "shoes",
-      "price": 56000,
+      "price": 18000,
       "tint": "#e6e6ea",
       "colors": [
         [
@@ -525,7 +535,7 @@
       "slug": "blush-knit-trainers",
       "name": "Blush Knit Trainers",
       "category": "shoes",
-      "price": 68000,
+      "price": 20000,
       "tint": "#f6e3e3",
       "colors": [
         [
@@ -549,7 +559,7 @@
       "slug": "vintage-denim-jacket",
       "name": "Vintage Denim Jacket",
       "category": "women",
-      "price": 72000,
+      "price": 20000,
       "tint": "#dfe6ef",
       "colors": [
         [
@@ -571,7 +581,7 @@
       "slug": "garden-floral-midi-dress",
       "name": "Garden Floral Midi Dress",
       "category": "women",
-      "price": 88000,
+      "price": 23000,
       "tint": "#f3e8ea",
       "colors": [
         [
@@ -588,6 +598,9 @@
       ],
       "tags": [
         "new"
+      ],
+      "hideImages": [
+        5
       ]
     },
     {
@@ -596,7 +609,7 @@
       "slug": "aqua-saffiano-tote",
       "name": "Aqua Saffiano Tote",
       "category": "bags",
-      "price": 420000,
+      "price": 41000,
       "tint": "#dceef0",
       "colors": [
         [
@@ -624,7 +637,7 @@
       "slug": "cobalt-leather-handbag",
       "name": "Cobalt Leather Handbag",
       "category": "bags",
-      "price": 285000,
+      "price": 36000,
       "tint": "#e2e6f5",
       "colors": [
         [
@@ -651,7 +664,7 @@
       "slug": "cognac-leather-hobo",
       "name": "Cognac Leather Hobo",
       "category": "bags",
-      "price": 245000,
+      "price": 35000,
       "tint": "#f0e1d3",
       "colors": [
         [
@@ -678,7 +691,7 @@
       "slug": "noir-structured-handbag",
       "name": "Noir Structured Handbag",
       "category": "bags",
-      "price": 310000,
+      "price": 37000,
       "tint": "#e9e9eb",
       "colors": [
         [
@@ -703,7 +716,7 @@
       "slug": "ivory-mini-backpack",
       "name": "Ivory Mini Backpack",
       "category": "bags",
-      "price": 165000,
+      "price": 30000,
       "tint": "#efebe4",
       "colors": [
         [
@@ -728,7 +741,7 @@
       "slug": "noir-pointed-pumps",
       "name": "Noir Pointed Pumps",
       "category": "shoes",
-      "price": 125000,
+      "price": 27000,
       "tint": "#ebe7e4",
       "colors": [
         [
@@ -760,7 +773,7 @@
       "slug": "gold-metallic-pumps",
       "name": "Gold Metallic Pumps",
       "category": "shoes",
-      "price": 148000,
+      "price": 29000,
       "tint": "#f3e9d8",
       "colors": [
         [
@@ -793,7 +806,7 @@
       "slug": "scarlet-satin-pumps",
       "name": "Scarlet Satin Pumps",
       "category": "shoes",
-      "price": 138000,
+      "price": 28000,
       "tint": "#f6e1e1",
       "colors": [
         [
@@ -826,7 +839,7 @@
       "slug": "patent-stiletto-pumps",
       "name": "Patent Stiletto Pumps",
       "category": "shoes",
-      "price": 132000,
+      "price": 27000,
       "tint": "#ececee",
       "colors": [
         [
@@ -856,7 +869,7 @@
       "slug": "sculpted-strap-heels",
       "name": "Sculpted Strap Heels",
       "category": "shoes",
-      "price": 152000,
+      "price": 29000,
       "tint": "#e8e6ec",
       "colors": [
         [
@@ -888,7 +901,7 @@
       "slug": "two-tone-jubilee-watch",
       "name": "Two-Tone Jubilee Watch",
       "category": "accessories",
-      "price": 780000,
+      "price": 48000,
       "tint": "#efe8dc",
       "colors": [
         [
@@ -916,7 +929,7 @@
       "slug": "moonphase-leather-watch",
       "name": "Moonphase Leather Watch",
       "category": "accessories",
-      "price": 690000,
+      "price": 47000,
       "tint": "#ece3dc",
       "colors": [
         [
@@ -943,7 +956,7 @@
       "slug": "gold-bracelet-watch",
       "name": "Gold Bracelet Watch",
       "category": "accessories",
-      "price": 450000,
+      "price": 42000,
       "tint": "#f1e9d6",
       "colors": [
         [
@@ -968,7 +981,7 @@
       "slug": "steel-automatic-watch",
       "name": "Steel Automatic Watch",
       "category": "accessories",
-      "price": 920000,
+      "price": 50000,
       "tint": "#e5e8ec",
       "colors": [
         [
@@ -995,7 +1008,7 @@
       "slug": "gold-chronograph-watch",
       "name": "Gold Chronograph Watch",
       "category": "accessories",
-      "price": 860000,
+      "price": 49000,
       "tint": "#efe6d6",
       "colors": [
         [
@@ -1020,7 +1033,7 @@
       "slug": "emerald-crystal-drops",
       "name": "Emerald Crystal Drops",
       "category": "accessories",
-      "price": 98000,
+      "price": 24000,
       "tint": "#e0ece5",
       "colors": [
         [
@@ -1047,7 +1060,7 @@
       "slug": "gold-leaf-earrings",
       "name": "Gold Leaf Earrings",
       "category": "accessories",
-      "price": 64000,
+      "price": 19000,
       "tint": "#f3ead8",
       "colors": [
         [
@@ -1072,7 +1085,7 @@
       "slug": "gradient-aviators",
       "name": "Gradient Aviators",
       "category": "accessories",
-      "price": 135000,
+      "price": 28000,
       "tint": "#e3e9ef",
       "colors": [
         [
@@ -1097,7 +1110,7 @@
       "slug": "scarlet-corset-gown",
       "name": "Scarlet Corset Gown",
       "category": "women",
-      "price": 265000,
+      "price": 36000,
       "tint": "#f6e0df",
       "colors": [
         [
@@ -1128,7 +1141,7 @@
       "slug": "noir-corset-gown",
       "name": "Noir Corset Gown",
       "category": "women",
-      "price": 265000,
+      "price": 36000,
       "tint": "#e9e8ec",
       "colors": [
         [
@@ -1158,7 +1171,7 @@
       "slug": "midnight-floral-gown",
       "name": "Midnight Floral Gown",
       "category": "women",
-      "price": 238000,
+      "price": 34000,
       "tint": "#e6e4ef",
       "colors": [
         [
@@ -1187,7 +1200,7 @@
       "slug": "polka-dot-party-dress",
       "name": "Polka Dot Party Dress",
       "category": "women",
-      "price": 145000,
+      "price": 29000,
       "tint": "#f6e3ee",
       "colors": [
         [
@@ -1217,7 +1230,7 @@
       "slug": "hibiscus-resort-shirt",
       "name": "Hibiscus Resort Shirt",
       "category": "men",
-      "price": 48000,
+      "price": 16000,
       "tint": "#e0e8f3",
       "colors": [
         [
@@ -1248,7 +1261,7 @@
       "slug": "buffalo-check-shirt",
       "name": "Buffalo Check Shirt",
       "category": "men",
-      "price": 52000,
+      "price": 17000,
       "tint": "#f3e2e0",
       "colors": [
         [
@@ -1269,6 +1282,887 @@
         "Brushed cotton",
         "Button-down front",
         "Regular fit"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "cream-resort-polo",
+      "slug": "cream-resort-polo",
+      "name": "Cream Resort Polo",
+      "category": "men",
+      "price": 38000,
+      "tint": "#e9e8e6",
+      "colors": [
+        [
+          "Cream",
+          "#ece3d6"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "new",
+        "featured"
+      ],
+      "images": [
+        8422383,
+        8422379,
+        8422386,
+        8422384,
+        8422385
+      ],
+      "description": "An open-collar knit polo in soft cream. Made for long lunches and warm evenings.",
+      "details": [
+        "Fine-gauge cotton knit",
+        "Open camp collar",
+        "Relaxed fit",
+        "Hand wash or gentle cycle"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "tangerine-knit-polo",
+      "slug": "tangerine-knit-polo",
+      "name": "Tangerine Knit Polo",
+      "category": "men",
+      "price": 42000,
+      "tint": "#efe4da",
+      "colors": [
+        [
+          "Tangerine",
+          "#f07a2d"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "new",
+        "featured"
+      ],
+      "images": [
+        5543416,
+        5543411,
+        5543418,
+        5543414,
+        5543421
+      ],
+      "description": "A textured knit polo in bold tangerine. The piece that finishes the look.",
+      "details": [
+        "Textured cotton knit",
+        "Ribbed collar and cuffs",
+        "Regular fit",
+        "Hand wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "stone-pique-polo",
+      "slug": "stone-pique-polo",
+      "name": "Stone Piqué Polo",
+      "category": "men",
+      "price": 32000,
+      "tint": "#e6e1db",
+      "colors": [
+        [
+          "Stone",
+          "#c9c9c6"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "featured"
+      ],
+      "images": [
+        39338775,
+        39338774,
+        39338776,
+        39338779,
+        39338777
+      ],
+      "description": "Classic piqué in a soft stone grey. Smart with tailoring, easy with denim.",
+      "details": [
+        "Cotton piqué",
+        "Two-button placket",
+        "Regular fit",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "ivory-pique-polo",
+      "slug": "ivory-pique-polo",
+      "name": "Ivory Piqué Polo",
+      "category": "men",
+      "price": 30000,
+      "tint": "#ececec",
+      "colors": [
+        [
+          "Ivory",
+          "#f3f1ea"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        8058973,
+        8058968,
+        8058974,
+        8058971
+      ],
+      "description": "Crisp ivory piqué with a clean collar. A wardrobe essential, done properly.",
+      "details": [
+        "Cotton piqué",
+        "Three-button placket",
+        "Regular fit",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "riviera-stripe-polo",
+      "slug": "riviera-stripe-polo",
+      "name": "Riviera Stripe Polo",
+      "category": "men",
+      "price": 34000,
+      "tint": "#e2e6ea",
+      "colors": [
+        [
+          "Grey stripe",
+          "#b9c0c8"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "new"
+      ],
+      "images": [
+        6511656,
+        6511654,
+        6511659
+      ],
+      "description": "Fine grey stripes and a soft collar. Holiday polish, all year round.",
+      "details": [
+        "Cotton jersey",
+        "Striped yarn-dye",
+        "Regular fit",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "teal-knit-polo",
+      "slug": "teal-knit-polo",
+      "name": "Teal Knit Polo",
+      "category": "men",
+      "price": 36000,
+      "tint": "#f1e2d3",
+      "colors": [
+        [
+          "Teal",
+          "#1f6b86"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        25752284,
+        25752280
+      ],
+      "description": "A rich teal polo with a smooth hand. Colour that still reads refined.",
+      "details": [
+        "Smooth cotton knit",
+        "Ribbed collar",
+        "Slim fit",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "sky-blue-polo",
+      "slug": "sky-blue-polo",
+      "name": "Sky Blue Polo",
+      "category": "men",
+      "price": 28000,
+      "tint": "#e4e6e8",
+      "colors": [
+        [
+          "Sky",
+          "#a9c4dc"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        7710171,
+        7710170
+      ],
+      "description": "Fresh sky blue for the office or the weekend. Breathable and sharp.",
+      "details": [
+        "Breathable cotton piqué",
+        "Two-button placket",
+        "Regular fit",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "white-tipped-polo",
+      "slug": "white-tipped-polo",
+      "name": "Signature White Polo",
+      "category": "men",
+      "price": 30000,
+      "tint": "#e5e3e0",
+      "colors": [
+        [
+          "White",
+          "#ffffff"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        14280465,
+        14280466,
+        14280469
+      ],
+      "description": "A clean white polo with a neat, structured collar.",
+      "details": [
+        "Cotton piqué",
+        "Structured collar",
+        "Regular fit",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "burgundy-pique-polo",
+      "slug": "burgundy-pique-polo",
+      "name": "Burgundy Piqué Polo",
+      "category": "men",
+      "price": 29000,
+      "tint": "#e2e4e8",
+      "colors": [
+        [
+          "Burgundy",
+          "#7a1f2b"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        7362857,
+        7362853
+      ],
+      "description": "Deep burgundy piqué. Looks expensive, wears easily.",
+      "details": [
+        "Cotton piqué",
+        "Two-button placket",
+        "Regular fit",
+        "Wash with similar colours"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "onyx-lounge-tee",
+      "slug": "onyx-lounge-tee",
+      "name": "Onyx Lounge Tee",
+      "category": "men",
+      "price": 26000,
+      "tint": "#ecebe9",
+      "colors": [
+        [
+          "Onyx",
+          "#151515"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "new"
+      ],
+      "images": [
+        8654711,
+        8654706,
+        8654707,
+        8654710
+      ],
+      "description": "Heavy, matte black cotton that drapes beautifully. Luxury you can lounge in.",
+      "details": [
+        "Heavyweight 260gsm cotton",
+        "Relaxed fit",
+        "Ribbed crew neck",
+        "Wash inside out"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "ivory-studio-tee",
+      "slug": "ivory-studio-tee",
+      "name": "Ivory Studio Tee",
+      "category": "men",
+      "price": 24000,
+      "tint": "#f1e3c0",
+      "colors": [
+        [
+          "Ivory",
+          "#f6f3ec"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "featured"
+      ],
+      "images": [
+        8498418,
+        8498414,
+        8498415,
+        8498419,
+        8498420
+      ],
+      "description": "A premium white tee with a dense hand and a collar that stays flat.",
+      "details": [
+        "Supima-style long-staple cotton",
+        "Regular fit",
+        "Taped neck seams",
+        "Pre-shrunk"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "midnight-crew-tee",
+      "slug": "midnight-crew-tee",
+      "name": "Midnight Crew Tee",
+      "category": "men",
+      "price": 23000,
+      "tint": "#e3e8ea",
+      "colors": [
+        [
+          "Midnight",
+          "#1d2a3d"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        6599706,
+        6599702,
+        6599707
+      ],
+      "description": "Deep navy in a smooth, substantial cotton. The dark tee that isn't black.",
+      "details": [
+        "Midweight long-staple cotton",
+        "Regular fit",
+        "Crew neck",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "noir-essential-tee",
+      "slug": "noir-essential-tee",
+      "name": "Noir Essential Tee",
+      "category": "men",
+      "price": 22000,
+      "tint": "#e6e4e8",
+      "colors": [
+        [
+          "Black",
+          "#111111"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        30124372,
+        30124371
+      ],
+      "description": "A clean black tee with a sharp shoulder line. The base of every good outfit.",
+      "details": [
+        "Long-staple cotton",
+        "Regular fit",
+        "Crew neck",
+        "Colour-fast black dye"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "powder-blue-polo",
+      "slug": "powder-blue-polo",
+      "name": "Powder Blue Polo",
+      "category": "women",
+      "price": 30000,
+      "tint": "#e3e3e1",
+      "colors": [
+        [
+          "Powder blue",
+          "#8ec5ea"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "tee",
+        "new",
+        "featured"
+      ],
+      "images": [
+        40280728,
+        40280726,
+        40280729,
+        40280730,
+        40280732
+      ],
+      "description": "A fitted polo in powder blue. Tuck it into tailored trousers.",
+      "details": [
+        "Stretch cotton piqué",
+        "Fitted",
+        "Two-button placket",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "noir-rib-polo",
+      "slug": "noir-rib-polo",
+      "name": "Noir Rib Polo",
+      "category": "women",
+      "price": 34000,
+      "tint": "#e0ebe8",
+      "colors": [
+        [
+          "Black",
+          "#111111"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "tee",
+        "new"
+      ],
+      "images": [
+        11215202,
+        11215200,
+        11215201
+      ],
+      "description": "A ribbed black polo with a close, flattering fit.",
+      "details": [
+        "Ribbed cotton knit",
+        "Fitted",
+        "Short button placket",
+        "Hand wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "sky-fitted-polo",
+      "slug": "sky-fitted-polo",
+      "name": "Sky Fitted Polo",
+      "category": "women",
+      "price": 28000,
+      "tint": "#e4e4e3",
+      "colors": [
+        [
+          "Sky",
+          "#7fb8e6"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        37384896,
+        37384897,
+        37384898
+      ],
+      "description": "Soft sky blue in a neat, fitted cut. Polished without trying.",
+      "details": [
+        "Cotton piqué",
+        "Fitted",
+        "Two-button placket",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "cobalt-polo",
+      "slug": "cobalt-polo",
+      "name": "Cobalt Polo",
+      "category": "women",
+      "price": 27000,
+      "tint": "#e6ebe2",
+      "colors": [
+        [
+          "Cobalt",
+          "#4b5fb3"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        38208196,
+        38208197
+      ],
+      "description": "A relaxed cobalt polo with a soft collar.",
+      "details": [
+        "Cotton piqué",
+        "Relaxed fit",
+        "Two-button placket",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "noir-signature-tee",
+      "slug": "noir-signature-tee",
+      "name": "Noir Signature Tee",
+      "category": "women",
+      "price": 28000,
+      "tint": "#e6e2dc",
+      "colors": [
+        [
+          "Black",
+          "#111111"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "tee",
+        "new",
+        "featured"
+      ],
+      "images": [
+        37600597,
+        37600592,
+        37600595,
+        37600598,
+        37600599,
+        37600600
+      ],
+      "description": "Black, roomy and finished with a small embroidered signature on the chest.",
+      "details": [
+        "Heavyweight cotton",
+        "Relaxed fit",
+        "Embroidered chest detail",
+        "Wash inside out"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "ice-blue-tee",
+      "slug": "ice-blue-tee",
+      "name": "Ice Blue Tee",
+      "category": "women",
+      "price": 24000,
+      "tint": "#dfe7ee",
+      "colors": [
+        [
+          "Ice blue",
+          "#bfe0f0"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "tee",
+        "new"
+      ],
+      "images": [
+        31653952,
+        31653949,
+        31653955,
+        31653956
+      ],
+      "description": "A soft ice-blue tee in a smooth, premium cotton.",
+      "details": [
+        "Long-staple cotton",
+        "Regular fit",
+        "Crew neck",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "boyfriend-white-tee",
+      "slug": "boyfriend-white-tee",
+      "name": "Boyfriend White Tee",
+      "category": "women",
+      "price": 22000,
+      "tint": "#ecebe9",
+      "colors": [
+        [
+          "White",
+          "#ffffff"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        6311577,
+        6311578,
+        6311575,
+        6311581
+      ],
+      "description": "Borrowed-from-him proportions in a dense white cotton.",
+      "details": [
+        "Midweight cotton",
+        "Relaxed boyfriend fit",
+        "Crew neck",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "oversized-ivory-tee",
+      "slug": "oversized-ivory-tee",
+      "name": "Oversized Ivory Tee",
+      "category": "men",
+      "price": 24000,
+      "tint": "#e6e6d8",
+      "colors": [
+        [
+          "Ivory",
+          "#f1efe6"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "featured"
+      ],
+      "images": [
+        8498700,
+        8498698,
+        8498703,
+        8498705,
+        8498701
+      ],
+      "description": "A boxy, heavyweight tee with a dropped shoulder.",
+      "details": [
+        "Heavyweight 240gsm cotton",
+        "Boxy, dropped-shoulder fit",
+        "Ribbed crew neck",
+        "Pre-shrunk"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "studio-white-heavy-tee",
+      "slug": "studio-white-heavy-tee",
+      "name": "Studio Heavy Tee",
+      "category": "men",
+      "price": 22000,
+      "tint": "#efe3e1",
+      "colors": [
+        [
+          "White",
+          "#ffffff"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        8499394,
+        8499393
+      ],
+      "description": "Dense, structured cotton with a relaxed body.",
+      "details": [
+        "Heavyweight cotton",
+        "Relaxed fit",
+        "Double-stitched hems",
+        "Pre-shrunk"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "stone-grey-tee",
+      "slug": "stone-grey-tee",
+      "name": "Stone Grey Tee",
+      "category": "men",
+      "price": 20000,
+      "tint": "#e6e3df",
+      "colors": [
+        [
+          "Stone",
+          "#bdbdb8"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        6311580,
+        6311583,
+        6311585,
+        6311573,
+        6311579
+      ],
+      "description": "Soft grey marl in a classic fit.",
+      "details": [
+        "Cotton-blend marl jersey",
+        "Regular fit",
+        "Crew neck",
+        "Machine wash cold"
       ]
     }
   ]

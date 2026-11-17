@@ -4,7 +4,7 @@ export default function ProductLoading() {
   return (
     <div className="container-shell md:pt-10">
       <div className="grid gap-10 md:grid-cols-[1.1fr_.9fr] md:gap-12 lg:gap-16">
-        <Skeleton className="-mx-5 aspect-square rounded-none bg-mist sm:-mx-8 md:mx-0 md:rounded-[28px]" />
+        <Skeleton className="-mx-5 aspect-[4/5] rounded-none bg-mist sm:-mx-8 md:mx-0 md:rounded-[28px]" />
         <div>
           <Skeleton className="h-4 w-16 rounded-xl bg-mist" />
           <Skeleton className="mt-3 h-10 w-4/5 rounded-xl bg-mist" />

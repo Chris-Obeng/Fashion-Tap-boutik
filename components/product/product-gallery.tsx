@@ -7,7 +7,9 @@ import { cn } from "@/lib/utils";
 
 type Props = { images: string[]; name: string; tint: string; cutout: boolean };
 
-const fitFor = (cutout: boolean) => (cutout ? "object-contain p-[10%]" : "object-cover");
+// Photos are framed 4:5 with the focal point high, so heads stay in frame; renders sit square on the tint.
+const fitFor = (cutout: boolean) => (cutout ? "object-contain p-[10%]" : "object-cover object-[50%_20%]");
+const frame = (cutout: boolean) => (cutout ? "aspect-square" : "aspect-[4/5]");
 // Studio shots and renders multiply into the tint (white haze disappears); lifestyle photos stay as shot.
 const studio = (cutout: boolean, i: number) => (cutout || i === 0 ? "" : undefined);
 
@@ -64,7 +66,10 @@ function Lightbox({ images, name, tint, cutout, start, onClose }: Props & { star
       >
         {images.map((src, i) => (
           <div key={src} className="relative h-full w-full shrink-0 snap-center">
-            <Image src={src} alt={`${name}, image ${i + 1} of ${images.length}`} data-studio={studio(cutout, i)} fill sizes="100vw" quality={85} className="object-contain" />
+            {/* Inset clear of the counter, close button and arrows so nothing covers the top or bottom of the photo. */}
+            <div className="absolute inset-x-0 top-[max(72px,calc(env(safe-area-inset-top)+64px))] bottom-[max(24px,env(safe-area-inset-bottom))] md:bottom-24">
+              <Image src={src} alt={`${name}, image ${i + 1} of ${images.length}`} data-studio={studio(cutout, i)} fill sizes="100vw" quality={85} className="object-contain" />
+            </div>
           </div>
         ))}
       </div>
@@ -114,7 +119,7 @@ export function ProductGallery({ images, name, tint, cutout }: Props) {
               type="button"
               onClick={() => setViewer(i)}
               aria-label={`Open image ${i + 1} of ${images.length} full screen`}
-              className="relative aspect-square w-full shrink-0 snap-center"
+              className={cn("relative w-full shrink-0 snap-center", frame(cutout))}
             >
               <Image src={src} alt={`${name}, image ${i + 1} of ${images.length}`} data-studio={studio(cutout, i)} fill preload={i === 0} sizes="100vw" className={fitFor(cutout)} />
             </button>
@@ -141,7 +146,7 @@ export function ProductGallery({ images, name, tint, cutout }: Props) {
           type="button"
           onClick={() => setViewer(active)}
           aria-label="Open image full screen"
-          className="tint-media group relative block aspect-square w-full cursor-zoom-in overflow-hidden rounded-[28px]"
+          className={cn("tint-media group relative block w-full cursor-zoom-in overflow-hidden rounded-[28px]", frame(cutout))}
           style={style}
         >
           <Image
@@ -172,7 +177,7 @@ export function ProductGallery({ images, name, tint, cutout }: Props) {
               )}
               style={style}
             >
-              <Image src={src} alt="" data-studio={studio(cutout, i)} fill sizes="90px" className={cutout ? "object-contain p-1.5" : "object-cover"} />
+              <Image src={src} alt="" data-studio={studio(cutout, i)} fill sizes="90px" className={cutout ? "object-contain p-1.5" : "object-cover object-[50%_20%]"} />
             </button>
           ))}
         </div>

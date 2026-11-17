@@ -8,6 +8,7 @@ import { ProductRail } from "@/components/shared/product-rail";
 import { ProductThumb } from "@/components/shared/product-thumb";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { TikTokIcon } from "@/components/shared/social-icons";
+import { Hero } from "@/components/home/hero";
 import { site, whatsappHref } from "@/lib/config";
 
 const services = [
@@ -41,9 +42,9 @@ function FeatureBanner({
         <Image src={image.src} alt={image.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: imagePosition }} />
       </div>
       <div className="flex flex-col items-start justify-center px-6 py-14 text-white sm:px-12 md:py-20 lg:px-20">
-        <h2 className="display text-[42px] sm:text-[56px] lg:text-[68px]">{title}</h2>
-        <p className="mt-3 max-w-[30ch] text-[17px] leading-7 text-white/75 sm:text-[19px]">{text}</p>
-        <Link href={href} className="btn btn-light mt-8 min-w-[180px]">
+        <h2 className="display text-[36px] sm:text-[44px] lg:text-[52px]">{title}</h2>
+        <p className="mt-2 max-w-[30ch] text-[17px] leading-7 text-white/80 sm:text-[19px]">{text}</p>
+        <Link href={href} className="btn btn-light mt-7">
           {action}
         </Link>
       </div>
@@ -56,42 +57,17 @@ export default async function HomePage() {
   const loved = all.filter(p => p.tags.includes("featured")).slice(0, 8);
   const newIn = all.filter(p => p.tags.includes("new")).slice(0, 8);
   const heels = all.filter(p => p.category === "shoes" && p.cutout).slice(0, 8);
+  // Best sellers in store: alternate men's and women's tees so both show early in the rail.
+  const menTees = all.filter(p => p.tags.includes("tee") && p.category === "men");
+  const womenTees = all.filter(p => p.tags.includes("tee") && p.category === "women");
+  const tees = Array.from({ length: Math.max(menTees.length, womenTees.length) }, (_, i) => [menTees[i], womenTees[i]])
+    .flat()
+    .filter((p): p is (typeof all)[number] => Boolean(p))
+    .slice(0, 12);
 
   return (
     <>
-      {/* Hero: one portrait scene on phones, a Beats-style triptych on wide screens. */}
-      <section className="relative isolate h-[min(calc(100svh-96px),760px)] min-h-[560px] overflow-hidden bg-ink lg:h-[min(calc(100svh-104px),860px)]">
-        <div className="hero-media absolute inset-0 -z-10">
-          <Image
-            src={editorial.hero.src}
-            alt={editorial.hero.alt}
-            fill
-            preload
-            quality={85}
-            sizes="(max-width: 1024px) 100vw, 1px"
-            className="object-cover object-[50%_28%] lg:hidden"
-          />
-          <div className="hidden h-full grid-cols-3 lg:grid">
-            {editorial.heroTriptych.map(img => (
-              <div key={img.src} className="relative h-full">
-                <Image src={img.src} alt={img.alt} fill loading="eager" quality={85} sizes="34vw" className="object-cover object-[50%_30%]" />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-black/75 via-black/20 to-black/0" />
-        <div className="hero-copy container-shell flex h-full flex-col items-center justify-end pb-12 text-center text-white sm:pb-16 lg:pb-20">
-          <h1 className="display text-[54px] sm:text-[76px] lg:text-[100px]">The Luxe Edit</h1>
-          <p className="mt-3 text-[17px] leading-6 text-white/85 sm:text-[20px] sm:leading-7">
-            <span className="block">Gowns, heels, bags and watches.</span>
-            <span className="block">Delivered across Ghana.</span>
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link href="/shop" className="btn btn-light min-w-[148px]">Shop now</Link>
-            <Link href="/shop?category=new" className="btn btn-ghost-light min-w-[148px]">New in</Link>
-          </div>
-        </div>
-      </section>
+      <Hero mobile={editorial.heroMobile} slides={editorial.heroSlides} />
 
       {/* Category row */}
       <nav aria-label="Shop by category" className="container-shell pt-8 sm:pt-12">
@@ -100,12 +76,18 @@ export default async function HomePage() {
             <li key={c.id} className="shrink-0 snap-start">
               <Link href={categoryHref(c.id)} className="press group flex w-[92px] flex-col items-center gap-2.5 sm:w-[118px] lg:w-[146px]">
                 <ProductThumb src={c.image} tint={c.tint} cutout={c.cutout} sizes="146px" className="media-zoom aspect-square w-full rounded-[24px]" />
-                <span className="text-center text-[13px] font-semibold leading-4 text-ink sm:text-[14px]">{c.name}</span>
+                <span className="text-center text-[13px] font-medium leading-4 text-ink sm:text-[14px]">{c.name}</span>
               </Link>
             </li>
           ))}
         </ul>
       </nav>
+
+      {/* Polos and luxury tees: the store's best sellers */}
+      <section className="container-shell pt-14 sm:pt-20">
+        <SectionHeading title="Polos & luxury tees" href="/shop?category=tees" action="Shop all" />
+        <ProductRail products={tees} />
+      </section>
 
       {/* Most loved */}
       <section className="mt-12 bg-mist py-14 sm:mt-16 sm:py-20">
@@ -169,10 +151,10 @@ export default async function HomePage() {
             <TikTokIcon className="size-6" />
           </span>
           <div>
-            <h2 className="display text-[32px] text-ink sm:text-[44px]">54K follow us on TikTok</h2>
+            <h2 className="display text-[30px] text-ink sm:text-[40px]">54K follow us on TikTok</h2>
             <p className="mt-2 text-[16px] text-ink-soft sm:text-[18px]">New arrivals, try-ons and restocks, first.</p>
           </div>
-          <a href={site.tiktok} target="_blank" rel="noreferrer" className="btn btn-primary min-w-[200px]">
+          <a href={site.tiktok} target="_blank" rel="noreferrer" className="btn btn-primary">
             Follow {site.tiktokHandle}
           </a>
         </div>
@@ -188,7 +170,7 @@ export default async function HomePage() {
                   <Icon className="size-6 stroke-[1.6] text-ink" aria-hidden />
                 </span>
                 <span className="block">
-                  <span className="block text-[17px] font-semibold tracking-[-0.01em] text-ink">{title}</span>
+                  <span className="block text-[17px] font-semibold text-ink">{title}</span>
                   <span className="mt-0.5 block text-[15px] text-ink-soft">{text}</span>
                 </span>
               </>

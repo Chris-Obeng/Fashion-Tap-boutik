@@ -331,7 +331,7 @@ export function CheckoutForm() {
                 <legend className="sr-only">How would you like to get your order?</legend>
                 <div className="grid gap-3 sm:grid-cols-2">
                   <ChoiceCard register={register("method")} value="delivery" icon={Truck} title="Deliver to me" text="Anywhere in Ghana" />
-                  <ChoiceCard register={register("method")} value="pickup" icon={Store} title="Pick up in Osu" text={`Free · ${pickup.eta.toLowerCase()}`} />
+                  <ChoiceCard register={register("method")} value="pickup" icon={Store} title="Pick up in store" text={`Free · ${pickup.eta.toLowerCase()}`} />
                 </div>
               </fieldset>
 
@@ -397,7 +397,7 @@ export function CheckoutForm() {
                 </div>
               </fieldset>
               <p className="mt-4 text-[13px] leading-5 text-ink-soft">You’ll confirm the payment on Paystack’s secure screen. Demo store: no money is taken.</p>
-              <button type="submit" disabled={processing} className="btn btn-primary btn-lg btn-caps mt-6 hidden w-full lg:flex">
+              <button type="submit" disabled={processing} className="btn btn-primary btn-caps mt-6 hidden w-full lg:flex">
                 {payLabel}
               </button>
             </Section>
@@ -418,7 +418,7 @@ export function CheckoutForm() {
 
       {/* Phones: pay bar stays in reach of the thumb */}
       <div data-sticky-cta className="translucent safe-bottom fixed inset-x-0 bottom-0 z-30 border-t border-line/70 bg-white/90 px-4 pt-3 backdrop-blur-xl lg:hidden">
-        <button type="submit" form="checkout-form" disabled={processing} className="btn btn-primary btn-caps h-[54px] w-full text-[16px]">
+        <button type="submit" form="checkout-form" disabled={processing} className="btn btn-primary btn-lg btn-caps w-full">
           {payLabel}
         </button>
       </div>

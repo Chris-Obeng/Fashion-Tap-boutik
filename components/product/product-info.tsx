@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Check, ChevronDown, CreditCard, MapPin, RotateCcw, Truck } from "lucide-react";
+import { Check, ChevronDown, MapPin, Truck } from "lucide-react";
 import { toast } from "sonner";
 import { useBagUI, useCart } from "@/store/cart";
 import { formatPrice } from "@/lib/format";
@@ -49,9 +49,7 @@ function AccordionRow({ id, title, open, onToggle, children }: { id: string; tit
 
 const perks = [
   { icon: Truck, title: "Delivery nationwide", text: "Same or next day in Accra. 2–4 working days across Ghana." },
-  { icon: MapPin, title: "Free pickup in Osu", text: "Ready within 24 hours of your order." },
-  { icon: CreditCard, title: "Mobile Money or card", text: "MTN, Telecel, AirtelTigo or any card, secured by Paystack." },
-  { icon: RotateCcw, title: "7-day returns", text: "Unworn with tags? Message us and we’ll arrange it." },
+  { icon: MapPin, title: "Free pickup in store", text: "Ready within 24 hours of your order." },
 ];
 
 const oneSize = (p: Product) => p.sizes.length === 1;
@@ -61,12 +59,12 @@ export function ProductTitle({ product, className }: { product: Product; classNa
   const isNew = product.tags.includes("new");
   return (
     <div className={className}>
-      <p className="text-[14px] font-medium">
-        {isNew && <span className="text-brand">New</span>}
+      <p className="text-[13px]">
+        {isNew && <span className="font-bold uppercase tracking-[0.04em] text-brand">New</span>}
         {isNew && <span className="text-ink-faint"> · </span>}
         <span className="text-ink-soft">{categoryName(product.category)}</span>
       </p>
-      <h1 className="display mt-1.5 text-[32px] text-ink sm:text-[44px]">{product.name}</h1>
+      <h1 className="display mt-1 text-[32px] text-ink sm:text-[40px]">{product.name}</h1>
     </div>
   );
 }
@@ -79,7 +77,7 @@ export function ProductInfo({ product }: { product: Product }) {
   const [needSize, setNeedSize] = useState(false);
   const [nudge, setNudge] = useState(0);
   const [added, setAdded] = useState(false);
-  const [openSections, setOpenSections] = useState<string[]>(["details"]);
+  const [openSections, setOpenSections] = useState<string[]>([]);
   const toggleSection = (id: string) => setOpenSections(prev => (prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id]));
   const add = useCart(s => s.add);
   const showAdded = useBagUI(s => s.showAdded);
@@ -123,7 +121,7 @@ export function ProductInfo({ product }: { product: Product }) {
       <div className="min-w-0 md:sticky md:top-24 md:self-start">
         <ProductTitle product={product} className="hidden md:block" />
         <div className="flex items-baseline gap-2.5 md:mt-3">
-          <p className={cn("text-[22px] font-semibold tabular-nums tracking-[-0.01em]", product.compareAtPrice ? "text-sale" : "text-ink")}>
+          <p className={cn("text-[22px] tabular-nums", product.compareAtPrice ? "text-sale" : "text-ink")}>
             {formatPrice(product.price)}
           </p>
           {product.compareAtPrice && <s className="text-[15px] tabular-nums text-ink-faint">{formatPrice(product.compareAtPrice)}</s>}
@@ -205,7 +203,7 @@ export function ProductInfo({ product }: { product: Product }) {
         )}
 
         <div className="mt-8 hidden gap-2.5 md:grid">
-          <button type="button" onClick={addToBag} disabled={allSoldOut} className="btn btn-primary btn-lg btn-caps w-full">
+          <button type="button" onClick={addToBag} disabled={allSoldOut} className="btn btn-primary btn-caps w-full">
             {label}
           </button>
           <a href={ask} target="_blank" rel="noreferrer" className="btn btn-outline w-full">
@@ -259,9 +257,9 @@ export function ProductInfo({ product }: { product: Product }) {
         <div className="flex items-center gap-3">
           <div className="min-w-0 flex-1">
             <p className="truncate text-[13px] text-ink-soft">{[color, !single && size ? `Size ${size}` : null].filter(Boolean).join(" · ") || product.name}</p>
-            <p className={cn("text-[18px] font-semibold tabular-nums", product.compareAtPrice ? "text-sale" : "text-ink")}>{formatPrice(product.price)}</p>
+            <p className={cn("text-[18px] tabular-nums", product.compareAtPrice ? "text-sale" : "text-ink")}>{formatPrice(product.price)}</p>
           </div>
-          <button type="button" onClick={addToBag} disabled={allSoldOut} className="btn btn-primary btn-caps h-[52px] min-w-[190px] px-6">
+          <button type="button" onClick={addToBag} disabled={allSoldOut} className="btn btn-primary btn-caps min-w-[176px]">
             {label}
           </button>
         </div>

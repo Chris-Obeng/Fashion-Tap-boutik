@@ -5,7 +5,12 @@ import type { Product, SearchItem } from "@/types";
 
 // Replace these adapters with Supabase queries when the backend is ready.
 export async function getProducts(category?: string): Promise<Product[]> {
-  return products.filter(p => !category || category === "all" || (category === "new" ? p.tags.includes("new") : p.category === category));
+  return products.filter(p => {
+    if (!category || category === "all") return true;
+    if (category === "new") return p.tags.includes("new");
+    if (category === "tees") return p.tags.includes("tee");
+    return p.category === category;
+  });
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | undefined> {

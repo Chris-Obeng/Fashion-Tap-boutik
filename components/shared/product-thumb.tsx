@@ -31,7 +31,7 @@ export function ProductThumb({
         data-studio=""
         fill
         sizes={sizes}
-        className={cutout ? "object-contain p-[12%]" : "object-cover"}
+        className={cutout ? "object-contain p-[12%]" : "object-cover object-[50%_20%]"}
       />
     </span>
   );

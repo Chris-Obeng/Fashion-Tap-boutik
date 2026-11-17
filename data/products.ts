@@ -7,14 +7,19 @@ import type { CategoryId, Product } from "@/types";
  * Placeholder catalogue, refreshed with `pnpm sync:products`:
  *   - SceneSKU packs (data/scenesku.json): photographed studio + lifestyle scenes.
  *   - DummyJSON items (data/dummyjson.json): 3D renders on transparent backgrounds.
+ *   - Pexels photo sets (ids in curation.json): studio t-shirt shoots, free for commercial use.
  * Joined with our own merchandising in data/curation.json (names, copy, GH₵ prices,
  * colours, sizes, tints). Prices and stock are illustrative. Replace with Supabase.
  */
 type Curated = {
-  source?: "scenesku" | "dummyjson";
+  source?: "scenesku" | "dummyjson" | "pexels";
   id: string; slug: string; name: string; category: CategoryId; price: number; compareAtPrice?: number;
-  tint: string; colors: [string, string][]; sizes: string[]; stockOut?: string[]; tags: ("new" | "featured")[];
+  tint: string; colors: [string, string][]; sizes: string[]; stockOut?: string[]; tags: Product["tags"];
   description?: string; details?: string[];
+  /** Pexels photo ids (source "pexels"): one shoot of the same garment. */
+  images?: number[];
+  /** Source image indexes to skip, e.g. lifestyle shots that crop the face mid-frame. */
+  hideImages?: number[];
 };
 type Pack = { title: string | null; short: string | null; long: string | null; bullets: string[]; images: { url: string; title: string }[] };
 type Render = { title: string; images: string[] };
@@ -22,14 +27,18 @@ type Render = { title: string; images: string[] };
 const packs = scenesku as Record<string, Pack>;
 const renders = dummyjson as Record<string, Render>;
 
+const pexels = (id: number) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=1600`;
+
 // DummyJSON paths contain apostrophes ("women's"), which encodeURI leaves alone.
 const safeUrl = (url: string) => encodeURI(url).replace(/'/g, "%27");
 
 export const products: Product[] = (curation.products as Curated[]).flatMap((item, index) => {
   const isRender = item.source === "dummyjson";
-  const pack = isRender ? undefined : packs[item.id];
+  const isPhotoSet = item.source === "pexels";
+  const pack = isRender || isPhotoSet ? undefined : packs[item.id];
   const render = isRender ? renders[item.id] : undefined;
-  const images = (render?.images ?? pack?.images.map(i => i.url) ?? []).map(safeUrl);
+  const sourceImages = isPhotoSet ? (item.images ?? []).map(pexels) : (render?.images ?? pack?.images.map(i => i.url) ?? []).map(safeUrl);
+  const images = sourceImages.filter((_, i) => !item.hideImages?.includes(i));
   if (!images.length) return [];
   return [{
     id: `${item.source ?? "scenesku"}-${item.id}`,
@@ -38,7 +47,7 @@ export const products: Product[] = (curation.products as Curated[]).flatMap((ite
     price: item.price,
     ...(item.compareAtPrice ? { compareAtPrice: item.compareAtPrice } : {}),
     description: item.description ?? pack?.short ?? "",
-    story: isRender ? "" : pack?.long ?? "",
+    story: pack?.long ?? "",
     images,
     cutout: isRender,
     tint: item.tint,

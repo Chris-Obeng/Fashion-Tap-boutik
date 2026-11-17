@@ -9,7 +9,8 @@ export type Product = {
   tint: string;
   category: CategoryId;
   colors: ProductColor[]; sizes: { name: string; stock: number }[];
-  tags: ("new" | "featured")[]; details: string[];
+  /** "tee" puts the product in the T-shirts collection as well as Men or Women. */
+  tags: ("new" | "featured" | "tee")[]; details: string[];
 };
 // All amounts are integer pesewas (100 pesewas = GH₵1).
 export type CartItem = {
