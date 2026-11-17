@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Fashion Tap Boutik",
     locale: "en_GH",
     type: "website",
-    images: [{ url: editorial.heroMobile.src, width: 1400, height: 2100, alt: editorial.heroMobile.alt }],
+    images: [{ url: editorial.heroMobile[0].src, width: 1400, height: 2100, alt: editorial.heroMobile[0].alt }],
   },
   twitter: {
     card: "summary_large_image",

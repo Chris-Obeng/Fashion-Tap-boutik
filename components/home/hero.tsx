@@ -12,21 +12,25 @@ export type HeroSlide = { label: string; backdrop: string; frames: Frame[] };
 const INTERVAL_MS = 6500;
 
 /**
- * Beats-style hero. Phones: one portrait (static, fast LCP). Desktop: studio triptychs
- * that cross-fade between shoots. Pauses on hover, has a visible pause control
+ * Beats-style hero. Phones: single portraits; desktop: studio triptychs. Both cross-fade
+ * between shoots on one timer. Pauses on hover, has a visible pause control
  * (WCAG 2.2.2), and never auto-advances under prefers-reduced-motion.
  */
-export function Hero({ mobile, slides }: { mobile: Frame; slides: HeroSlide[] }) {
+export function Hero({ mobile, slides }: { mobile: Frame[]; slides: HeroSlide[] }) {
   const reduce = useReducedMotion();
   const [index, setIndex] = useState(0);
+  const [mobileIndex, setMobileIndex] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    if (reduce || !playing || hovered || slides.length < 2) return;
-    const t = setTimeout(() => setIndex(i => (i + 1) % slides.length), INTERVAL_MS);
+    if (reduce || !playing || hovered) return;
+    const t = setTimeout(() => {
+      setIndex(i => (i + 1) % slides.length);
+      setMobileIndex(i => (i + 1) % mobile.length);
+    }, INTERVAL_MS);
     return () => clearTimeout(t);
-  }, [index, playing, hovered, reduce, slides.length]);
+  }, [index, mobileIndex, playing, hovered, reduce, slides.length, mobile.length]);
 
   return (
     <section
@@ -38,7 +42,11 @@ export function Hero({ mobile, slides }: { mobile: Frame; slides: HeroSlide[] })
     >
       {/* Phones */}
       <div className="hero-media absolute inset-0 -z-10 lg:hidden">
-        <Image src={mobile.src} alt={mobile.alt} fill preload quality={85} sizes="100vw" className="object-cover" style={{ objectPosition: mobile.position }} />
+        {mobile.map((f, i) => (
+          <div key={f.src} aria-hidden={i !== mobileIndex} className={cn("hero-slide absolute inset-0", i === mobileIndex ? "is-active" : "")}>
+            <Image src={f.src} alt={f.alt} fill preload={i === 0} loading={i === 0 ? undefined : "lazy"} quality={85} sizes="100vw" className="hero-frame object-cover" style={{ objectPosition: f.position }} />
+          </div>
+        ))}
       </div>
 
       {/* Desktop slides */}
@@ -83,6 +91,32 @@ export function Hero({ mobile, slides }: { mobile: Frame; slides: HeroSlide[] })
           <Link href="/shop" className="btn btn-light">Shop now</Link>
           <Link href="/shop?category=new" className="btn btn-ghost-light">New in</Link>
         </div>
+        {mobile.length > 1 && (
+          <div className="mt-6 flex items-center gap-3 lg:hidden">
+            <div className="flex gap-1.5">
+              {mobile.map((f, i) => (
+                <button
+                  key={f.src}
+                  type="button"
+                  onClick={() => setMobileIndex(i)}
+                  aria-label={`Show look ${i + 1} of ${mobile.length}`}
+                  aria-current={i === mobileIndex}
+                  className="flex h-6 items-center"
+                >
+                  <span className={cn("block h-2 rounded-full transition-[width,background-color] duration-300 ease-[var(--ease-out)]", i === mobileIndex ? "w-6 bg-white" : "w-2 bg-white/50")} />
+                </button>
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={() => setPlaying(p => !p)}
+              aria-label={playing ? "Pause slideshow" : "Play slideshow"}
+              className="press flex size-8 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-md"
+            >
+              {playing && !reduce ? <Pause className="size-3 fill-current" /> : <Play className="size-3 fill-current" />}
+            </button>
+          </div>
+        )}
       </div>
 
       {slides.length > 1 && (

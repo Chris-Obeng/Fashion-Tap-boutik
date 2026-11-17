@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Check, ChevronDown, CreditCard, MapPin, RotateCcw, Truck } from "lucide-react";
+import { Check, ChevronDown, MapPin, Truck } from "lucide-react";
 import { toast } from "sonner";
 import { useBagUI, useCart } from "@/store/cart";
 import { formatPrice } from "@/lib/format";
@@ -50,8 +50,6 @@ function AccordionRow({ id, title, open, onToggle, children }: { id: string; tit
 const perks = [
   { icon: Truck, title: "Delivery nationwide", text: "Same or next day in Accra. 2–4 working days across Ghana." },
   { icon: MapPin, title: "Free pickup in store", text: "Ready within 24 hours of your order." },
-  { icon: CreditCard, title: "Mobile Money or card", text: "MTN, Telecel, AirtelTigo or any card, secured by Paystack." },
-  { icon: RotateCcw, title: "7-day returns", text: "Unworn with tags? Message us and we’ll arrange it." },
 ];
 
 const oneSize = (p: Product) => p.sizes.length === 1;

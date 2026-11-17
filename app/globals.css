@@ -415,7 +415,11 @@
   animation-delay: 280ms;
 }
 
-/* Desktop hero slides: cross-fade between shoots, each frame easing out of a slow push-in. */
+.hero-copy > :nth-child(4) {
+  animation-delay: 360ms;
+}
+
+/* Hero slides (phone portraits and desktop triptychs): cross-fade between shoots, each frame easing out of a slow push-in. */
 .hero-slide {
   opacity: 0;
   transition: opacity 1100ms var(--ease-in-out);

@@ -10,9 +10,12 @@ const pexels = (id: number, w = 1600) => `https://images.pexels.com/photos/${id}
  * attribution required) of West African women, plus lifestyle scenes from the catalogue.
  */
 export const editorial = {
-  // Clean studio shoots (Pexels, free for commercial use). Phones get one portrait;
-  // desktop cross-fades between a menswear shoot and a womenswear shoot, Beats-style.
-  heroMobile: { src: pexels(28211216, 1400), alt: "Man in a black puffer jacket and pearl necklace", position: "50% 20%" },
+  // Clean studio shoots (Pexels, free for commercial use). Phones cross-fade between single
+  // portraits (womenswear first, then the T-shirt edit); desktop cross-fades between triptychs.
+  heroMobile: [
+    { src: pexels(8498706, 1400), alt: "Woman in a cream two-piece looking over her shoulder", position: "50% 25%" },
+    { src: pexels(16246041, 1400), alt: "Man in a sand pocket T-shirt on a deep green backdrop", position: "50% 20%" },
+  ],
   heroSlides: [
     {
       label: "Menswear",
@@ -32,6 +35,15 @@ export const editorial = {
         { src: pexels(8498758, 1100), alt: "Woman in a cream two-piece seated on a yellow chair", position: "50% 30%" },
       ],
     },
+    {
+      label: "T-shirts",
+      backdrop: "#13261c",
+      frames: [
+        { src: pexels(16246043, 1100), alt: "Man in a sand pocket T-shirt, in profile", position: "50% 25%" },
+        { src: pexels(16246041, 1400), alt: "Man in a sand pocket T-shirt, seated, facing the camera", position: "50% 20%" },
+        { src: pexels(16246042, 1100), alt: "Man in a sand pocket T-shirt looking over his shoulder", position: "50% 25%" },
+      ],
+    },
   ],
   bags: { src: pexels(27108129, 1400), alt: "Woman in a satin dress with a black leather handbag" },
   jewellery: { src: image("solitaire-pendant", 1), alt: "Solitaire pendant in a navy velvet box on marble" },
@@ -39,16 +51,17 @@ export const editorial = {
 };
 
 /**
- * The single source of truth for shop categories. "new" is a pseudo-category
- * (a tag filter, not a real category) but is surfaced everywhere a real one is.
+ * The single source of truth for shop categories. "new" and "tees" are pseudo-categories
+ * (tag filters, not real categories) but are surfaced everywhere a real one is.
  */
-const tile = (id: CategoryId | "new", name: string, slug: string) => {
+const tile = (id: CategoryId | "new" | "tees", name: string, slug: string) => {
   const p = bySlug(slug);
   return { id, name, image: p?.images[0] ?? "", tint: p?.tint ?? "#f1f1f1", cutout: p?.cutout ?? false };
 };
 
 export const categories = [
   tile("new", "New in", "polka-dot-party-dress"),
+  tile("tees", "T-shirts", "oversized-ivory-tee"),
   tile("women", "Women", "scarlet-corset-gown"),
   tile("men", "Men", "crisp-white-shirt"),
   tile("shoes", "Shoes", "gold-metallic-pumps"),

@@ -18,7 +18,7 @@ export function ProductCard({
   const isSoldOut = soldOut(product);
   const isNew = product.tags.includes("new");
   const href = `/product/${product.slug}`;
-  const fit = product.cutout ? "object-contain p-[11%]" : "object-cover";
+  const fit = product.cutout ? "object-contain p-[11%]" : "object-cover object-[50%_20%]";
   return (
     <article className="group relative min-w-0">
       <div

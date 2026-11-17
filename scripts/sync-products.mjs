@@ -40,6 +40,8 @@ async function getJson(url, headers = {}) {
 const scenesku = {};
 const dummyjson = {};
 for (const item of curation.products) {
+  // Pexels photo sets are plain image ids in curation.json; nothing to fetch.
+  if (item.source === "pexels") continue;
   if (item.source === "dummyjson") {
     const data = await getJson(`https://dummyjson.com/products/${encodeURIComponent(item.id)}?select=title,images`);
     dummyjson[item.id] = { title: data.title, images: data.images };

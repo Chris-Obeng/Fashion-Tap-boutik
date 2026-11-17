@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { Lock, Truck } from "lucide-react";
+import { Lock } from "lucide-react";
 import { toast } from "sonner";
 import { useBagUI, useCart, cartSubtotal, cartCount } from "@/store/cart";
 import { ResponsivePanel } from "@/components/shared/responsive-panel";
@@ -10,7 +10,7 @@ import { ProductThumb } from "@/components/shared/product-thumb";
 import { WhatsAppIcon } from "@/components/shared/social-icons";
 import { buttonClass } from "@/lib/button-class";
 import { formatPrice } from "@/lib/format";
-import { minDeliveryFee, whatsappHref } from "@/lib/config";
+import { whatsappHref } from "@/lib/config";
 import type { CartItem } from "@/types";
 
 function variantLine(item: CartItem) {
@@ -44,7 +44,6 @@ export function CartPanel() {
         <span className="text-[15px] text-ink-soft">Subtotal</span>
         <span className="text-[20px] font-semibold tracking-[-0.01em] tabular-nums text-ink">{formatPrice(subtotal)}</span>
       </div>
-      <p className="mt-1 text-[13px] text-ink-soft">Delivery from {formatPrice(minDeliveryFee)}, calculated at checkout.</p>
       <Link href="/checkout" onClick={() => setOpen(false)} className={buttonClass({ size: "lg", caps: true, className: "mt-4 w-full" })}>
         <Lock className="size-4" aria-hidden /> Checkout
       </Link>
@@ -52,9 +51,9 @@ export function CartPanel() {
         href={whatsappOrder(items)}
         target="_blank"
         rel="noreferrer"
-        className={buttonClass({ variant: "outline", className: "mt-2.5 w-full" })}
+        className={buttonClass({ variant: "soft", className: "mt-2.5 w-full" })}
       >
-        <WhatsAppIcon className="size-[18px] text-[#25d366]" /> Order on WhatsApp
+        <WhatsAppIcon className="size-[18px] text-[#25d366]" /> Chat to order
       </a>
     </div>
   ) : null;
@@ -71,11 +70,7 @@ export function CartPanel() {
         <EmptyBag onBrowse={() => setOpen(false)} />
       ) : (
         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 md:px-6">
-          <p className="flex items-center gap-2 rounded-2xl bg-mist px-4 py-3 text-[13px] text-ink">
-            <Truck className="size-4 shrink-0" aria-hidden />
-            Delivered nationwide. Same or next day in Accra.
-          </p>
-          <ul role="list" className="mt-1">
+          <ul role="list">
             {items.map(item => (
               <li key={item.key} className="flex gap-4 border-b border-line py-5 last:border-0">
                 <Link href={`/product/${item.slug}`} onClick={() => setOpen(false)} aria-label={`View ${item.name}`} className="press">

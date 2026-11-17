@@ -57,6 +57,13 @@ export default async function HomePage() {
   const loved = all.filter(p => p.tags.includes("featured")).slice(0, 8);
   const newIn = all.filter(p => p.tags.includes("new")).slice(0, 8);
   const heels = all.filter(p => p.category === "shoes" && p.cutout).slice(0, 8);
+  // Best sellers in store: alternate men's and women's tees so both show early in the rail.
+  const menTees = all.filter(p => p.tags.includes("tee") && p.category === "men");
+  const womenTees = all.filter(p => p.tags.includes("tee") && p.category === "women");
+  const tees = Array.from({ length: Math.max(menTees.length, womenTees.length) }, (_, i) => [menTees[i], womenTees[i]])
+    .flat()
+    .filter((p): p is (typeof all)[number] => Boolean(p))
+    .slice(0, 12);
 
   return (
     <>
@@ -75,6 +82,12 @@ export default async function HomePage() {
           ))}
         </ul>
       </nav>
+
+      {/* T-shirts: the store's best sellers */}
+      <section className="container-shell pt-14 sm:pt-20">
+        <SectionHeading title="The T-shirt edit" href="/shop?category=tees" action="Shop T-shirts" />
+        <ProductRail products={tees} />
+      </section>
 
       {/* Most loved */}
       <section className="mt-12 bg-mist py-14 sm:mt-16 sm:py-20">
