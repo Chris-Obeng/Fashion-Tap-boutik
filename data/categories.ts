@@ -66,7 +66,7 @@ export const categories = [
   tile("women", "Women", "scarlet-corset-gown"),
   tile("men", "Men", "crisp-white-shirt"),
   tile("shoes", "Shoes", "gold-metallic-pumps"),
-  tile("bags", "Bags, purses & clutches", "gold-cage-clutch"),
+  tile("bags", "Bags, purses & clutches", "cognac-leather-hobo"),
 ] as const;
 
 export type ShopCategoryId = (typeof categories)[number]["id"] | "all";
