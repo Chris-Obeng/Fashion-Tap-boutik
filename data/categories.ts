@@ -9,9 +9,10 @@ const pexels = (id: number, w = 1600) => `https://images.pexels.com/photos/${id}
  * attribution required) of West African women, plus lifestyle scenes from the catalogue.
  */
 export const editorial = {
-  // Clean studio shoots (Pexels, free for commercial use). Phones cross-fade between single
-  // portraits (womenswear first, then the T-shirt edit); desktop cross-fades between triptychs.
+  // Phones open on our own shop floor, then cross-fade to studio portraits (Pexels, free for
+  // commercial use); desktop cross-fades between triptychs.
   heroMobile: [
+    { src: "/products/shop-floor-hero.jpg", alt: "Two shoppers in striped knit polos at a rail in our Accra shop", position: "50% 30%" },
     { src: pexels(8498706, 1400), alt: "Woman in a cream two-piece looking over her shoulder", position: "50% 25%" },
     { src: pexels(8422383, 1400), alt: "Man in a cream knit resort polo and round glasses", position: "50% 25%" },
   ],
@@ -44,6 +45,8 @@ export const editorial = {
       ],
     },
   ],
+  // Social cards need an absolute URL, so they keep a Pexels portrait.
+  og: { src: pexels(8498706, 1400), alt: "Woman in a cream two-piece looking over her shoulder" },
   bags: { src: pexels(27108129, 1400), alt: "Woman in a satin dress with a black leather handbag" },
   gift: { src: pexels(13976057, 1400), alt: "White and red gift boxes tied with satin ribbon, a red rose on top" },
 };
@@ -59,7 +62,7 @@ const tile = (id: CategoryId | "new" | "tees", name: string, slug: string) => {
 
 export const categories = [
   tile("new", "New in", "polka-dot-party-dress"),
-  tile("tees", "Knit polos & shirts", "noir-stripe-crochet-shirt"),
+  tile("tees", "Knit polos & shirts", "heritage-stripe-knit-polo"),
   tile("women", "Women", "scarlet-corset-gown"),
   tile("men", "Men", "crisp-white-shirt"),
   tile("shoes", "Shoes", "gold-metallic-pumps"),
