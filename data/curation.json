@@ -6,7 +6,7 @@
       "slug": "pleated-wrap-dress",
       "name": "Pleated Wrap Dress",
       "category": "women",
-      "price": 145000,
+      "price": 29000,
       "tint": "#ece4d8",
       "colors": [
         [
@@ -31,7 +31,7 @@
       "slug": "stand-collar-pleat-dress",
       "name": "Stand Collar Pleat Dress",
       "category": "women",
-      "price": 115000,
+      "price": 26000,
       "tint": "#e1e5d2",
       "colors": [
         [
@@ -56,7 +56,7 @@
       "slug": "waist-tie-maxi-dress",
       "name": "Waist-Tie Maxi Dress",
       "category": "women",
-      "price": 98000,
+      "price": 24000,
       "tint": "#dbe8ea",
       "colors": [
         [
@@ -80,7 +80,7 @@
       "slug": "cape-sleeve-skirt-set",
       "name": "Cape Sleeve Skirt Set",
       "category": "women",
-      "price": 138000,
+      "price": 28000,
       "tint": "#eadcd1",
       "colors": [
         [
@@ -103,7 +103,7 @@
       "slug": "linen-day-dress",
       "name": "Linen Day Dress",
       "category": "women",
-      "price": 105000,
+      "price": 25000,
       "tint": "#e1e7ee",
       "colors": [
         [
@@ -128,8 +128,8 @@
       "slug": "sleeveless-shirt-dress",
       "name": "Sleeveless Shirt Dress",
       "category": "women",
-      "price": 76000,
-      "compareAtPrice": 92000,
+      "price": 21000,
+      "compareAtPrice": 25000,
       "tint": "#f2eac6",
       "colors": [
         [
@@ -150,7 +150,7 @@
       "slug": "crisp-white-shirt",
       "name": "Crisp White Shirt",
       "category": "men",
-      "price": 69000,
+      "price": 20000,
       "tint": "#e4e9ef",
       "colors": [
         [
@@ -174,7 +174,7 @@
       "slug": "knitted-polo",
       "name": "Knitted Polo",
       "category": "men",
-      "price": 59000,
+      "price": 18000,
       "tint": "#ece6da",
       "colors": [
         [
@@ -197,7 +197,7 @@
       "slug": "tailored-khaki-trousers",
       "name": "Tailored Khaki Trousers",
       "category": "men",
-      "price": 64000,
+      "price": 19000,
       "tint": "#e9e2d3",
       "colors": [
         [
@@ -218,7 +218,7 @@
       "slug": "leather-mary-janes",
       "name": "Leather Mary Janes",
       "category": "shoes",
-      "price": 110000,
+      "price": 25000,
       "tint": "#e6e6ea",
       "colors": [
         [
@@ -243,7 +243,7 @@
       "slug": "cream-lug-boots",
       "name": "Cream Lug Boots",
       "category": "shoes",
-      "price": 135000,
+      "price": 28000,
       "tint": "#ece8df",
       "colors": [
         [
@@ -267,7 +267,7 @@
       "slug": "heritage-leather-boots",
       "name": "Heritage Leather Boots",
       "category": "shoes",
-      "price": 165000,
+      "price": 30000,
       "tint": "#ead9cb",
       "colors": [
         [
@@ -291,7 +291,7 @@
       "slug": "cloud-white-sneakers",
       "name": "Cloud White Sneakers",
       "category": "shoes",
-      "price": 98000,
+      "price": 24000,
       "tint": "#dfe9e5",
       "colors": [
         [
@@ -313,7 +313,7 @@
       "slug": "camel-leather-tote",
       "name": "Camel Leather Tote",
       "category": "bags",
-      "price": 320000,
+      "price": 38000,
       "tint": "#efdfcc",
       "colors": [
         [
@@ -334,7 +334,7 @@
       "slug": "solitaire-pendant",
       "name": "Solitaire Pendant",
       "category": "accessories",
-      "price": 580000,
+      "price": 45000,
       "tint": "#e3e7ef",
       "colors": [
         [
@@ -358,7 +358,7 @@
       "slug": "cross-pendant-necklace",
       "name": "Cross Pendant Necklace",
       "category": "accessories",
-      "price": 160000,
+      "price": 30000,
       "tint": "#ece6da",
       "colors": [
         [
@@ -380,8 +380,8 @@
       "slug": "tortoise-sunglasses",
       "name": "Tortoise Sunglasses",
       "category": "accessories",
-      "price": 190000,
-      "compareAtPrice": 230000,
+      "price": 32000,
+      "compareAtPrice": 38000,
       "tint": "#efe2d4",
       "colors": [
         [
@@ -401,7 +401,7 @@
       "slug": "wide-brim-straw-hat",
       "name": "Wide-Brim Straw Hat",
       "category": "accessories",
-      "price": 52000,
+      "price": 17000,
       "tint": "#f0e8d6",
       "colors": [
         [
@@ -419,7 +419,7 @@
       "slug": "sculpted-eau-de-parfum",
       "name": "Sculpted Eau de Parfum",
       "category": "beauty",
-      "price": 210000,
+      "price": 33000,
       "tint": "#f0e5d3",
       "colors": [
         [
@@ -440,7 +440,7 @@
       "slug": "rose-crystal-parfum",
       "name": "Rose Crystal Parfum",
       "category": "beauty",
-      "price": 230000,
+      "price": 34000,
       "tint": "#f2e0e3",
       "colors": [
         [
@@ -460,7 +460,7 @@
       "slug": "velvet-red-lipstick",
       "name": "Velvet Red Lipstick",
       "category": "beauty",
-      "price": 45000,
+      "price": 15000,
       "tint": "#f3dede",
       "colors": [
         [
@@ -478,7 +478,7 @@
       "slug": "white-canvas-low-tops",
       "name": "White Canvas Low-Tops",
       "category": "shoes",
-      "price": 52000,
+      "price": 17000,
       "tint": "#e7ebee",
       "colors": [
         [
@@ -502,7 +502,7 @@
       "slug": "black-canvas-high-tops",
       "name": "Black Canvas High-Tops",
       "category": "shoes",
-      "price": 56000,
+      "price": 18000,
       "tint": "#e6e6ea",
       "colors": [
         [
@@ -525,7 +525,7 @@
       "slug": "blush-knit-trainers",
       "name": "Blush Knit Trainers",
       "category": "shoes",
-      "price": 68000,
+      "price": 20000,
       "tint": "#f6e3e3",
       "colors": [
         [
@@ -549,7 +549,7 @@
       "slug": "vintage-denim-jacket",
       "name": "Vintage Denim Jacket",
       "category": "women",
-      "price": 72000,
+      "price": 20000,
       "tint": "#dfe6ef",
       "colors": [
         [
@@ -571,7 +571,7 @@
       "slug": "garden-floral-midi-dress",
       "name": "Garden Floral Midi Dress",
       "category": "women",
-      "price": 88000,
+      "price": 23000,
       "tint": "#f3e8ea",
       "colors": [
         [
@@ -596,7 +596,7 @@
       "slug": "aqua-saffiano-tote",
       "name": "Aqua Saffiano Tote",
       "category": "bags",
-      "price": 420000,
+      "price": 41000,
       "tint": "#dceef0",
       "colors": [
         [
@@ -624,7 +624,7 @@
       "slug": "cobalt-leather-handbag",
       "name": "Cobalt Leather Handbag",
       "category": "bags",
-      "price": 285000,
+      "price": 36000,
       "tint": "#e2e6f5",
       "colors": [
         [
@@ -651,7 +651,7 @@
       "slug": "cognac-leather-hobo",
       "name": "Cognac Leather Hobo",
       "category": "bags",
-      "price": 245000,
+      "price": 35000,
       "tint": "#f0e1d3",
       "colors": [
         [
@@ -678,7 +678,7 @@
       "slug": "noir-structured-handbag",
       "name": "Noir Structured Handbag",
       "category": "bags",
-      "price": 310000,
+      "price": 37000,
       "tint": "#e9e9eb",
       "colors": [
         [
@@ -703,7 +703,7 @@
       "slug": "ivory-mini-backpack",
       "name": "Ivory Mini Backpack",
       "category": "bags",
-      "price": 165000,
+      "price": 30000,
       "tint": "#efebe4",
       "colors": [
         [
@@ -728,7 +728,7 @@
       "slug": "noir-pointed-pumps",
       "name": "Noir Pointed Pumps",
       "category": "shoes",
-      "price": 125000,
+      "price": 27000,
       "tint": "#ebe7e4",
       "colors": [
         [
@@ -760,7 +760,7 @@
       "slug": "gold-metallic-pumps",
       "name": "Gold Metallic Pumps",
       "category": "shoes",
-      "price": 148000,
+      "price": 29000,
       "tint": "#f3e9d8",
       "colors": [
         [
@@ -793,7 +793,7 @@
       "slug": "scarlet-satin-pumps",
       "name": "Scarlet Satin Pumps",
       "category": "shoes",
-      "price": 138000,
+      "price": 28000,
       "tint": "#f6e1e1",
       "colors": [
         [
@@ -826,7 +826,7 @@
       "slug": "patent-stiletto-pumps",
       "name": "Patent Stiletto Pumps",
       "category": "shoes",
-      "price": 132000,
+      "price": 27000,
       "tint": "#ececee",
       "colors": [
         [
@@ -856,7 +856,7 @@
       "slug": "sculpted-strap-heels",
       "name": "Sculpted Strap Heels",
       "category": "shoes",
-      "price": 152000,
+      "price": 29000,
       "tint": "#e8e6ec",
       "colors": [
         [
@@ -888,7 +888,7 @@
       "slug": "two-tone-jubilee-watch",
       "name": "Two-Tone Jubilee Watch",
       "category": "accessories",
-      "price": 780000,
+      "price": 48000,
       "tint": "#efe8dc",
       "colors": [
         [
@@ -916,7 +916,7 @@
       "slug": "moonphase-leather-watch",
       "name": "Moonphase Leather Watch",
       "category": "accessories",
-      "price": 690000,
+      "price": 47000,
       "tint": "#ece3dc",
       "colors": [
         [
@@ -943,7 +943,7 @@
       "slug": "gold-bracelet-watch",
       "name": "Gold Bracelet Watch",
       "category": "accessories",
-      "price": 450000,
+      "price": 42000,
       "tint": "#f1e9d6",
       "colors": [
         [
@@ -968,7 +968,7 @@
       "slug": "steel-automatic-watch",
       "name": "Steel Automatic Watch",
       "category": "accessories",
-      "price": 920000,
+      "price": 50000,
       "tint": "#e5e8ec",
       "colors": [
         [
@@ -995,7 +995,7 @@
       "slug": "gold-chronograph-watch",
       "name": "Gold Chronograph Watch",
       "category": "accessories",
-      "price": 860000,
+      "price": 49000,
       "tint": "#efe6d6",
       "colors": [
         [
@@ -1020,7 +1020,7 @@
       "slug": "emerald-crystal-drops",
       "name": "Emerald Crystal Drops",
       "category": "accessories",
-      "price": 98000,
+      "price": 24000,
       "tint": "#e0ece5",
       "colors": [
         [
@@ -1047,7 +1047,7 @@
       "slug": "gold-leaf-earrings",
       "name": "Gold Leaf Earrings",
       "category": "accessories",
-      "price": 64000,
+      "price": 19000,
       "tint": "#f3ead8",
       "colors": [
         [
@@ -1072,7 +1072,7 @@
       "slug": "gradient-aviators",
       "name": "Gradient Aviators",
       "category": "accessories",
-      "price": 135000,
+      "price": 28000,
       "tint": "#e3e9ef",
       "colors": [
         [
@@ -1097,7 +1097,7 @@
       "slug": "scarlet-corset-gown",
       "name": "Scarlet Corset Gown",
       "category": "women",
-      "price": 265000,
+      "price": 36000,
       "tint": "#f6e0df",
       "colors": [
         [
@@ -1128,7 +1128,7 @@
       "slug": "noir-corset-gown",
       "name": "Noir Corset Gown",
       "category": "women",
-      "price": 265000,
+      "price": 36000,
       "tint": "#e9e8ec",
       "colors": [
         [
@@ -1158,7 +1158,7 @@
       "slug": "midnight-floral-gown",
       "name": "Midnight Floral Gown",
       "category": "women",
-      "price": 238000,
+      "price": 34000,
       "tint": "#e6e4ef",
       "colors": [
         [
@@ -1187,7 +1187,7 @@
       "slug": "polka-dot-party-dress",
       "name": "Polka Dot Party Dress",
       "category": "women",
-      "price": 145000,
+      "price": 29000,
       "tint": "#f6e3ee",
       "colors": [
         [
@@ -1217,7 +1217,7 @@
       "slug": "hibiscus-resort-shirt",
       "name": "Hibiscus Resort Shirt",
       "category": "men",
-      "price": 48000,
+      "price": 16000,
       "tint": "#e0e8f3",
       "colors": [
         [
@@ -1248,7 +1248,7 @@
       "slug": "buffalo-check-shirt",
       "name": "Buffalo Check Shirt",
       "category": "men",
-      "price": 52000,
+      "price": 17000,
       "tint": "#f3e2e0",
       "colors": [
         [
