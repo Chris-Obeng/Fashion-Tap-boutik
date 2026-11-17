@@ -113,7 +113,7 @@ export default async function HomePage() {
         href="/shop?category=bags"
         action="Shop bags"
         panel="#3b2416"
-        imagePosition="50% 35%"
+        imagePosition="50% 58%"
       />
 
       {/* New in */}
