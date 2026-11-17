@@ -1327,6 +1327,121 @@
     },
     {
       "source": "pexels",
+      "id": "oat-linen-band-collar-shirt",
+      "slug": "oat-linen-band-collar-shirt",
+      "name": "Oat Linen Band-Collar Shirt",
+      "category": "men",
+      "price": 42000,
+      "tint": "#ece6de",
+      "colors": [
+        [
+          "Oat",
+          "#d9cdb8"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "new",
+        "featured"
+      ],
+      "images": [
+        22441291,
+        22441297
+      ],
+      "description": "Washed linen with a band collar and horn-look buttons. Cool on the hottest days.",
+      "details": [
+        "100% washed linen",
+        "Band collar, half placket",
+        "Relaxed fit",
+        "Machine wash cold, line dry"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "mahogany-twill-shirt",
+      "slug": "mahogany-twill-shirt",
+      "name": "Mahogany Twill Shirt",
+      "category": "men",
+      "price": 40000,
+      "tint": "#ece4dc",
+      "colors": [
+        [
+          "Mahogany",
+          "#7a3b1e"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "new",
+        "featured"
+      ],
+      "images": [
+        32009682,
+        32009683
+      ],
+      "description": "A soft cotton twill shirt in deep mahogany. Smart with black trousers, easy with white.",
+      "details": [
+        "Brushed cotton twill",
+        "Point collar",
+        "Regular fit",
+        "Machine wash 30°"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "noir-supima-tee",
+      "slug": "noir-supima-tee",
+      "name": "Noir Supima Tee",
+      "category": "men",
+      "price": 24000,
+      "tint": "#e8e6e3",
+      "colors": [
+        [
+          "Black",
+          "#141414"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "new",
+        "featured"
+      ],
+      "images": [
+        8532616,
+        8532638,
+        8532611
+      ],
+      "description": "A heavyweight black tee in smooth Supima cotton. Holds its shape wash after wash.",
+      "details": [
+        "Supima cotton jersey, 220 gsm",
+        "Ribbed crew neck",
+        "Regular fit",
+        "Machine wash cold, inside out"
+      ]
+    },
+    {
+      "source": "pexels",
       "id": "tangerine-knit-polo",
       "slug": "tangerine-knit-polo",
       "name": "Tangerine Knit Polo",
@@ -1364,6 +1479,80 @@
         "Ribbed collar and cuffs",
         "Regular fit",
         "Hand wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "onyx-linen-shirt",
+      "slug": "onyx-linen-shirt",
+      "name": "Onyx Linen Shirt",
+      "category": "men",
+      "price": 42000,
+      "tint": "#e2e7e0",
+      "colors": [
+        [
+          "Black",
+          "#1a1a1a"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "new"
+      ],
+      "images": [
+        32009689,
+        32009695,
+        32009688
+      ],
+      "description": "A black linen-blend shirt with a soft sheen. Dresses up or down.",
+      "details": [
+        "Linen-cotton blend",
+        "Point collar",
+        "Regular fit",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "white-linen-popover",
+      "slug": "white-linen-popover",
+      "name": "White Linen Popover",
+      "category": "men",
+      "price": 38000,
+      "tint": "#ece6de",
+      "colors": [
+        [
+          "White",
+          "#f5f3ee"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        22441295,
+        22441292
+      ],
+      "description": "A short-sleeve linen popover with a band collar. Light, breathable and crisp.",
+      "details": [
+        "100% linen",
+        "Band collar, three-button placket",
+        "Relaxed fit",
+        "Machine wash cold, line dry"
       ]
     },
     {
@@ -1408,6 +1597,79 @@
     },
     {
       "source": "pexels",
+      "id": "teal-camp-shirt",
+      "slug": "teal-camp-shirt",
+      "name": "Teal Camp Shirt",
+      "category": "men",
+      "price": 34000,
+      "tint": "#e3e9e2",
+      "colors": [
+        [
+          "Teal",
+          "#14707a"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "new"
+      ],
+      "images": [
+        32009691,
+        32009690
+      ],
+      "description": "A fluid camp-collar shirt in deep teal. Made for warm evenings.",
+      "details": [
+        "Soft woven viscose blend",
+        "Camp collar",
+        "Relaxed fit",
+        "Hand wash or gentle cycle"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "white-poplin-shirt",
+      "slug": "white-poplin-shirt",
+      "name": "White Poplin Shirt",
+      "category": "men",
+      "price": 35000,
+      "tint": "#e3e7e8",
+      "colors": [
+        [
+          "White",
+          "#f7f7f5"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        28576622,
+        28576630
+      ],
+      "description": "A crisp white cotton poplin shirt. The one every wardrobe needs.",
+      "details": [
+        "100% cotton poplin",
+        "Point collar, chest pocket",
+        "Regular fit",
+        "Machine wash 40°, iron warm"
+      ]
+    },
+    {
+      "source": "pexels",
       "id": "ivory-pique-polo",
       "slug": "ivory-pique-polo",
       "name": "Ivory Piqué Polo",
@@ -1446,54 +1708,16 @@
     },
     {
       "source": "pexels",
-      "id": "riviera-stripe-polo",
-      "slug": "riviera-stripe-polo",
-      "name": "Riviera Stripe Polo",
+      "id": "caramel-twill-shirt",
+      "slug": "caramel-twill-shirt",
+      "name": "Caramel Twill Shirt",
       "category": "men",
-      "price": 34000,
-      "tint": "#e2e6ea",
+      "price": 38000,
+      "tint": "#e7ebe4",
       "colors": [
         [
-          "Grey stripe",
-          "#b9c0c8"
-        ]
-      ],
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ],
-      "tags": [
-        "tee",
-        "new"
-      ],
-      "images": [
-        6511656,
-        6511654,
-        6511659
-      ],
-      "description": "Fine grey stripes and a soft collar. Holiday polish, all year round.",
-      "details": [
-        "Cotton jersey",
-        "Striped yarn-dye",
-        "Regular fit",
-        "Machine wash cold"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "teal-knit-polo",
-      "slug": "teal-knit-polo",
-      "name": "Teal Knit Polo",
-      "category": "men",
-      "price": 36000,
-      "tint": "#f1e2d3",
-      "colors": [
-        [
-          "Teal",
-          "#1f6b86"
+          "Caramel",
+          "#b9773a"
         ]
       ],
       "sizes": [
@@ -1507,29 +1731,29 @@
         "tee"
       ],
       "images": [
-        25752284,
-        25752280
+        32009686,
+        32009685
       ],
-      "description": "A rich teal polo with a smooth hand. Colour that still reads refined.",
+      "description": "A warm caramel cotton shirt with a clean, long line. Great with white trousers.",
       "details": [
-        "Smooth cotton knit",
-        "Ribbed collar",
-        "Slim fit",
-        "Machine wash cold"
+        "Brushed cotton twill",
+        "Point collar",
+        "Regular fit",
+        "Machine wash 30°"
       ]
     },
     {
       "source": "pexels",
-      "id": "sky-blue-polo",
-      "slug": "sky-blue-polo",
-      "name": "Sky Blue Polo",
+      "id": "ash-linen-henley",
+      "slug": "ash-linen-henley",
+      "name": "Ash Linen Henley",
       "category": "men",
-      "price": 28000,
-      "tint": "#e4e6e8",
+      "price": 32000,
+      "tint": "#ede7df",
       "colors": [
         [
-          "Sky",
-          "#a9c4dc"
+          "Ash grey",
+          "#9a9a96"
         ]
       ],
       "sizes": [
@@ -1543,15 +1767,14 @@
         "tee"
       ],
       "images": [
-        7710171,
-        7710170
+        18186107
       ],
-      "description": "Fresh sky blue for the office or the weekend. Breathable and sharp.",
+      "description": "A short-sleeve linen henley in soft ash grey. Shown on the hanger.",
       "details": [
-        "Breathable cotton piqué",
-        "Two-button placket",
-        "Regular fit",
-        "Machine wash cold"
+        "100% linen",
+        "Split neck",
+        "Relaxed fit",
+        "Machine wash cold, line dry"
       ]
     },
     {
@@ -1593,16 +1816,16 @@
     },
     {
       "source": "pexels",
-      "id": "burgundy-pique-polo",
-      "slug": "burgundy-pique-polo",
-      "name": "Burgundy Piqué Polo",
+      "id": "sky-oxford-shirt",
+      "slug": "sky-oxford-shirt",
+      "name": "Sky Oxford Shirt",
       "category": "men",
-      "price": 29000,
-      "tint": "#e2e4e8",
+      "price": 32000,
+      "tint": "#e5e8e2",
       "colors": [
         [
-          "Burgundy",
-          "#7a1f2b"
+          "Sky blue",
+          "#8fb0d6"
         ]
       ],
       "sizes": [
@@ -1616,54 +1839,15 @@
         "tee"
       ],
       "images": [
-        7362857,
-        7362853
+        32009693,
+        32009692
       ],
-      "description": "Deep burgundy piqué. Looks expensive, wears easily.",
+      "description": "A soft sky-blue cotton shirt for work, weddings and weekends.",
       "details": [
-        "Cotton piqué",
-        "Two-button placket",
+        "Cotton oxford",
+        "Point collar",
         "Regular fit",
-        "Wash with similar colours"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "onyx-lounge-tee",
-      "slug": "onyx-lounge-tee",
-      "name": "Onyx Lounge Tee",
-      "category": "men",
-      "price": 26000,
-      "tint": "#ecebe9",
-      "colors": [
-        [
-          "Onyx",
-          "#151515"
-        ]
-      ],
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ],
-      "tags": [
-        "tee",
-        "new"
-      ],
-      "images": [
-        8654711,
-        8654706,
-        8654707,
-        8654710
-      ],
-      "description": "Heavy, matte black cotton that drapes beautifully. Luxury you can lounge in.",
-      "details": [
-        "Heavyweight 260gsm cotton",
-        "Relaxed fit",
-        "Ribbed crew neck",
-        "Wash inside out"
+        "Machine wash 30°"
       ]
     },
     {
@@ -1708,16 +1892,16 @@
     },
     {
       "source": "pexels",
-      "id": "midnight-crew-tee",
-      "slug": "midnight-crew-tee",
-      "name": "Midnight Crew Tee",
+      "id": "sage-heavyweight-tee",
+      "slug": "sage-heavyweight-tee",
+      "name": "Sage Heavyweight Tee",
       "category": "men",
-      "price": 23000,
-      "tint": "#e3e8ea",
+      "price": 22000,
+      "tint": "#e2e0de",
       "colors": [
         [
-          "Midnight",
-          "#1d2a3d"
+          "Sage",
+          "#93a68c"
         ]
       ],
       "sizes": [
@@ -1731,30 +1915,28 @@
         "tee"
       ],
       "images": [
-        6599706,
-        6599702,
-        6599707
+        9594694
       ],
-      "description": "Deep navy in a smooth, substantial cotton. The dark tee that isn't black.",
+      "description": "A heavyweight cotton tee in calm sage. Boxy, soft and built to last. Shown on the hanger.",
       "details": [
-        "Midweight long-staple cotton",
-        "Regular fit",
-        "Crew neck",
+        "Heavyweight cotton jersey, 240 gsm",
+        "Ribbed crew neck",
+        "Boxy fit",
         "Machine wash cold"
       ]
     },
     {
       "source": "pexels",
-      "id": "noir-essential-tee",
-      "slug": "noir-essential-tee",
-      "name": "Noir Essential Tee",
+      "id": "pintuck-dress-shirt",
+      "slug": "pintuck-dress-shirt",
+      "name": "Pintuck Dress Shirt",
       "category": "men",
-      "price": 22000,
-      "tint": "#e6e4e8",
+      "price": 45000,
+      "tint": "#e5e9e1",
       "colors": [
         [
-          "Black",
-          "#111111"
+          "White",
+          "#f7f7f5"
         ]
       ],
       "sizes": [
@@ -1763,75 +1945,113 @@
         "L",
         "XL",
         "XXL"
-      ],
-      "tags": [
-        "tee"
-      ],
-      "images": [
-        30124372,
-        30124371
-      ],
-      "description": "A clean black tee with a sharp shoulder line. The base of every good outfit.",
-      "details": [
-        "Long-staple cotton",
-        "Regular fit",
-        "Crew neck",
-        "Colour-fast black dye"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "powder-blue-polo",
-      "slug": "powder-blue-polo",
-      "name": "Powder Blue Polo",
-      "category": "women",
-      "price": 30000,
-      "tint": "#e3e3e1",
-      "colors": [
-        [
-          "Powder blue",
-          "#8ec5ea"
-        ]
-      ],
-      "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL"
       ],
       "tags": [
         "tee",
-        "new",
         "featured"
       ],
       "images": [
-        40280728,
-        40280726,
-        40280729,
-        40280730,
-        40280732
+        36242635
       ],
-      "description": "A fitted polo in powder blue. Tuck it into tailored trousers.",
+      "description": "A white dress shirt with fine pintucks down the front. Made for big occasions.",
       "details": [
-        "Stretch cotton piqué",
-        "Fitted",
-        "Two-button placket",
+        "Cotton poplin",
+        "Pintuck bib front",
+        "Slim fit",
+        "Machine wash 30°, iron warm"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "oversized-ivory-tee",
+      "slug": "oversized-ivory-tee",
+      "name": "Oversized Ivory Tee",
+      "category": "men",
+      "price": 24000,
+      "tint": "#e6e6d8",
+      "colors": [
+        [
+          "Ivory",
+          "#f1efe6"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "featured"
+      ],
+      "images": [
+        8498700,
+        8498698,
+        8498703,
+        8498705,
+        8498701
+      ],
+      "description": "A boxy, heavyweight tee with a dropped shoulder.",
+      "details": [
+        "Heavyweight 240gsm cotton",
+        "Boxy, dropped-shoulder fit",
+        "Ribbed crew neck",
+        "Pre-shrunk"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "stone-grey-tee",
+      "slug": "stone-grey-tee",
+      "name": "Stone Grey Tee",
+      "category": "men",
+      "price": 20000,
+      "tint": "#e6e3df",
+      "colors": [
+        [
+          "Stone",
+          "#bdbdb8"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        6311580,
+        6311583,
+        6311585,
+        6311573,
+        6311579
+      ],
+      "description": "Soft grey marl in a classic fit.",
+      "details": [
+        "Cotton-blend marl jersey",
+        "Regular fit",
+        "Crew neck",
         "Machine wash cold"
       ]
     },
     {
       "source": "pexels",
-      "id": "noir-rib-polo",
-      "slug": "noir-rib-polo",
-      "name": "Noir Rib Polo",
+      "id": "studio-white-tee",
+      "slug": "studio-white-tee",
+      "name": "Studio White Tee",
       "category": "women",
-      "price": 34000,
-      "tint": "#e0ebe8",
+      "price": 18000,
+      "tint": "#ececea",
       "colors": [
         [
-          "Black",
-          "#111111"
+          "White",
+          "#f7f7f5"
         ]
       ],
       "sizes": [
@@ -1846,88 +2066,13 @@
         "new"
       ],
       "images": [
-        11215202,
-        11215200,
-        11215201
+        11671964
       ],
-      "description": "A ribbed black polo with a close, flattering fit.",
+      "description": "A clean white cotton tee with a neat crew neck. Shown on the hanger.",
       "details": [
-        "Ribbed cotton knit",
-        "Fitted",
-        "Short button placket",
-        "Hand wash cold"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "sky-fitted-polo",
-      "slug": "sky-fitted-polo",
-      "name": "Sky Fitted Polo",
-      "category": "women",
-      "price": 28000,
-      "tint": "#e4e4e3",
-      "colors": [
-        [
-          "Sky",
-          "#7fb8e6"
-        ]
-      ],
-      "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "tags": [
-        "tee"
-      ],
-      "images": [
-        37384896,
-        37384897,
-        37384898
-      ],
-      "description": "Soft sky blue in a neat, fitted cut. Polished without trying.",
-      "details": [
-        "Cotton piqué",
-        "Fitted",
-        "Two-button placket",
-        "Machine wash cold"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "cobalt-polo",
-      "slug": "cobalt-polo",
-      "name": "Cobalt Polo",
-      "category": "women",
-      "price": 27000,
-      "tint": "#e6ebe2",
-      "colors": [
-        [
-          "Cobalt",
-          "#4b5fb3"
-        ]
-      ],
-      "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "tags": [
-        "tee"
-      ],
-      "images": [
-        38208196,
-        38208197
-      ],
-      "description": "A relaxed cobalt polo with a soft collar.",
-      "details": [
-        "Cotton piqué",
-        "Relaxed fit",
-        "Two-button placket",
+        "Combed cotton jersey",
+        "Crew neck",
+        "Regular fit",
         "Machine wash cold"
       ]
     },
@@ -1971,6 +2116,42 @@
         "Relaxed fit",
         "Embroidered chest detail",
         "Wash inside out"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "dove-linen-shirt",
+      "slug": "dove-linen-shirt",
+      "name": "Dove Linen Shirt",
+      "category": "women",
+      "price": 33000,
+      "tint": "#efefee",
+      "colors": [
+        [
+          "Dove grey",
+          "#c9c9c6"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "tee",
+        "new"
+      ],
+      "images": [
+        8788679
+      ],
+      "description": "A long, relaxed linen shirt in soft dove grey. Wear it open over a tee or buttoned up.",
+      "details": [
+        "100% linen",
+        "Point collar, chest pocket",
+        "Oversized fit",
+        "Machine wash cold, line dry"
       ]
     },
     {
@@ -2046,121 +2227,6 @@
       "details": [
         "Midweight cotton",
         "Relaxed boyfriend fit",
-        "Crew neck",
-        "Machine wash cold"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "oversized-ivory-tee",
-      "slug": "oversized-ivory-tee",
-      "name": "Oversized Ivory Tee",
-      "category": "men",
-      "price": 24000,
-      "tint": "#e6e6d8",
-      "colors": [
-        [
-          "Ivory",
-          "#f1efe6"
-        ]
-      ],
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ],
-      "tags": [
-        "tee",
-        "featured"
-      ],
-      "images": [
-        8498700,
-        8498698,
-        8498703,
-        8498705,
-        8498701
-      ],
-      "description": "A boxy, heavyweight tee with a dropped shoulder.",
-      "details": [
-        "Heavyweight 240gsm cotton",
-        "Boxy, dropped-shoulder fit",
-        "Ribbed crew neck",
-        "Pre-shrunk"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "studio-white-heavy-tee",
-      "slug": "studio-white-heavy-tee",
-      "name": "Studio Heavy Tee",
-      "category": "men",
-      "price": 22000,
-      "tint": "#efe3e1",
-      "colors": [
-        [
-          "White",
-          "#ffffff"
-        ]
-      ],
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ],
-      "tags": [
-        "tee"
-      ],
-      "images": [
-        8499394,
-        8499393
-      ],
-      "description": "Dense, structured cotton with a relaxed body.",
-      "details": [
-        "Heavyweight cotton",
-        "Relaxed fit",
-        "Double-stitched hems",
-        "Pre-shrunk"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "stone-grey-tee",
-      "slug": "stone-grey-tee",
-      "name": "Stone Grey Tee",
-      "category": "men",
-      "price": 20000,
-      "tint": "#e6e3df",
-      "colors": [
-        [
-          "Stone",
-          "#bdbdb8"
-        ]
-      ],
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ],
-      "tags": [
-        "tee"
-      ],
-      "images": [
-        6311580,
-        6311583,
-        6311585,
-        6311573,
-        6311579
-      ],
-      "description": "Soft grey marl in a classic fit.",
-      "details": [
-        "Cotton-blend marl jersey",
-        "Regular fit",
         "Crew neck",
         "Machine wash cold"
       ]

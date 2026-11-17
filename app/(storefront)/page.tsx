@@ -57,7 +57,7 @@ export default async function HomePage() {
   const loved = all.filter(p => p.tags.includes("featured")).slice(0, 8);
   const newIn = all.filter(p => p.tags.includes("new")).slice(0, 8);
   const heels = all.filter(p => p.category === "shoes" && p.cutout).slice(0, 8);
-  // Best sellers in store: alternate men's and women's tees so both show early in the rail.
+  // Best sellers in store: alternate men's and women's tees, polos and shirts so both show early in the rail.
   const menTees = all.filter(p => p.tags.includes("tee") && p.category === "men");
   const womenTees = all.filter(p => p.tags.includes("tee") && p.category === "women");
   const tees = Array.from({ length: Math.max(menTees.length, womenTees.length) }, (_, i) => [menTees[i], womenTees[i]])
@@ -83,9 +83,9 @@ export default async function HomePage() {
         </ul>
       </nav>
 
-      {/* Polos and luxury tees: the store's best sellers */}
+      {/* Luxury tees, polos and shirts: the store's best sellers */}
       <section className="container-shell pt-14 sm:pt-20">
-        <SectionHeading title="Polos & luxury tees" href="/shop?category=tees" action="Shop all" />
+        <SectionHeading title="Luxury tees, polos & shirts" href="/shop?category=tees" action="Shop all" />
         <ProductRail products={tees} />
       </section>
 

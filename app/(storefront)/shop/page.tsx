@@ -6,7 +6,7 @@ import { ShopClient } from "@/components/shop/shop-client";
 export const metadata: Metadata = {
   title: "Shop",
   description:
-    "Shop polos, luxury T-shirts, gowns, dresses, heels, handbags, watches, jewellery and fragrance from Fashion Tap Boutik. Delivered across Ghana.",
+    "Shop luxury T-shirts, polos, shirts, gowns, dresses, heels, handbags, watches, jewellery and fragrance from Fashion Tap Boutik. Delivered across Ghana.",
 };
 
 export default async function ShopPage({ searchParams }: PageProps<"/shop">) {
