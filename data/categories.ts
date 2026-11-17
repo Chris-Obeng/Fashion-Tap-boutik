@@ -47,7 +47,6 @@ export const editorial = {
   ],
   bags: { src: pexels(27108129, 1400), alt: "Woman in a satin dress with a black leather handbag" },
   jewellery: { src: image("solitaire-pendant", 1), alt: "Solitaire pendant in a navy velvet box on marble" },
-  fragrance: { src: image("rose-crystal-parfum", 4), alt: "Rose Crystal Parfum bottle on black" },
 };
 
 /**
@@ -65,9 +64,8 @@ export const categories = [
   tile("women", "Women", "scarlet-corset-gown"),
   tile("men", "Men", "crisp-white-shirt"),
   tile("shoes", "Shoes", "gold-metallic-pumps"),
-  tile("bags", "Bags", "aqua-saffiano-tote"),
+  tile("bags", "Bags, purses & clutches", "gold-cage-clutch"),
   tile("accessories", "Watches & jewellery", "two-tone-jubilee-watch"),
-  tile("beauty", "Beauty", "rose-crystal-parfum"),
 ] as const;
 
 export type ShopCategoryId = (typeof categories)[number]["id"] | "all";
