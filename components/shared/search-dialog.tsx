@@ -12,7 +12,7 @@ import { ProductThumb } from "@/components/shared/product-thumb";
 import type { SearchItem } from "@/types";
 
 const MAX_RESULTS = 6;
-const POPULAR = ["Gowns", "Heels", "Handbags", "Clutches", "Purses", "Tees"];
+const POPULAR = ["Gowns", "Heels", "Handbags", "Clutches", "Purses", "Polos"];
 
 /* Recent searches: a few terms in localStorage, read through a stable snapshot. */
 const RECENT_KEY = "fashion-tap-recent-searches";

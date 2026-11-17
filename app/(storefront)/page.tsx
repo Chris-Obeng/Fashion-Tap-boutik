@@ -92,9 +92,9 @@ export default async function HomePage() {
         </ul>
       </nav>
 
-      {/* Luxury tees, polos and shirts: the store's best sellers */}
+      {/* Knit polos and shirts: the store’s best sellers */}
       <section className="container-shell pt-14 sm:pt-20">
-        <SectionHeading title="Luxury tees, polos & shirts" href="/shop?category=tees" action="Shop all" />
+        <SectionHeading title="Knit polos & shirts" href="/shop?category=tees" action="Shop all" />
         <ProductRail products={tees} />
       </section>
 
