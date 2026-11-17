@@ -36,7 +36,7 @@ export const editorial = {
       ],
     },
     {
-      label: "Polos & tees",
+      label: "Tees, polos & shirts",
       backdrop: "#e4e4e2",
       frames: [
         { src: pexels(8422379, 1100), alt: "Man in a cream knit polo and trousers, full length", position: "50% 30%" },
@@ -61,7 +61,7 @@ const tile = (id: CategoryId | "new" | "tees", name: string, slug: string) => {
 
 export const categories = [
   tile("new", "New in", "polka-dot-party-dress"),
-  tile("tees", "Polos & tees", "cream-resort-polo"),
+  tile("tees", "Tees, polos & shirts", "cream-resort-polo"),
   tile("women", "Women", "scarlet-corset-gown"),
   tile("men", "Men", "crisp-white-shirt"),
   tile("shoes", "Shoes", "gold-metallic-pumps"),

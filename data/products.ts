@@ -7,7 +7,7 @@ import type { CategoryId, Product } from "@/types";
  * Placeholder catalogue, refreshed with `pnpm sync:products`:
  *   - SceneSKU packs (data/scenesku.json): photographed studio + lifestyle scenes.
  *   - DummyJSON items (data/dummyjson.json): 3D renders on transparent backgrounds.
- *   - Pexels photo sets (ids in curation.json): studio t-shirt shoots, free for commercial use.
+ *   - Pexels photo sets (ids in curation.json): tee, polo and shirt shoots, free for commercial use.
  * Joined with our own merchandising in data/curation.json (names, copy, GH₵ prices,
  * colours, sizes, tints). Prices and stock are illustrative. Replace with Supabase.
  */
