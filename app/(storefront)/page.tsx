@@ -25,6 +25,7 @@ function FeatureBanner({
   action,
   panel,
   reverse = false,
+  external = false,
   imagePosition = "50% 50%",
 }: {
   image: { src: string; alt: string };
@@ -34,6 +35,8 @@ function FeatureBanner({
   action: string;
   panel: string;
   reverse?: boolean;
+  /** Opens in a new tab (e.g. a WhatsApp chat) instead of navigating in the store. */
+  external?: boolean;
   imagePosition?: string;
 }) {
   return (
@@ -44,9 +47,15 @@ function FeatureBanner({
       <div className="flex flex-col items-start justify-center px-6 py-14 text-white sm:px-12 md:py-20 lg:px-20">
         <h2 className="display text-[36px] sm:text-[44px] lg:text-[52px]">{title}</h2>
         <p className="mt-2 max-w-[30ch] text-[17px] leading-7 text-white/80 sm:text-[19px]">{text}</p>
-        <Link href={href} className="btn btn-light mt-7">
-          {action}
-        </Link>
+        {external ? (
+          <a href={href} target="_blank" rel="noreferrer" className="btn btn-light mt-7">
+            {action}
+          </a>
+        ) : (
+          <Link href={href} className="btn btn-light mt-7">
+            {action}
+          </Link>
+        )}
       </div>
     </section>
   );
@@ -83,9 +92,9 @@ export default async function HomePage() {
         </ul>
       </nav>
 
-      {/* Luxury tees, polos and shirts: the store's best sellers */}
+      {/* Knit polos and shirts: the store’s best sellers */}
       <section className="container-shell pt-14 sm:pt-20">
-        <SectionHeading title="Luxury tees, polos & shirts" href="/shop?category=tees" action="Shop all" />
+        <SectionHeading title="Knit polos & shirts" href="/shop?category=tees" action="Shop all" />
         <ProductRail products={tees} />
       </section>
 
@@ -134,6 +143,18 @@ export default async function HomePage() {
           <ProductRail products={heels} />
         </div>
       </section>
+
+      {/* Gift boxes: any piece, packed and ribbon-tied. Ordered on WhatsApp. */}
+      <FeatureBanner
+        image={editorial.gift}
+        title="Gift boxes."
+        text="Choose any piece and we’ll pack it in a ribbon-tied box, ready to give."
+        href={whatsappHref("Hi Fashion Tap Boutik, I’d like to order a gift box.")}
+        external
+        action="Order a gift box"
+        panel="#6b0f2a"
+        imagePosition="50% 40%"
+      />
 
       {/* TikTok: the store's real community */}
       <section className="container-shell pt-14 sm:pt-20">

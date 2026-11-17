@@ -36,7 +36,7 @@ export const editorial = {
       ],
     },
     {
-      label: "Tees, polos & shirts",
+      label: "Knit polos & shirts",
       backdrop: "#e4e4e2",
       frames: [
         { src: pexels(8422379, 1100), alt: "Man in a cream knit polo and trousers, full length", position: "50% 30%" },
@@ -46,6 +46,7 @@ export const editorial = {
     },
   ],
   bags: { src: pexels(27108129, 1400), alt: "Woman in a satin dress with a black leather handbag" },
+  gift: { src: pexels(13976057, 1400), alt: "White and red gift boxes tied with satin ribbon, a red rose on top" },
   jewellery: { src: image("solitaire-pendant", 1), alt: "Solitaire pendant in a navy velvet box on marble" },
 };
 
@@ -60,7 +61,7 @@ const tile = (id: CategoryId | "new" | "tees", name: string, slug: string) => {
 
 export const categories = [
   tile("new", "New in", "polka-dot-party-dress"),
-  tile("tees", "Tees, polos & shirts", "cream-resort-polo"),
+  tile("tees", "Knit polos & shirts", "noir-stripe-crochet-shirt"),
   tile("women", "Women", "scarlet-corset-gown"),
   tile("men", "Men", "crisp-white-shirt"),
   tile("shoes", "Shoes", "gold-metallic-pumps"),

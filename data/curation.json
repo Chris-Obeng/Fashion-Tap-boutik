@@ -1598,6 +1598,356 @@
     },
     {
       "source": "pexels",
+      "id": "noir-stripe-crochet-shirt",
+      "slug": "noir-stripe-crochet-shirt",
+      "name": "Noir Stripe Crochet Shirt",
+      "category": "men",
+      "price": 45000,
+      "tint": "#eadfd6",
+      "colors": [
+        [
+          "Navy / White",
+          "#1f2433"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "featured"
+      ],
+      "images": [
+        34626703,
+        34626702,
+        34626701,
+        34626700,
+        34626699,
+        34626698
+      ],
+      "description": "A hand-crocheted camp shirt in bold navy and white stripes. Open-work stitch, button front.",
+      "details": [
+        "Hand-crocheted cotton",
+        "Camp collar, button front",
+        "Relaxed fit",
+        "Hand wash cold, dry flat"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "forest-rib-knit-polo",
+      "slug": "forest-rib-knit-polo",
+      "name": "Forest Rib Knit Polo",
+      "category": "women",
+      "price": 30000,
+      "tint": "#e4e8e4",
+      "colors": [
+        [
+          "Forest",
+          "#173a30"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "tee",
+        "new",
+        "featured"
+      ],
+      "images": [
+        11215200,
+        11215202,
+        11215201
+      ],
+      "description": "A fitted women's polo in forest-green rib knit with a four-button placket.",
+      "details": [
+        "Stretch rib knit",
+        "Four-button placket",
+        "Fitted",
+        "Hand wash cold, dry flat"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "ivory-rib-stripe-polo",
+      "slug": "ivory-rib-stripe-polo",
+      "name": "Ivory Rib-Stripe Polo",
+      "category": "men",
+      "price": 40000,
+      "tint": "#ece7df",
+      "colors": [
+        [
+          "Ivory / Sand",
+          "#e8dfd0"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "new",
+        "featured"
+      ],
+      "images": [
+        36699354,
+        36699353,
+        36699355
+      ],
+      "description": "Fine vertical knit stripes in ivory and sand, finished with a solid white collar and cuffs.",
+      "details": [
+        "Fine-gauge cotton knit",
+        "Contrast collar and cuffs",
+        "Three-button placket",
+        "Hand wash cold, dry flat"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "pinstripe-resort-shirt",
+      "slug": "pinstripe-resort-shirt",
+      "name": "Pinstripe Resort Shirt",
+      "category": "women",
+      "price": 28000,
+      "tint": "#e9e8e6",
+      "colors": [
+        [
+          "White / Black",
+          "#f2f2ef"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "tee",
+        "new"
+      ],
+      "images": [
+        16895914
+      ],
+      "description": "A relaxed short-sleeve shirt in white with black pinstripes and contrast black cuffs.",
+      "details": [
+        "Soft woven cotton",
+        "Contrast collar and cuffs",
+        "Oversized fit",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "cocoa-stripe-knit-polo",
+      "slug": "cocoa-stripe-knit-polo",
+      "name": "Cocoa Stripe Knit Polo",
+      "category": "men",
+      "price": 38000,
+      "tint": "#e4e1dc",
+      "colors": [
+        [
+          "Cocoa / Ivory",
+          "#4a3f3a"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "new",
+        "featured"
+      ],
+      "images": [
+        35298017
+      ],
+      "description": "A soft brushed-knit polo in cocoa with ivory stripes and a three-button placket.",
+      "details": [
+        "Brushed cotton-blend knit",
+        "Three-button placket",
+        "Regular fit",
+        "Hand wash cold, dry flat"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "tangerine-knit-polo",
+      "slug": "tangerine-knit-polo",
+      "name": "Tangerine Knit Polo",
+      "category": "men",
+      "price": 42000,
+      "tint": "#efe4da",
+      "colors": [
+        [
+          "Tangerine",
+          "#f07a2d"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "new",
+        "featured"
+      ],
+      "images": [
+        5543416,
+        5543411,
+        5543418,
+        5543414,
+        5543421
+      ],
+      "description": "A textured knit polo in bold tangerine. The piece that finishes the look.",
+      "details": [
+        "Textured cotton knit",
+        "Ribbed collar and cuffs",
+        "Regular fit",
+        "Hand wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "cream-pointelle-polo",
+      "slug": "cream-pointelle-polo",
+      "name": "Cream Pointelle Polo",
+      "category": "men",
+      "price": 36000,
+      "tint": "#e9e8e6",
+      "colors": [
+        [
+          "Cream",
+          "#efe8d6"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "new"
+      ],
+      "images": [
+        40212943,
+        40212941,
+        40212938,
+        40212940,
+        40212946
+      ],
+      "description": "An open-collar polo in cream pointelle knit, with a diamond pattern that lets the air through.",
+      "details": [
+        "Pointelle cotton knit",
+        "Open collar",
+        "Relaxed fit",
+        "Hand wash cold, dry flat"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "primary-stripe-crochet-shirt",
+      "slug": "primary-stripe-crochet-shirt",
+      "name": "Primary Stripe Crochet Shirt",
+      "category": "men",
+      "price": 48000,
+      "tint": "#e9e8e6",
+      "colors": [
+        [
+          "Yellow / Navy / Red",
+          "#e9b81c"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "new"
+      ],
+      "images": [
+        39406981,
+        39406982,
+        39406980
+      ],
+      "description": "A hand-crocheted shirt in yellow, navy and red vertical stripes. Made to be noticed.",
+      "details": [
+        "Hand-crocheted cotton",
+        "Knit collar, button front",
+        "Relaxed fit",
+        "Hand wash cold, dry flat"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "noir-tipped-knit-polo",
+      "slug": "noir-tipped-knit-polo",
+      "name": "Noir Tipped Knit Polo",
+      "category": "men",
+      "price": 32000,
+      "tint": "#e6e6e6",
+      "colors": [
+        [
+          "Black / White",
+          "#1c1c1c"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "featured"
+      ],
+      "images": [
+        34543265,
+        34543263,
+        34543264,
+        34543262
+      ],
+      "description": "A black ribbed-knit polo with white tipping on the collar, placket and sleeves.",
+      "details": [
+        "Ribbed cotton knit",
+        "Tipped collar and cuffs",
+        "Slim fit",
+        "Hand wash cold, dry flat"
+      ]
+    },
+    {
+      "source": "pexels",
       "id": "cream-resort-polo",
       "slug": "cream-resort-polo",
       "name": "Cream Resort Polo",
@@ -1635,6 +1985,190 @@
         "Open camp collar",
         "Relaxed fit",
         "Hand wash or gentle cycle"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "taupe-jacquard-knit-polo",
+      "slug": "taupe-jacquard-knit-polo",
+      "name": "Taupe Jacquard Knit Polo",
+      "category": "men",
+      "price": 34000,
+      "tint": "#e7e5e2",
+      "colors": [
+        [
+          "Taupe",
+          "#cbbfb2"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        31540234
+      ],
+      "description": "A Johnny-collar polo in taupe jacquard knit with a small diamond texture.",
+      "details": [
+        "Jacquard cotton knit",
+        "Johnny collar",
+        "Regular fit",
+        "Hand wash cold, dry flat"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "olive-stripe-camp-shirt",
+      "slug": "olive-stripe-camp-shirt",
+      "name": "Olive Stripe Camp Shirt",
+      "category": "men",
+      "price": 36000,
+      "tint": "#ecebe8",
+      "colors": [
+        [
+          "Olive / Navy",
+          "#7a7a4a"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        7433128,
+        7432876,
+        7432495,
+        7433129
+      ],
+      "description": "A short-sleeve shirt in wide olive, navy and cream stripes with a fine plum pinstripe.",
+      "details": [
+        "Fluid woven fabric",
+        "Band collar, button front",
+        "Regular fit",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "sage-diamond-knit-polo",
+      "slug": "sage-diamond-knit-polo",
+      "name": "Sage Diamond Knit Polo",
+      "category": "men",
+      "price": 34000,
+      "tint": "#e3ebe9",
+      "colors": [
+        [
+          "Sage",
+          "#b9bfa8"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee"
+      ],
+      "images": [
+        31822058
+      ],
+      "description": "A sage polo in diamond-textured knit with a deep open collar.",
+      "details": [
+        "Textured cotton knit",
+        "Open collar",
+        "Regular fit",
+        "Hand wash cold, dry flat"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "stone-pique-polo",
+      "slug": "stone-pique-polo",
+      "name": "Stone Piqué Polo",
+      "category": "men",
+      "price": 32000,
+      "tint": "#e6e1db",
+      "colors": [
+        [
+          "Stone",
+          "#c9c9c6"
+        ]
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "tags": [
+        "tee",
+        "featured"
+      ],
+      "images": [
+        39338775,
+        39338774,
+        39338776,
+        39338779,
+        39338777
+      ],
+      "description": "Classic piqué in a soft stone grey. Smart with tailoring, easy with denim.",
+      "details": [
+        "Cotton piqué",
+        "Two-button placket",
+        "Regular fit",
+        "Machine wash cold"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "dove-linen-shirt",
+      "slug": "dove-linen-shirt",
+      "name": "Dove Linen Shirt",
+      "category": "women",
+      "price": 33000,
+      "tint": "#efefee",
+      "colors": [
+        [
+          "Dove grey",
+          "#c9c9c6"
+        ]
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "tags": [
+        "tee",
+        "new"
+      ],
+      "images": [
+        8788679
+      ],
+      "description": "A long, relaxed linen shirt in soft dove grey. Wear it open over a tee or buttoned up.",
+      "details": [
+        "100% linen",
+        "Point collar, chest pocket",
+        "Oversized fit",
+        "Machine wash cold, line dry"
       ]
     },
     {
@@ -1715,86 +2249,6 @@
     },
     {
       "source": "pexels",
-      "id": "noir-supima-tee",
-      "slug": "noir-supima-tee",
-      "name": "Noir Supima Tee",
-      "category": "men",
-      "price": 24000,
-      "tint": "#e8e6e3",
-      "colors": [
-        [
-          "Black",
-          "#141414"
-        ]
-      ],
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ],
-      "tags": [
-        "tee",
-        "new",
-        "featured"
-      ],
-      "images": [
-        8532616,
-        8532638,
-        8532611
-      ],
-      "description": "A heavyweight black tee in smooth Supima cotton. Holds its shape wash after wash.",
-      "details": [
-        "Supima cotton jersey, 220 gsm",
-        "Ribbed crew neck",
-        "Regular fit",
-        "Machine wash cold, inside out"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "tangerine-knit-polo",
-      "slug": "tangerine-knit-polo",
-      "name": "Tangerine Knit Polo",
-      "category": "men",
-      "price": 42000,
-      "tint": "#efe4da",
-      "colors": [
-        [
-          "Tangerine",
-          "#f07a2d"
-        ]
-      ],
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ],
-      "tags": [
-        "tee",
-        "new",
-        "featured"
-      ],
-      "images": [
-        5543416,
-        5543411,
-        5543418,
-        5543414,
-        5543421
-      ],
-      "description": "A textured knit polo in bold tangerine. The piece that finishes the look.",
-      "details": [
-        "Textured cotton knit",
-        "Ribbed collar and cuffs",
-        "Regular fit",
-        "Hand wash cold"
-      ]
-    },
-    {
-      "source": "pexels",
       "id": "onyx-linen-shirt",
       "slug": "onyx-linen-shirt",
       "name": "Onyx Linen Shirt",
@@ -1865,46 +2319,6 @@
         "Band collar, three-button placket",
         "Relaxed fit",
         "Machine wash cold, line dry"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "stone-pique-polo",
-      "slug": "stone-pique-polo",
-      "name": "Stone Piqué Polo",
-      "category": "men",
-      "price": 32000,
-      "tint": "#e6e1db",
-      "colors": [
-        [
-          "Stone",
-          "#c9c9c6"
-        ]
-      ],
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ],
-      "tags": [
-        "tee",
-        "featured"
-      ],
-      "images": [
-        39338775,
-        39338774,
-        39338776,
-        39338779,
-        39338777
-      ],
-      "description": "Classic piqué in a soft stone grey. Smart with tailoring, easy with denim.",
-      "details": [
-        "Cotton piqué",
-        "Two-button placket",
-        "Regular fit",
-        "Machine wash cold"
       ]
     },
     {
@@ -2164,81 +2578,6 @@
     },
     {
       "source": "pexels",
-      "id": "ivory-studio-tee",
-      "slug": "ivory-studio-tee",
-      "name": "Ivory Studio Tee",
-      "category": "men",
-      "price": 24000,
-      "tint": "#f1e3c0",
-      "colors": [
-        [
-          "Ivory",
-          "#f6f3ec"
-        ]
-      ],
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ],
-      "tags": [
-        "tee",
-        "featured"
-      ],
-      "images": [
-        8498418,
-        8498414,
-        8498415,
-        8498419,
-        8498420
-      ],
-      "description": "A premium white tee with a dense hand and a collar that stays flat.",
-      "details": [
-        "Supima-style long-staple cotton",
-        "Regular fit",
-        "Taped neck seams",
-        "Pre-shrunk"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "sage-heavyweight-tee",
-      "slug": "sage-heavyweight-tee",
-      "name": "Sage Heavyweight Tee",
-      "category": "men",
-      "price": 22000,
-      "tint": "#e2e0de",
-      "colors": [
-        [
-          "Sage",
-          "#93a68c"
-        ]
-      ],
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ],
-      "tags": [
-        "tee"
-      ],
-      "images": [
-        9594694
-      ],
-      "description": "A heavyweight cotton tee in calm sage. Boxy, soft and built to last. Shown on the hanger.",
-      "details": [
-        "Heavyweight cotton jersey, 240 gsm",
-        "Ribbed crew neck",
-        "Boxy fit",
-        "Machine wash cold"
-      ]
-    },
-    {
-      "source": "pexels",
       "id": "pintuck-dress-shirt",
       "slug": "pintuck-dress-shirt",
       "name": "Pintuck Dress Shirt",
@@ -2271,276 +2610,6 @@
         "Pintuck bib front",
         "Slim fit",
         "Machine wash 30°, iron warm"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "oversized-ivory-tee",
-      "slug": "oversized-ivory-tee",
-      "name": "Oversized Ivory Tee",
-      "category": "men",
-      "price": 24000,
-      "tint": "#e6e6d8",
-      "colors": [
-        [
-          "Ivory",
-          "#f1efe6"
-        ]
-      ],
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ],
-      "tags": [
-        "tee",
-        "featured"
-      ],
-      "images": [
-        8498700,
-        8498698,
-        8498703,
-        8498705,
-        8498701
-      ],
-      "description": "A boxy, heavyweight tee with a dropped shoulder.",
-      "details": [
-        "Heavyweight 240gsm cotton",
-        "Boxy, dropped-shoulder fit",
-        "Ribbed crew neck",
-        "Pre-shrunk"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "stone-grey-tee",
-      "slug": "stone-grey-tee",
-      "name": "Stone Grey Tee",
-      "category": "men",
-      "price": 20000,
-      "tint": "#e6e3df",
-      "colors": [
-        [
-          "Stone",
-          "#bdbdb8"
-        ]
-      ],
-      "sizes": [
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ],
-      "tags": [
-        "tee"
-      ],
-      "images": [
-        6311580,
-        6311583,
-        6311585,
-        6311573,
-        6311579
-      ],
-      "description": "Soft grey marl in a classic fit.",
-      "details": [
-        "Cotton-blend marl jersey",
-        "Regular fit",
-        "Crew neck",
-        "Machine wash cold"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "studio-white-tee",
-      "slug": "studio-white-tee",
-      "name": "Studio White Tee",
-      "category": "women",
-      "price": 18000,
-      "tint": "#ececea",
-      "colors": [
-        [
-          "White",
-          "#f7f7f5"
-        ]
-      ],
-      "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "tags": [
-        "tee",
-        "new"
-      ],
-      "images": [
-        11671964
-      ],
-      "description": "A clean white cotton tee with a neat crew neck. Shown on the hanger.",
-      "details": [
-        "Combed cotton jersey",
-        "Crew neck",
-        "Regular fit",
-        "Machine wash cold"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "noir-signature-tee",
-      "slug": "noir-signature-tee",
-      "name": "Noir Signature Tee",
-      "category": "women",
-      "price": 28000,
-      "tint": "#e6e2dc",
-      "colors": [
-        [
-          "Black",
-          "#111111"
-        ]
-      ],
-      "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "tags": [
-        "tee",
-        "new",
-        "featured"
-      ],
-      "images": [
-        37600597,
-        37600592,
-        37600595,
-        37600598,
-        37600599,
-        37600600
-      ],
-      "description": "Black, roomy and finished with a small embroidered signature on the chest.",
-      "details": [
-        "Heavyweight cotton",
-        "Relaxed fit",
-        "Embroidered chest detail",
-        "Wash inside out"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "dove-linen-shirt",
-      "slug": "dove-linen-shirt",
-      "name": "Dove Linen Shirt",
-      "category": "women",
-      "price": 33000,
-      "tint": "#efefee",
-      "colors": [
-        [
-          "Dove grey",
-          "#c9c9c6"
-        ]
-      ],
-      "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "tags": [
-        "tee",
-        "new"
-      ],
-      "images": [
-        8788679
-      ],
-      "description": "A long, relaxed linen shirt in soft dove grey. Wear it open over a tee or buttoned up.",
-      "details": [
-        "100% linen",
-        "Point collar, chest pocket",
-        "Oversized fit",
-        "Machine wash cold, line dry"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "ice-blue-tee",
-      "slug": "ice-blue-tee",
-      "name": "Ice Blue Tee",
-      "category": "women",
-      "price": 24000,
-      "tint": "#dfe7ee",
-      "colors": [
-        [
-          "Ice blue",
-          "#bfe0f0"
-        ]
-      ],
-      "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "tags": [
-        "tee",
-        "new"
-      ],
-      "images": [
-        31653952,
-        31653949,
-        31653955,
-        31653956
-      ],
-      "description": "A soft ice-blue tee in a smooth, premium cotton.",
-      "details": [
-        "Long-staple cotton",
-        "Regular fit",
-        "Crew neck",
-        "Machine wash cold"
-      ]
-    },
-    {
-      "source": "pexels",
-      "id": "boyfriend-white-tee",
-      "slug": "boyfriend-white-tee",
-      "name": "Boyfriend White Tee",
-      "category": "women",
-      "price": 22000,
-      "tint": "#ecebe9",
-      "colors": [
-        [
-          "White",
-          "#ffffff"
-        ]
-      ],
-      "sizes": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "tags": [
-        "tee"
-      ],
-      "images": [
-        6311577,
-        6311578,
-        6311575,
-        6311581
-      ],
-      "description": "Borrowed-from-him proportions in a dense white cotton.",
-      "details": [
-        "Midweight cotton",
-        "Relaxed boyfriend fit",
-        "Crew neck",
-        "Machine wash cold"
       ]
     }
   ]
