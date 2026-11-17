@@ -43,7 +43,7 @@ export function OrderDetail({ id, placed = false }: { id: string; placed?: boole
       <div className="container-shell flex flex-1 flex-col items-center justify-center py-24 text-center">
         <h1 className="display text-[32px] text-ink sm:text-[40px]">We couldn’t find that order.</h1>
         <p className="mt-3 max-w-sm text-[15px] leading-7 text-ink-soft">
-          Orders placed on this device appear here. Your bag is right where you left it.
+          Orders placed on this device appear here. Your cart is right where you left it.
         </p>
         <div className="mt-7 flex gap-4">
           <Link href="/shop" className={buttonClass({ className: "px-6" })}>Continue shopping</Link>

@@ -59,7 +59,7 @@ function BagButton({ count, onOpen }: { count: number; onOpen: () => void }) {
     <button
       type="button"
       className={iconButton}
-      aria-label={`Shopping bag, ${count} ${count === 1 ? "item" : "items"}`}
+      aria-label={`Shopping cart, ${count} ${count === 1 ? "item" : "items"}`}
       onClick={onOpen}
     >
       <ShoppingBag className={cn("size-[22px] stroke-[1.6] transition-transform duration-300 ease-[var(--ease-out)]", bump && "scale-110")} />

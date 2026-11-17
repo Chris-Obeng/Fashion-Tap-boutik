@@ -75,7 +75,7 @@ export function AddedToBag() {
                     <span className="flex size-4 items-center justify-center rounded-full bg-brand">
                       <Check className="size-2.5 stroke-[3.5] text-white" aria-hidden />
                     </span>
-                    Added to bag
+                    Added to cart
                   </p>
                   <p className="mt-1 truncate text-[15px] font-semibold text-ink">{item.name}</p>
                   <p className="mt-0.5 text-[13px] text-ink-soft">
@@ -97,7 +97,7 @@ export function AddedToBag() {
                   onClick={() => openBag(true)}
                   className="press h-11 rounded-full bg-mist text-[14px] font-semibold text-ink hover:bg-[#e6e6e6]"
                 >
-                  View bag ({count})
+                  View cart ({count})
                 </button>
                 <Link
                   href="/checkout"
