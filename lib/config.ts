@@ -2,7 +2,9 @@ const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "233249446921
 
 export const site = {
   name: "Fashion Tap Boutik",
-  city: "Accra, Ghana",
+  // Confirmed by the store owner.
+  location: "Agbogba, Accra",
+  city: "Agbogba, Accra, Ghana",
   // Verified from the store's TikTok profile (bio links WhatsApp 0249446921).
   tiktok: "https://www.tiktok.com/@fashiontapboutik",
   tiktokHandle: "@fashiontapboutik",
@@ -45,8 +47,8 @@ export const regions = [
   { name: "North East", fee: 10000 }, { name: "Upper East", fee: 10000 }, { name: "Upper West", fee: 10000 },
 ] as const;
 
-// Pickup address is shared on WhatsApp after the order; add it here once confirmed.
-export const pickup = { label: "Pick up in store, Accra", eta: "Ready in 24 hours" };
+// The store is in Agbogba, Accra; the exact spot is shared on WhatsApp after the order.
+export const pickup = { label: `Pick up in store, ${site.location}`, eta: "Ready in 24 hours" };
 
 /** Fee + ETA for a delivery address. Returns null until enough is known to quote. */
 export function deliveryQuote(region?: string, area?: string): { fee: number; eta: string } | null {

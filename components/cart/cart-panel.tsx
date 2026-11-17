@@ -5,7 +5,6 @@ import { toast } from "sonner";
 import { useBagUI, useCart, cartSubtotal, cartCount } from "@/store/cart";
 import { ResponsivePanel } from "@/components/shared/responsive-panel";
 import { EmptyBag } from "@/components/shared/empty-bag";
-import { QuantityStepper } from "@/components/shared/quantity-stepper";
 import { ProductThumb } from "@/components/shared/product-thumb";
 import { buttonClass } from "@/lib/button-class";
 import { formatPrice } from "@/lib/format";
@@ -21,7 +20,6 @@ export function CartPanel() {
   const items = useCart(s => s.items);
   const remove = useCart(s => s.remove);
   const restore = useCart(s => s.restore);
-  const updateQuantity = useCart(s => s.updateQuantity);
   const count = cartCount(items);
   const subtotal = cartSubtotal(items);
 
@@ -74,12 +72,9 @@ export function CartPanel() {
                   </div>
                   <p className="mt-1 text-[13px] text-ink-soft">{variantLine(item)}</p>
                   <div className="mt-auto flex items-center justify-between pt-3">
-                    <QuantityStepper
-                      value={item.quantity}
-                      max={item.maxStock}
-                      onChange={n => updateQuantity(item.key, n)}
-                      label={item.name}
-                    />
+                    <p className="text-[14px] text-ink-soft">
+                      Qty <span className="font-semibold tabular-nums text-ink">{item.quantity}</span>
+                    </p>
                     <button
                       type="button"
                       onClick={() => onRemove(item)}
