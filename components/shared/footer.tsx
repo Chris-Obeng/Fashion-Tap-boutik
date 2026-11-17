@@ -80,7 +80,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col gap-2 border-t border-white/10 pt-6 text-[13px] text-white/50 sm:flex-row sm:justify-between">
-          <p>© {new Date().getFullYear()} Fashion Tap Boutik · Accra, Ghana</p>
+          <p>© {new Date().getFullYear()} Fashion Tap Boutik · {site.city}</p>
           <p>Delivery nationwide · Mobile Money &amp; card</p>
         </div>
       </div>

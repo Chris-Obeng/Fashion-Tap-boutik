@@ -9,6 +9,7 @@ import { whatsappHref } from "@/lib/config";
 import { categoryName } from "@/data/categories";
 import { cn } from "@/lib/utils";
 import { WhatsAppIcon } from "@/components/shared/social-icons";
+import { QuantityStepper } from "@/components/shared/quantity-stepper";
 import type { Product } from "@/types";
 
 /** Check-icon contrast derived from swatch luminance. */
@@ -44,6 +45,8 @@ export function ProductInfo({ product }: { product: Product }) {
   const [needSize, setNeedSize] = useState(false);
   const [nudge, setNudge] = useState(0);
   const [added, setAdded] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const items = useCart(s => s.items);
   const add = useCart(s => s.add);
   const showAdded = useBagUI(s => s.showAdded);
   const sizesRef = useRef<HTMLDivElement>(null);
@@ -53,6 +56,10 @@ export function ProductInfo({ product }: { product: Product }) {
 
   const allSoldOut = product.sizes.every(s => s.stock === 0);
   const selectedSize = product.sizes.find(s => s.name === size);
+  // Quantity is chosen here, capped by what's left in the chosen size after what's already in the cart.
+  const inCart = (name: string) => items.find(i => i.key === `${product.id}:${color}:${name}`)?.quantity ?? 0;
+  const maxQty = Math.max(1, selectedSize ? selectedSize.stock - inCart(selectedSize.name) : Math.max(...product.sizes.map(s => s.stock)));
+  const qty = Math.min(quantity, maxQty);
 
   function addToBag() {
     if (allSoldOut) return;
@@ -62,13 +69,14 @@ export function ProductInfo({ product }: { product: Product }) {
       sizesRef.current?.scrollIntoView({ block: "center", behavior: "smooth" });
       return;
     }
-    const line = add(product, color, size, 1);
+    const line = add(product, color, size, qty);
     if (!line) {
-      toast.error("That’s the last one", { description: "You already have all we have in this size." });
+      toast.error("That’s all we have", { description: "Your cart already holds every piece we have in this size." });
       return;
     }
     haptic("tap");
-    showAdded({ ...line, quantity: 1 });
+    showAdded({ ...line, quantity: qty });
+    setQuantity(1);
     setAdded(true);
     if (timer.current) clearTimeout(timer.current);
     timer.current = setTimeout(() => setAdded(false), 1600);
@@ -150,6 +158,15 @@ export function ProductInfo({ product }: { product: Product }) {
             {selectedSize && selectedSize.stock > 0 && selectedSize.stock <= 3 && (
               <p className="mt-3 text-[13px] font-medium text-brand">Only {selectedSize.stock} left in {selectedSize.name}</p>
             )}
+          </div>
+        )}
+
+        {!allSoldOut && (
+          <div className="mt-7">
+            <p className="text-[14px] text-ink-soft" id="qty-label">Quantity</p>
+            <div className="mt-2">
+              <QuantityStepper value={qty} max={maxQty} onChange={n => setQuantity(Math.max(1, Math.min(maxQty, n)))} label={product.name} />
+            </div>
           </div>
         )}
 

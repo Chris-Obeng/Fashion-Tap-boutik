@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Lock } from "lucide-react";
 import { ChromeHeader } from "@/components/shared/chrome-header";
+import { site } from "@/lib/config";
 
 export default function CheckoutLayout({ children }: LayoutProps<"/checkout">) {
   return (
@@ -15,7 +16,7 @@ export default function CheckoutLayout({ children }: LayoutProps<"/checkout">) {
       />
       <main className="flex flex-1 flex-col">{children}</main>
       <footer className="container-shell flex flex-wrap items-center justify-between gap-2 py-6 text-[13px] text-ink-soft">
-        <p>© {new Date().getFullYear()} Fashion Tap Boutik · Accra, Ghana</p>
+        <p>© {new Date().getFullYear()} Fashion Tap Boutik · {site.city}</p>
         <Link href="/shop" className="font-medium transition-colors hover:text-ink">Continue shopping</Link>
       </footer>
     </div>

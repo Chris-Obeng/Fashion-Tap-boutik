@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s · Fashion Tap Boutik",
   },
   description:
-    "Clothes, T-shirts, shoes, bags, purses and clutches from Fashion Tap Boutik in Accra. Delivered nationwide across Ghana. Pay with Mobile Money or card.",
+    "Clothes, T-shirts, shoes, bags, purses and clutches from Fashion Tap Boutik in Agbogba, Accra. Delivered nationwide across Ghana. Pay with Mobile Money or card.",
   openGraph: {
     title: "Fashion Tap Boutik",
     description: "Luxury pieces, delivered across Ghana.",

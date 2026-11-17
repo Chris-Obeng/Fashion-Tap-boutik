@@ -28,7 +28,8 @@ function FeatureBanner({
   external = false,
   imagePosition = "50% 50%",
 }: {
-  image: { src: string; alt: string };
+  /** studio: a cutout render, contained on its tint instead of filling the frame. */
+  image: { src: string; alt: string; tint?: string; studio?: boolean };
   title: string;
   text: string;
   href: string;
@@ -41,8 +42,15 @@ function FeatureBanner({
 }) {
   return (
     <section className="grid md:grid-cols-2" style={{ backgroundColor: panel }}>
-      <div className={`relative aspect-[4/5] sm:aspect-square md:aspect-auto md:min-h-[640px] ${reverse ? "md:order-2" : ""}`}>
-        <Image src={image.src} alt={image.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: imagePosition }} />
+      <div
+        className={`relative aspect-[4/5] sm:aspect-square md:aspect-auto md:min-h-[640px] ${image.studio ? "tint-media" : ""} ${reverse ? "md:order-2" : ""}`}
+        style={image.studio ? ({ "--tint": image.tint } as React.CSSProperties) : undefined}
+      >
+        {image.studio ? (
+          <Image src={image.src} alt={image.alt} data-studio="" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain p-[12%]" />
+        ) : (
+          <Image src={image.src} alt={image.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: imagePosition }} />
+        )}
       </div>
       <div className="flex flex-col items-start justify-center px-6 py-14 text-white sm:px-12 md:py-20 lg:px-20">
         <h2 className="display text-[36px] sm:text-[44px] lg:text-[52px]">{title}</h2>
@@ -113,7 +121,6 @@ export default async function HomePage() {
         href="/shop?category=bags"
         action="Shop bags"
         panel="#3b2416"
-        imagePosition="50% 58%"
       />
 
       {/* New in */}

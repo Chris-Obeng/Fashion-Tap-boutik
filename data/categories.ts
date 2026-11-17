@@ -47,7 +47,8 @@ export const editorial = {
   ],
   // Social cards need an absolute URL, so they keep a Pexels portrait.
   og: { src: pexels(8498706, 1400), alt: "Woman in a cream two-piece looking over her shoulder" },
-  bags: { src: pexels(8491011, 1400), alt: "Woman in a white ruched dress holding a gold cage clutch" },
+  // Studio render from the catalogue, shown on its own colour field like the product cards.
+  bags: { src: bySlug("cobalt-leather-handbag")?.images[0] ?? "", alt: "Cobalt blue structured leather handbag", tint: bySlug("cobalt-leather-handbag")?.tint, studio: true },
   gift: { src: pexels(13976057, 1400), alt: "White and red gift boxes tied with satin ribbon, a red rose on top" },
 };
 
