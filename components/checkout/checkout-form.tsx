@@ -315,7 +315,7 @@ export function CheckoutForm() {
                 <Field label="Full name" error={errors.fullName?.message} id="fullName">
                   {p => <input {...p} {...register("fullName")} autoComplete="name" placeholder="Ama Mensah" />}
                 </Field>
-                <Field label="Phone" error={errors.phone?.message} hint="For delivery updates and MoMo." id="phone">
+                <Field label="Phone" error={errors.phone?.message} id="phone">
                   {p => <input {...p} {...register("phone")} type="tel" inputMode="tel" autoComplete="tel" placeholder="024 123 4567" />}
                 </Field>
                 <div className="sm:col-span-2">
