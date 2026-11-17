@@ -10,7 +10,6 @@ export function EmptyBag({ onBrowse }: { onBrowse?: () => void }) {
         <ShoppingBag className="size-8 stroke-[1.5] text-brand" aria-hidden />
       </span>
       <h2 className="display mt-6 text-[26px] text-ink">Your bag is empty</h2>
-      <p className="mt-2 max-w-[260px] text-[15px] leading-6 text-ink-soft">Find something you love. It will wait here for you.</p>
       <Link href="/shop" onClick={onBrowse} className={buttonClass({ className: "mt-7 min-w-[200px]" })}>
         Start shopping
       </Link>

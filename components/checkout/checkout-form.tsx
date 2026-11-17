@@ -319,7 +319,7 @@ export function CheckoutForm() {
                   {p => <input {...p} {...register("phone")} type="tel" inputMode="tel" autoComplete="tel" placeholder="024 123 4567" />}
                 </Field>
                 <div className="sm:col-span-2">
-                  <Field label="Email" optional error={errors.email?.message} hint="We’ll send your receipt here." id="email">
+                  <Field label="Email" optional error={errors.email?.message} id="email">
                     {p => <input {...p} {...register("email")} type="email" inputMode="email" autoComplete="email" placeholder="you@example.com" />}
                   </Field>
                 </div>
@@ -396,7 +396,6 @@ export function CheckoutForm() {
                   <ChoiceCard register={register("payment")} value="card" icon={CreditCard} title="Card" text="Visa, Mastercard and Verve" />
                 </div>
               </fieldset>
-              <p className="mt-4 text-[13px] leading-5 text-ink-soft">You’ll confirm the payment on Paystack’s secure screen. Demo store: no money is taken.</p>
               <button type="submit" disabled={processing} className="btn btn-primary btn-caps mt-6 hidden w-full lg:flex">
                 {payLabel}
               </button>

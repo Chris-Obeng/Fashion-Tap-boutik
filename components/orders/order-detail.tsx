@@ -146,9 +146,6 @@ export function OrderDetail({ id, placed = false }: { id: string; placed?: boole
         >
           View all orders
         </Link>
-        <p className="mt-1 text-xs text-ink-faint">
-          Paystack · {order.payment === "card" ? "Card" : "Mobile Money"}{placed ? ". Demo order, no payment was taken." : ""}
-        </p>
       </div>
     </div>
   );
