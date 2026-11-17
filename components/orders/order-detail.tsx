@@ -123,7 +123,7 @@ export function OrderDetail({ id, placed = false }: { id: string; placed?: boole
           <p className="text-xs text-ink-faint">{isPickup ? "Pickup" : "Delivery"}</p>
           <p className="mt-1.5 text-sm font-medium text-ink">
             {isPickup
-              ? "Osu, Accra"
+              ? "In store, Accra"
               : [order.delivery.address, order.delivery.area, order.delivery.city, order.delivery.region].filter(Boolean).join(", ")}
           </p>
           {order.delivery.eta && <p className="mt-0.5 text-sm text-ink-soft">{isPickup ? order.delivery.eta : `Arrives ${order.delivery.eta.toLowerCase()}`}</p>}

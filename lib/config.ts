@@ -45,7 +45,8 @@ export const regions = [
   { name: "North East", fee: 10000 }, { name: "Upper East", fee: 10000 }, { name: "Upper West", fee: 10000 },
 ] as const;
 
-export const pickup = { label: "Pick up in Osu, Accra", eta: "Ready in 24 hours" };
+// Pickup address is shared on WhatsApp after the order; add it here once confirmed.
+export const pickup = { label: "Pick up in store, Accra", eta: "Ready in 24 hours" };
 
 /** Fee + ETA for a delivery address. Returns null until enough is known to quote. */
 export function deliveryQuote(region?: string, area?: string): { fee: number; eta: string } | null {

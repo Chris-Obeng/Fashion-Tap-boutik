@@ -331,7 +331,7 @@ export function CheckoutForm() {
                 <legend className="sr-only">How would you like to get your order?</legend>
                 <div className="grid gap-3 sm:grid-cols-2">
                   <ChoiceCard register={register("method")} value="delivery" icon={Truck} title="Deliver to me" text="Anywhere in Ghana" />
-                  <ChoiceCard register={register("method")} value="pickup" icon={Store} title="Pick up in Osu" text={`Free · ${pickup.eta.toLowerCase()}`} />
+                  <ChoiceCard register={register("method")} value="pickup" icon={Store} title="Pick up in store" text={`Free · ${pickup.eta.toLowerCase()}`} />
                 </div>
               </fieldset>
 

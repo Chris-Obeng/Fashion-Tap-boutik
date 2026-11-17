@@ -29,7 +29,7 @@ Prices and stock are illustrative. When Supabase lands, swap the adapters in `li
 | Path | What |
 | --- | --- |
 | `app/(storefront)` | Home, shop, product, orders |
-| `app/checkout` | Guest checkout (delivery in Accra or pickup in Osu) |
+| `app/checkout` | Guest checkout (nationwide delivery or pickup in store) |
 | `components/shared` | Header, footer, product card, search |
 | `lib/config.ts` | Store contacts (TikTok, WhatsApp), nationwide delivery regions and fees |
 | `lib/search.ts` | Search ranking and fashion synonyms |
