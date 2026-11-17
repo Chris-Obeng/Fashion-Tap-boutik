@@ -46,6 +46,7 @@ export const editorial = {
     },
   ],
   bags: { src: pexels(27108129, 1400), alt: "Woman in a satin dress with a black leather handbag" },
+  gift: { src: pexels(13976057, 1400), alt: "White and red gift boxes tied with satin ribbon, a red rose on top" },
   jewellery: { src: image("solitaire-pendant", 1), alt: "Solitaire pendant in a navy velvet box on marble" },
 };
 
