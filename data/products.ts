@@ -8,16 +8,19 @@ import type { CategoryId, Product } from "@/types";
  *   - SceneSKU packs (data/scenesku.json): photographed studio + lifestyle scenes.
  *   - DummyJSON items (data/dummyjson.json): 3D renders on transparent backgrounds.
  *   - Pexels photo sets (ids in curation.json): tee, polo and shirt shoots, free for commercial use.
+ *   - Shop photos (files in public/products): our own stock, shot in the Accra shop.
  * Joined with our own merchandising in data/curation.json (names, copy, GH₵ prices,
  * colours, sizes, tints). Prices and stock are illustrative. Replace with Supabase.
  */
 type Curated = {
-  source?: "scenesku" | "dummyjson" | "pexels";
+  source?: "scenesku" | "dummyjson" | "pexels" | "shop";
   id: string; slug: string; name: string; category: CategoryId; price: number; compareAtPrice?: number;
   tint: string; colors: [string, string][]; sizes: string[]; stockOut?: string[]; tags: Product["tags"];
   description?: string; details?: string[];
   /** Pexels photo ids (source "pexels"): one shoot of the same garment. */
   images?: number[];
+  /** File names in public/products (source "shop"), cropped to 4:5. */
+  files?: string[];
   /** Source image indexes to skip, e.g. lifestyle shots that crop the face mid-frame. */
   hideImages?: number[];
 };
@@ -35,9 +38,14 @@ const safeUrl = (url: string) => encodeURI(url).replace(/'/g, "%27");
 export const products: Product[] = (curation.products as Curated[]).flatMap((item, index) => {
   const isRender = item.source === "dummyjson";
   const isPhotoSet = item.source === "pexels";
-  const pack = isRender || isPhotoSet ? undefined : packs[item.id];
+  const isShop = item.source === "shop";
+  const pack = isRender || isPhotoSet || isShop ? undefined : packs[item.id];
   const render = isRender ? renders[item.id] : undefined;
-  const sourceImages = isPhotoSet ? (item.images ?? []).map(pexels) : (render?.images ?? pack?.images.map(i => i.url) ?? []).map(safeUrl);
+  const sourceImages = isShop
+    ? (item.files ?? []).map(file => `/products/${file}`)
+    : isPhotoSet
+      ? (item.images ?? []).map(pexels)
+      : (render?.images ?? pack?.images.map(i => i.url) ?? []).map(safeUrl);
   const images = sourceImages.filter((_, i) => !item.hideImages?.includes(i));
   if (!images.length) return [];
   return [{
