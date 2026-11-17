@@ -10,8 +10,6 @@ const SYNONYMS: string[][] = [
   ["shoe", "shoes", "heels", "heel", "pumps", "pump", "stiletto", "stilettos", "sneakers", "sneaker", "trainers", "boots", "boot", "sandals", "mary", "janes"],
   ["watch", "watches", "timepiece", "wristwatch"],
   ["jewellery", "jewelry", "necklace", "pendant", "earrings", "earring", "drops", "chain"],
-  ["perfume", "parfum", "fragrance", "scent", "cologne", "eau"],
-  ["makeup", "lipstick", "beauty"],
   ["dress", "dresses", "gown", "gowns", "frock"],
   ["shirt", "shirts", "top", "tops", "tee", "tshirt", "t-shirt", "polo"],
   ["trousers", "pants", "chinos", "khaki"],

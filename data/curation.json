@@ -425,65 +425,6 @@
       "tags": []
     },
     {
-      "id": "ce545361-f879-40e2-884f-27e2785a65c5",
-      "slug": "sculpted-eau-de-parfum",
-      "name": "Sculpted Eau de Parfum",
-      "category": "beauty",
-      "price": 33000,
-      "tint": "#f0e5d3",
-      "colors": [
-        [
-          "Amber",
-          "#d6b37a"
-        ]
-      ],
-      "sizes": [
-        "30 ml"
-      ],
-      "tags": [
-        "new",
-        "featured"
-      ]
-    },
-    {
-      "id": "5c8354fd-f418-49da-b9ea-75e1ce190831",
-      "slug": "rose-crystal-parfum",
-      "name": "Rose Crystal Parfum",
-      "category": "beauty",
-      "price": 34000,
-      "tint": "#f2e0e3",
-      "colors": [
-        [
-          "Rose",
-          "#e3b8bf"
-        ]
-      ],
-      "sizes": [
-        "30 ml"
-      ],
-      "tags": [
-        "featured"
-      ]
-    },
-    {
-      "id": "dfc491bd-62bd-4913-bc01-32e9dffac434",
-      "slug": "velvet-red-lipstick",
-      "name": "Velvet Red Lipstick",
-      "category": "beauty",
-      "price": 15000,
-      "tint": "#f3dede",
-      "colors": [
-        [
-          "Rouge",
-          "#9e1b26"
-        ]
-      ],
-      "sizes": [
-        "One size"
-      ],
-      "tags": []
-    },
-    {
       "id": "6e323896-008c-408c-aa4a-9f45b4e34d64",
       "slug": "white-canvas-low-tops",
       "name": "White Canvas Low-Tops",
@@ -733,6 +674,377 @@
         "Vegan faux leather",
         "Adjustable shoulder straps",
         "Magnetic flap with gold-tone bar"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "gold-crystal-clutch",
+      "slug": "gold-crystal-clutch",
+      "name": "Gold Crystal Clutch",
+      "category": "bags",
+      "price": 48000,
+      "tint": "#efe6d6",
+      "colors": [
+        [
+          "Gold",
+          "#c9a24a"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "new",
+        "featured"
+      ],
+      "images": [
+        4627902
+      ],
+      "description": "A hard-case evening clutch covered in crystals, with a jewelled gold clasp.",
+      "details": [
+        "Crystal-studded hard case",
+        "Jewelled frame clasp",
+        "Detachable chain strap",
+        "Fits a phone, keys and lipstick"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "gold-cage-clutch",
+      "slug": "gold-cage-clutch",
+      "name": "Gold Cage Clutch",
+      "category": "bags",
+      "price": 45000,
+      "tint": "#ece5dc",
+      "colors": [
+        [
+          "Rose gold",
+          "#c98f68"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "new",
+        "featured"
+      ],
+      "images": [
+        8491009
+      ],
+      "description": "A round rose-gold cage clutch. A statement piece for weddings and big nights.",
+      "details": [
+        "Polished metal cage",
+        "Clear inner pouch",
+        "Hinged opening",
+        "Hand-held"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "silver-crystal-frame-bag",
+      "slug": "silver-crystal-frame-bag",
+      "name": "Silver Crystal Frame Bag",
+      "category": "bags",
+      "price": 42000,
+      "tint": "#e4e4e4",
+      "colors": [
+        [
+          "Silver",
+          "#c8c8c8"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "new"
+      ],
+      "images": [
+        20405995
+      ],
+      "description": "A glittering crystal mesh bag on a silver frame with a fine chain strap.",
+      "details": [
+        "Crystal mesh",
+        "Silver kiss-lock frame",
+        "Chain shoulder strap",
+        "Satin lining"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "noir-shimmer-clutch",
+      "slug": "noir-shimmer-clutch",
+      "name": "Noir Shimmer Clutch",
+      "category": "bags",
+      "price": 35000,
+      "tint": "#ece6dc",
+      "colors": [
+        [
+          "Black",
+          "#1a1a1a"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "new"
+      ],
+      "images": [
+        32498616
+      ],
+      "description": "A slim black clutch with a fine shimmer finish and a silver turn-lock.",
+      "details": [
+        "Shimmer-finish fabric",
+        "Silver turn-lock",
+        "Fold-over flap",
+        "Satin lining"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "crystal-heart-clutch",
+      "slug": "crystal-heart-clutch",
+      "name": "Crystal Heart Clutch",
+      "category": "bags",
+      "price": 38000,
+      "tint": "#ebe7ea",
+      "colors": [
+        [
+          "Silver",
+          "#c8c8c8"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [],
+      "images": [
+        15432797
+      ],
+      "description": "A heart-shaped evening clutch dusted in crystals, with a top handle.",
+      "details": [
+        "Crystal-covered hard case",
+        "Silver top handle",
+        "Clasp closure",
+        "Hand-held"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "graphite-geometric-clutch",
+      "slug": "graphite-geometric-clutch",
+      "name": "Graphite Geometric Clutch",
+      "category": "bags",
+      "price": 32000,
+      "tint": "#efe7e2",
+      "colors": [
+        [
+          "Graphite",
+          "#3a3a3a"
+        ],
+        [
+          "Silver",
+          "#c8c8c8"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [],
+      "images": [
+        15234451
+      ],
+      "description": "A boxy graphite clutch with silver geometric lines. Smart with gowns and lace.",
+      "details": [
+        "Hard-case clutch",
+        "Metal edge trims",
+        "Clasp closure",
+        "Hand-held or chain strap"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "woven-noir-clutch",
+      "slug": "woven-noir-clutch",
+      "name": "Woven Noir Clutch",
+      "category": "bags",
+      "price": 34000,
+      "tint": "#efe5d2",
+      "colors": [
+        [
+          "Black",
+          "#1a1a1a"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [],
+      "images": [
+        38903744
+      ],
+      "description": "A long black clutch in soft woven leather with a sculpted gold clasp.",
+      "details": [
+        "Woven faux leather",
+        "Gold bar clasp",
+        "Card slots inside",
+        "Hand-held"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "tangerine-mini-purse",
+      "slug": "tangerine-mini-purse",
+      "name": "Tangerine Mini Purse",
+      "category": "bags",
+      "price": 26000,
+      "tint": "#e2e2e2",
+      "colors": [
+        [
+          "Tangerine",
+          "#e57a3a"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "new",
+        "featured"
+      ],
+      "images": [
+        8801182,
+        8801089,
+        8801195
+      ],
+      "description": "A small top-handle purse in bright tangerine. Big colour, small bag.",
+      "details": [
+        "Smooth faux leather",
+        "Rolled top handle",
+        "Magnetic flap",
+        "Fits a phone and cards"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "ostrich-baguette-purse",
+      "slug": "ostrich-baguette-purse",
+      "name": "Ostrich Baguette Purse",
+      "category": "bags",
+      "price": 40000,
+      "tint": "#e6e4e1",
+      "colors": [
+        [
+          "Camel",
+          "#b08a5e"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [
+        "new"
+      ],
+      "images": [
+        30975829,
+        30975807
+      ],
+      "description": "A curved baguette purse in camel ostrich-effect leather with a slim shoulder strap.",
+      "details": [
+        "Ostrich-effect leather",
+        "Curved baguette shape",
+        "Zip closure",
+        "Shoulder strap"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "midnight-bloom-purse",
+      "slug": "midnight-bloom-purse",
+      "name": "Midnight Bloom Purse",
+      "category": "bags",
+      "price": 30000,
+      "tint": "#efe2d6",
+      "colors": [
+        [
+          "Navy",
+          "#1c2236"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [],
+      "images": [
+        32498604
+      ],
+      "description": "A compact navy leather purse with a silver flower clasp and chain strap.",
+      "details": [
+        "Polished leather",
+        "Silver flower turn-lock",
+        "Chain shoulder strap",
+        "Fits a phone and cards"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "sky-envelope-crossbody",
+      "slug": "sky-envelope-crossbody",
+      "name": "Sky Envelope Crossbody",
+      "category": "bags",
+      "price": 28000,
+      "tint": "#eceef0",
+      "colors": [
+        [
+          "Sky blue",
+          "#8aa6cc"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [],
+      "images": [
+        9267587
+      ],
+      "description": "An envelope-flap crossbody in soft sky-blue leather with a gold clasp.",
+      "details": [
+        "Smooth leather",
+        "Envelope flap, gold clasp",
+        "Adjustable crossbody strap",
+        "Fits a phone and wallet"
+      ]
+    },
+    {
+      "source": "pexels",
+      "id": "cognac-coin-purse",
+      "slug": "cognac-coin-purse",
+      "name": "Cognac Coin Purse",
+      "category": "bags",
+      "price": 15000,
+      "tint": "#e2dcd6",
+      "colors": [
+        [
+          "Cognac",
+          "#8a4a22"
+        ]
+      ],
+      "sizes": [
+        "One size"
+      ],
+      "tags": [],
+      "images": [
+        12442671,
+        12444598
+      ],
+      "description": "A small coin purse in rich oiled cognac leather with a brass snap.",
+      "details": [
+        "Oiled full-grain leather",
+        "Brass press-stud",
+        "Fits coins and cards",
+        "Ages beautifully"
       ]
     },
     {

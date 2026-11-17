@@ -100,7 +100,7 @@ export default async function HomePage() {
       <FeatureBanner
         image={editorial.bags}
         title="The bag edit."
-        text="Structured totes, soft hobos and evening handbags."
+        text="Structured totes, mini purses and crystal evening clutches."
         href="/shop?category=bags"
         action="Shop bags"
         panel="#3b2416"
@@ -134,15 +134,6 @@ export default async function HomePage() {
           <ProductRail products={heels} />
         </div>
       </section>
-
-      <FeatureBanner
-        image={editorial.fragrance}
-        title="Signature scents."
-        text="Sculpted glass, soft florals, a trail people remember."
-        href="/shop?category=beauty"
-        action="Shop beauty"
-        panel="#0d0d0d"
-      />
 
       {/* TikTok: the store's real community */}
       <section className="container-shell pt-14 sm:pt-20">
