@@ -23,7 +23,7 @@ export function Footer() {
           <div>
             <Logo light className="h-[64px]" />
             <p className="mt-4 max-w-[30ch] text-[15px] leading-6 text-white/65">
-              Quality shoes, bags, clothes, purses and watches. From Accra to anywhere in Ghana.
+              Quality shoes, bags, clothes, purses and clutches. From Accra to anywhere in Ghana.
             </p>
             <ul role="list" className="mt-7 flex flex-wrap gap-3">
               {socials.map(s => (

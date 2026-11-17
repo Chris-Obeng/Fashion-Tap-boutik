@@ -1,4 +1,4 @@
-export type CategoryId = "women" | "men" | "shoes" | "bags" | "accessories";
+export type CategoryId = "women" | "men" | "shoes" | "bags";
 export type ProductColor = { name: string; hex: string };
 export type Product = {
   id: string; slug: string; name: string; price: number; compareAtPrice?: number;

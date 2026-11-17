@@ -6,7 +6,7 @@ Reference pinned by the owner: beatsbydre.com and apple.com. Image-led, generous
 
 - Ground: white `--canvas`, Beats-gray sections `--mist #f1f1f1`, ink `#111`, secondary text `--ink-soft #595959`.
 - Colour comes from the products. Every product has a pastel `tint` (in `data/curation.json`) that its card, gallery and thumbnails sit on. Studio shots use `mix-blend-mode: multiply` (`.tint-media img[data-studio]`) so white backdrops melt into the tint.
-- Feature banners are full colour blocks matched to their photo (jewellery navy `#1c2436`, fragrance black).
+- Feature banners are full colour blocks matched to their photo (bags brown `#3b2416`, gift boxes burgundy `#6b0f2a`).
 - One brand accent, the logo's pink `--brand #d4006f` (logo artwork is #E5087F): "New" labels, bag badge, focus ring, selection, confirmations, the TikTok band. Sale price uses `--sale #c4161c`. No other accents.
 - Logo: always the real artwork (`components/shared/logo.tsx`). `light` variant on dark surfaces. Never redraw it.
 

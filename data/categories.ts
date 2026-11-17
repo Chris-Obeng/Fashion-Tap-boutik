@@ -2,7 +2,6 @@ import { products } from "./products";
 import type { CategoryId } from "@/types";
 
 const bySlug = (slug: string) => products.find(p => p.slug === slug);
-const image = (slug: string, index = 0) => bySlug(slug)?.images[index] ?? "";
 const pexels = (id: number, w = 1600) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
 
 /**
@@ -47,7 +46,6 @@ export const editorial = {
   ],
   bags: { src: pexels(27108129, 1400), alt: "Woman in a satin dress with a black leather handbag" },
   gift: { src: pexels(13976057, 1400), alt: "White and red gift boxes tied with satin ribbon, a red rose on top" },
-  jewellery: { src: image("solitaire-pendant", 1), alt: "Solitaire pendant in a navy velvet box on marble" },
 };
 
 /**
@@ -66,7 +64,6 @@ export const categories = [
   tile("men", "Men", "crisp-white-shirt"),
   tile("shoes", "Shoes", "gold-metallic-pumps"),
   tile("bags", "Bags, purses & clutches", "gold-cage-clutch"),
-  tile("accessories", "Watches & jewellery", "two-tone-jubilee-watch"),
 ] as const;
 
 export type ShopCategoryId = (typeof categories)[number]["id"] | "all";

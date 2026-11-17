@@ -17,22 +17,6 @@
       "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/4.webp"
     ]
   },
-  "94": {
-    "title": "Longines Master Collection",
-    "images": [
-      "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/1.webp",
-      "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/2.webp",
-      "https://cdn.dummyjson.com/product-images/mens-watches/longines-master-collection/3.webp"
-    ]
-  },
-  "155": {
-    "title": "Classic Sun Glasses",
-    "images": [
-      "https://cdn.dummyjson.com/product-images/sunglasses/classic-sun-glasses/1.webp",
-      "https://cdn.dummyjson.com/product-images/sunglasses/classic-sun-glasses/2.webp",
-      "https://cdn.dummyjson.com/product-images/sunglasses/classic-sun-glasses/3.webp"
-    ]
-  },
   "172": {
     "title": "Blue Women's Handbag",
     "images": [
@@ -109,22 +93,6 @@
       "https://cdn.dummyjson.com/product-images/womens-dresses/dress-pea/4.webp"
     ]
   },
-  "182": {
-    "title": "Green Crystal Earring",
-    "images": [
-      "https://cdn.dummyjson.com/product-images/womens-jewellery/green-crystal-earring/1.webp",
-      "https://cdn.dummyjson.com/product-images/womens-jewellery/green-crystal-earring/2.webp",
-      "https://cdn.dummyjson.com/product-images/womens-jewellery/green-crystal-earring/3.webp"
-    ]
-  },
-  "184": {
-    "title": "Tropical Earring",
-    "images": [
-      "https://cdn.dummyjson.com/product-images/womens-jewellery/tropical-earring/1.webp",
-      "https://cdn.dummyjson.com/product-images/womens-jewellery/tropical-earring/2.webp",
-      "https://cdn.dummyjson.com/product-images/womens-jewellery/tropical-earring/3.webp"
-    ]
-  },
   "185": {
     "title": "Black & Brown Slipper",
     "images": [
@@ -168,38 +136,6 @@
       "https://cdn.dummyjson.com/product-images/womens-shoes/red-shoes/2.webp",
       "https://cdn.dummyjson.com/product-images/womens-shoes/red-shoes/3.webp",
       "https://cdn.dummyjson.com/product-images/womens-shoes/red-shoes/4.webp"
-    ]
-  },
-  "190": {
-    "title": "IWC Ingenieur Automatic Steel",
-    "images": [
-      "https://cdn.dummyjson.com/product-images/womens-watches/iwc-ingenieur-automatic-steel/1.webp",
-      "https://cdn.dummyjson.com/product-images/womens-watches/iwc-ingenieur-automatic-steel/2.webp",
-      "https://cdn.dummyjson.com/product-images/womens-watches/iwc-ingenieur-automatic-steel/3.webp"
-    ]
-  },
-  "191": {
-    "title": "Rolex Cellini Moonphase",
-    "images": [
-      "https://cdn.dummyjson.com/product-images/womens-watches/rolex-cellini-moonphase/1.webp",
-      "https://cdn.dummyjson.com/product-images/womens-watches/rolex-cellini-moonphase/2.webp",
-      "https://cdn.dummyjson.com/product-images/womens-watches/rolex-cellini-moonphase/3.webp"
-    ]
-  },
-  "192": {
-    "title": "Rolex Datejust Women",
-    "images": [
-      "https://cdn.dummyjson.com/product-images/womens-watches/rolex-datejust-women/1.webp",
-      "https://cdn.dummyjson.com/product-images/womens-watches/rolex-datejust-women/2.webp",
-      "https://cdn.dummyjson.com/product-images/womens-watches/rolex-datejust-women/3.webp"
-    ]
-  },
-  "193": {
-    "title": "Watch Gold for Women",
-    "images": [
-      "https://cdn.dummyjson.com/product-images/womens-watches/watch-gold-for-women/1.webp",
-      "https://cdn.dummyjson.com/product-images/womens-watches/watch-gold-for-women/2.webp",
-      "https://cdn.dummyjson.com/product-images/womens-watches/watch-gold-for-women/3.webp"
     ]
   }
 }

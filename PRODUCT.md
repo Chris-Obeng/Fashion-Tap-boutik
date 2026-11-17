@@ -12,7 +12,7 @@ Shoppers in Accra and across Ghana who follow Fashion Tap Boutik on TikTok and w
 
 ## Product Purpose
 
-The online storefront for Fashion Tap Boutik, an Accra boutique selling shoes, bags, clothes, purses, clutches, T-shirts and accessories (per its TikTok bio). It delivers nationwide across Ghana. Success: a shopper finds a piece, picks a size or colour and checks out (delivery anywhere in Ghana, or free pickup in store) with as few taps as possible.
+The online storefront for Fashion Tap Boutik, an Accra boutique selling shoes, bags, clothes, purses, clutches and T-shirts. It delivers nationwide across Ghana. Success: a shopper finds a piece, picks a size or colour and checks out (delivery anywhere in Ghana, or free pickup in store) with as few taps as possible.
 
 ## Positioning
 
@@ -23,7 +23,7 @@ A small, personal Accra boutique with a 54K-follower TikTok audience, presented 
 - Frontend only for now. Supabase backend and an admin dashboard come later; `lib/products.ts` and `lib/payments.ts` are the seams to swap.
 - Products are placeholder data from SceneSKU and DummyJSON (`data/curation.json` + `data/scenesku.json` + `data/dummyjson.json`, synced by `pnpm sync:products`). Prices, stock and delivery fees are illustrative, not real store values.
 - Delivery is nationwide: Greater Accra by area (same or next day), other regions by courier (2–4 working days), plus free pickup in store (address shared on WhatsApp; not yet published).
-- Some DummyJSON renders show third-party brand marks (e.g. on a watch dial and a tote). They are demo placeholders only and must be replaced with the store's own photos before launch.
+- Some DummyJSON renders show third-party brand marks (e.g. a tote plate). They are demo placeholders only and must be replaced with the store's own photos before launch.
 - Guest checkout only: delivery across Accra areas or pickup, Paystack (card / Mobile Money) mocked.
 - Keep it simple: no accounts, wishlists, reviews or other extra features unless asked.
 
