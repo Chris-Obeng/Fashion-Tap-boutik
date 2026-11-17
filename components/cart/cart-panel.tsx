@@ -47,7 +47,7 @@ export function CartPanel() {
     <ResponsivePanel
       open={open}
       onOpenChange={setOpen}
-      title="Your bag"
+      title="Your cart"
       meta={count ? `${count} ${count === 1 ? "item" : "items"}` : undefined}
       footer={footer}
     >
