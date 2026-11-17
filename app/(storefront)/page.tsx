@@ -83,9 +83,9 @@ export default async function HomePage() {
         </ul>
       </nav>
 
-      {/* T-shirts: the store's best sellers */}
+      {/* Polos and luxury tees: the store's best sellers */}
       <section className="container-shell pt-14 sm:pt-20">
-        <SectionHeading title="The T-shirt edit" href="/shop?category=tees" action="Shop T-shirts" />
+        <SectionHeading title="Polos & luxury tees" href="/shop?category=tees" action="Shop all" />
         <ProductRail products={tees} />
       </section>
 

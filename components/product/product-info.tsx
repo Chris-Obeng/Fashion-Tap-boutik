@@ -77,7 +77,7 @@ export function ProductInfo({ product }: { product: Product }) {
   const [needSize, setNeedSize] = useState(false);
   const [nudge, setNudge] = useState(0);
   const [added, setAdded] = useState(false);
-  const [openSections, setOpenSections] = useState<string[]>(["details"]);
+  const [openSections, setOpenSections] = useState<string[]>([]);
   const toggleSection = (id: string) => setOpenSections(prev => (prev.includes(id) ? prev.filter(s => s !== id) : [...prev, id]));
   const add = useCart(s => s.add);
   const showAdded = useBagUI(s => s.showAdded);

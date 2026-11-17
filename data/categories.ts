@@ -14,7 +14,7 @@ export const editorial = {
   // portraits (womenswear first, then the T-shirt edit); desktop cross-fades between triptychs.
   heroMobile: [
     { src: pexels(8498706, 1400), alt: "Woman in a cream two-piece looking over her shoulder", position: "50% 25%" },
-    { src: pexels(16246041, 1400), alt: "Man in a sand pocket T-shirt on a deep green backdrop", position: "50% 20%" },
+    { src: pexels(8422383, 1400), alt: "Man in a cream knit resort polo and round glasses", position: "50% 25%" },
   ],
   heroSlides: [
     {
@@ -36,12 +36,12 @@ export const editorial = {
       ],
     },
     {
-      label: "T-shirts",
-      backdrop: "#13261c",
+      label: "Polos & tees",
+      backdrop: "#e4e4e2",
       frames: [
-        { src: pexels(16246043, 1100), alt: "Man in a sand pocket T-shirt, in profile", position: "50% 25%" },
-        { src: pexels(16246041, 1400), alt: "Man in a sand pocket T-shirt, seated, facing the camera", position: "50% 20%" },
-        { src: pexels(16246042, 1100), alt: "Man in a sand pocket T-shirt looking over his shoulder", position: "50% 25%" },
+        { src: pexels(8422379, 1100), alt: "Man in a cream knit polo and trousers, full length", position: "50% 30%" },
+        { src: pexels(8422383, 1400), alt: "Man in a cream knit resort polo and round glasses", position: "50% 25%" },
+        { src: pexels(8422386, 1100), alt: "Man in a cream knit polo, mid-stride", position: "50% 30%" },
       ],
     },
   ],
@@ -61,7 +61,7 @@ const tile = (id: CategoryId | "new" | "tees", name: string, slug: string) => {
 
 export const categories = [
   tile("new", "New in", "polka-dot-party-dress"),
-  tile("tees", "T-shirts", "oversized-ivory-tee"),
+  tile("tees", "Polos & tees", "cream-resort-polo"),
   tile("women", "Women", "scarlet-corset-gown"),
   tile("men", "Men", "crisp-white-shirt"),
   tile("shoes", "Shoes", "gold-metallic-pumps"),
