@@ -4,47 +4,19 @@ import type { CategoryId } from "@/types";
 const bySlug = (slug: string) => products.find(p => p.slug === slug);
 const pexels = (id: number, w = 1600) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
 
+const shopFloor = { src: "/products/shop-floor-hero.jpg", alt: "Two shoppers in striped knit polos at a rail in our Accra shop", position: "50% 30%" };
+const knitPolo = { src: pexels(36699354, 1400), alt: "Man in a cream striped knit polo leaning on a stadium rail", position: "35% 30%" };
+const crochetShirt = { src: pexels(34626700, 1400), alt: "Man in a black and white striped crochet shirt against a brick wall", position: "50% 30%" };
+
 /**
- * Editorial imagery for the homepage: Pexels photos (free for commercial use, no
- * attribution required) of West African women, plus lifestyle scenes from the catalogue.
+ * Editorial imagery for the homepage: our own shop photo plus Pexels photos (free for
+ * commercial use, no attribution required) and studio renders from the catalogue.
  */
 export const editorial = {
-  // Phones open on our own shop floor, then cross-fade to knit and crochet looks (Pexels, free for
-  // commercial use); desktop cross-fades between triptychs.
-  heroMobile: [
-    { src: "/products/shop-floor-hero.jpg", alt: "Two shoppers in striped knit polos at a rail in our Accra shop", position: "50% 30%" },
-    { src: pexels(36699354, 1400), alt: "Man in a cream striped knit polo leaning on a stadium rail", position: "35% 30%" },
-    { src: pexels(34626700, 1400), alt: "Man in a black and white striped crochet shirt against a brick wall", position: "50% 30%" },
-  ],
-  heroSlides: [
-    {
-      label: "Menswear",
-      backdrop: "#cfc9d6",
-      frames: [
-        { src: pexels(28211217, 1100), alt: "Man in profile adjusting tortoiseshell glasses", position: "55% 30%" },
-        { src: pexels(28211216, 1100), alt: "Man in a black puffer jacket and pearl necklace", position: "50% 25%" },
-        { src: pexels(28211218, 1100), alt: "Man in a black puffer jacket, hands folded", position: "50% 30%" },
-      ],
-    },
-    {
-      label: "Womenswear",
-      backdrop: "#8b8d70",
-      frames: [
-        { src: pexels(8498750, 1400), alt: "Woman with curly hair in a cream jacket, close-up", position: "35% 40%" },
-        { src: pexels(8498706, 1100), alt: "Woman in a cream two-piece looking over her shoulder", position: "50% 25%" },
-        { src: pexels(8498758, 1100), alt: "Woman in a cream two-piece seated on a yellow chair", position: "50% 30%" },
-      ],
-    },
-    {
-      label: "Knit polos & shirts",
-      backdrop: "#e4e4e2",
-      frames: [
-        { src: pexels(8422379, 1100), alt: "Man in a cream knit polo and trousers, full length", position: "50% 30%" },
-        { src: pexels(8422383, 1400), alt: "Man in a cream knit resort polo and round glasses", position: "50% 25%" },
-        { src: pexels(8422386, 1100), alt: "Man in a cream knit polo, mid-stride", position: "50% 30%" },
-      ],
-    },
-  ],
+  // The same three looks on every screen: phones cross-fade between them one at a time, desktop
+  // shows them side by side with our own shop floor in the wider centre panel.
+  heroMobile: [shopFloor, knitPolo, crochetShirt],
+  heroSlides: [{ label: "Our edit", backdrop: "#d9d4cc", frames: [knitPolo, shopFloor, crochetShirt] }],
   // Social cards need an absolute URL, so they keep a Pexels portrait.
   og: { src: pexels(8498706, 1400), alt: "Woman in a cream two-piece looking over her shoulder" },
   // Studio render from the catalogue, shown on its own colour field like the product cards.
