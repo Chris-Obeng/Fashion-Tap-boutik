@@ -7,19 +7,12 @@ import { ResponsivePanel } from "@/components/shared/responsive-panel";
 import { EmptyBag } from "@/components/shared/empty-bag";
 import { QuantityStepper } from "@/components/shared/quantity-stepper";
 import { ProductThumb } from "@/components/shared/product-thumb";
-import { WhatsAppIcon } from "@/components/shared/social-icons";
 import { buttonClass } from "@/lib/button-class";
 import { formatPrice } from "@/lib/format";
-import { whatsappHref } from "@/lib/config";
 import type { CartItem } from "@/types";
 
 function variantLine(item: CartItem) {
   return [item.color, item.size !== "One size" ? `Size ${item.size}` : null].filter(Boolean).join(" · ");
-}
-
-function whatsappOrder(items: CartItem[]) {
-  const lines = items.map(i => `• ${i.name} (${variantLine(i)}) × ${i.quantity}: ${formatPrice(i.price * i.quantity)}`);
-  return whatsappHref(`Hi Fashion Tap Boutik, I'd like to order:\n${lines.join("\n")}\nSubtotal: ${formatPrice(cartSubtotal(items))}`);
 }
 
 export function CartPanel() {
@@ -47,14 +40,6 @@ export function CartPanel() {
       <Link href="/checkout" onClick={() => setOpen(false)} className={buttonClass({ size: "lg", caps: true, className: "mt-4 w-full" })}>
         <Lock className="size-4" aria-hidden /> Checkout
       </Link>
-      <a
-        href={whatsappOrder(items)}
-        target="_blank"
-        rel="noreferrer"
-        className={buttonClass({ variant: "soft", className: "mt-2.5 w-full" })}
-      >
-        <WhatsAppIcon className="size-[18px] text-[#25d366]" /> Chat to order
-      </a>
     </div>
   ) : null;
 
